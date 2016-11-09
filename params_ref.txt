@@ -1,0 +1,160 @@
+!! Found NAL at offset 4 (0x0004), size 9 (0x0009) 
+0.8: forbidden_zero_bit: 0 
+0.7: nal->nal_ref_idc: 3 
+0.5: nal->nal_unit_type: 7 
+1.8: sps->profile_idc: 100 
+2.8: sps->constraint_set0_flag: 0 
+2.7: sps->constraint_set1_flag: 0 
+2.6: sps->constraint_set2_flag: 0 
+2.5: sps->constraint_set3_flag: 0 
+2.4: sps->constraint_set4_flag: 0 
+2.3: sps->constraint_set5_flag: 0 
+2.2: reserved_zero_2bits: 0 
+3.8: sps->level_idc: 40 
+4.8: sps->seq_parameter_set_id: 0 
+4.7: sps->chroma_format_idc: 1 
+4.4: sps->bit_depth_luma_minus8: 0 
+4.3: sps->bit_depth_chroma_minus8: 0 
+4.2: sps->qpprime_y_zero_transform_bypass_flag: 0 
+4.1: sps->seq_scaling_matrix_present_flag: 0 
+5.8: sps->log2_max_frame_num_minus4: 0 
+5.7: sps->pic_order_cnt_type: 0 
+5.6: sps->log2_max_pic_order_cnt_lsb_minus4: 1 
+5.3: sps->num_ref_frames: 5 
+6.6: sps->gaps_in_frame_num_value_allowed_flag: 0 
+6.5: sps->pic_width_in_mbs_minus1: 10 
+7.6: sps->pic_height_in_map_units_minus1: 8 
+8.7: sps->frame_mbs_only_flag: 1 
+8.6: sps->direct_8x8_inference_flag: 1 
+8.5: sps->frame_cropping_flag: 0 
+8.4: sps->vui_parameters_present_flag: 0 
+8.3: rbsp_stop_one_bit: 1 
+8.2: rbsp_alignment_zero_bit: 0 
+8.1: rbsp_alignment_zero_bit: 0 
+
+
+PPS1
+!! Found NAL at offset 17 (0x0011), size 5 (0x0005) 
+0.8: forbidden_zero_bit: 0 
+0.7: nal->nal_ref_idc: 3 
+0.5: nal->nal_unit_type: 8 
+1.8: pps->pic_parameter_set_id: 0 
+1.7: pps->seq_parameter_set_id: 0 
+1.6: pps->entropy_coding_mode_flag: 1 
+1.5: pps->pic_order_present_flag: 0 
+1.4: pps->num_slice_groups_minus1: 0 
+1.3: pps->num_ref_idx_l0_active_minus1: 4 
+2.6: pps->num_ref_idx_l1_active_minus1: 4 
+2.1: pps->weighted_pred_flag: 0 
+3.8: pps->weighted_bipred_idc: 0 
+3.6: pps->pic_init_qp_minus26: 0 
+3.5: pps->pic_init_qs_minus26: 0 
+3.4: pps->chroma_qp_index_offset: 0 
+3.3: pps->deblocking_filter_control_present_flag: 0 
+3.2: pps->constrained_intra_pred_flag: 0 
+3.1: pps->redundant_pic_cnt_present_flag: 0 
+4.8: pps->transform_8x8_mode_flag: 1 
+4.7: pps->pic_scaling_matrix_present_flag: 0 
+4.6: pps->second_chroma_qp_index_offset: 0 
+4.5: rbsp_stop_one_bit: 1 
+4.4: rbsp_alignment_zero_bit: 0 
+4.3: rbsp_alignment_zero_bit: 0 
+4.2: rbsp_alignment_zero_bit: 0 
+4.1: rbsp_alignment_zero_bit: 0 
+
+
+
+
+PPS2:
+!! Found NAL at offset 26 (0x001A), size 5 (0x0005) 
+0.8: forbidden_zero_bit: 0 
+0.7: nal->nal_ref_idc: 3 
+0.5: nal->nal_unit_type: 8 
+1.8: pps->pic_parameter_set_id: 1 
+1.5: pps->seq_parameter_set_id: 0 
+1.4: pps->entropy_coding_mode_flag: 1 
+1.3: pps->pic_order_present_flag: 0 
+1.2: pps->num_slice_groups_minus1: 0 
+1.1: pps->num_ref_idx_l0_active_minus1: 4 
+2.4: pps->num_ref_idx_l1_active_minus1: 4 
+3.7: pps->weighted_pred_flag: 1 
+3.6: pps->weighted_bipred_idc: 1 
+3.4: pps->pic_init_qp_minus26: 0 
+3.3: pps->pic_init_qs_minus26: 0 
+3.2: pps->chroma_qp_index_offset: 0 
+3.1: pps->deblocking_filter_control_present_flag: 0 
+4.8: pps->constrained_intra_pred_flag: 0 
+4.7: pps->redundant_pic_cnt_present_flag: 0 
+4.6: pps->transform_8x8_mode_flag: 1 
+4.5: pps->pic_scaling_matrix_present_flag: 0 
+4.4: pps->second_chroma_qp_index_offset: 0 
+4.3: rbsp_stop_one_bit: 1 
+4.2: rbsp_alignment_zero_bit: 0 
+4.1: rbsp_alignment_zero_bit: 0 
+
+
+
+
+PPS3:
+!! Found NAL at offset 35 (0x0023), size 5 (0x0005) 
+0.8: forbidden_zero_bit: 0 
+0.7: nal->nal_ref_idc: 3 
+0.5: nal->nal_unit_type: 8 
+1.8: pps->pic_parameter_set_id: 2 
+1.5: pps->seq_parameter_set_id: 0 
+1.4: pps->entropy_coding_mode_flag: 1 
+1.3: pps->pic_order_present_flag: 0 
+1.2: pps->num_slice_groups_minus1: 0 
+1.1: pps->num_ref_idx_l0_active_minus1: 4 
+2.4: pps->num_ref_idx_l1_active_minus1: 4 
+3.7: pps->weighted_pred_flag: 1 
+3.6: pps->weighted_bipred_idc: 2 
+3.4: pps->pic_init_qp_minus26: 0 
+3.3: pps->pic_init_qs_minus26: 0 
+3.2: pps->chroma_qp_index_offset: 0 
+3.1: pps->deblocking_filter_control_present_flag: 0 
+4.8: pps->constrained_intra_pred_flag: 0 
+4.7: pps->redundant_pic_cnt_present_flag: 0 
+4.6: pps->transform_8x8_mode_flag: 1 
+4.5: pps->pic_scaling_matrix_present_flag: 0 
+4.4: pps->second_chroma_qp_index_offset: 0 
+4.3: rbsp_stop_one_bit: 1 
+4.2: rbsp_alignment_zero_bit: 0 
+4.1: rbsp_alignment_zero_bit: 0 
+
+
+
+
+
+!! Found NAL at offset 44 (0x002C), size 2670 (0x0A6E) 
+0.8: forbidden_zero_bit: 0 
+0.7: nal->nal_ref_idc: 3 
+0.5: nal->nal_unit_type: 5 
+1.8: sh->first_mb_in_slice: 0 
+1.7: sh->slice_type: 7 
+2.8: sh->pic_parameter_set_id: 0 
+2.7: sh->frame_num: 0 
+2.3: sh->idr_pic_id: 0 
+2.2: sh->pic_order_cnt_lsb: 0 
+3.5: sh->drpm.no_output_of_prior_pics_flag: 0 
+3.4: sh->drpm.long_term_reference_flag: 0 
+3.3: sh->slice_qp_delta: 2 
+
+
+
+
+
+!! Found NAL at offset 2718 (0x0A9E), size 1112 (0x0458) 
+0.8: forbidden_zero_bit: 0 
+0.7: nal->nal_ref_idc: 2 
+0.5: nal->nal_unit_type: 1 
+1.8: sh->first_mb_in_slice: 0 
+1.7: sh->slice_type: 5 
+1.2: sh->pic_parameter_set_id: 0 
+1.1: sh->frame_num: 1 
+2.5: sh->pic_order_cnt_lsb: 4 
+3.8: sh->num_ref_idx_active_override_flag: 1 
+3.7: sh->num_ref_idx_l0_active_minus1: 0 
+3.6: sh->rplr.ref_pic_list_reordering_flag_l0: 0 
+3.5: sh->drpm.adaptive_ref_pic_marking_mode_flag: 0 
+3.4: sh->slice_qp_delta: 0 
