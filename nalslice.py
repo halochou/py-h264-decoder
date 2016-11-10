@@ -1,4 +1,5 @@
 from nalunit import NalUnit
+from macroblock import Macroblock
 from pprint import pprint
 
 class Slice(NalUnit):
@@ -6,10 +7,11 @@ class Slice(NalUnit):
 
     def __init__(self, bits, sps, pps, params):
         self.bits = bits
-        self.sps = sps
-        self.pps = pps
+        self.sps = sps.params
+        self.pps_list = pps
         self.params = params
         self.var = {}
+        self.mbs = []
         self.parse()
 
     def parse(self):
@@ -17,48 +19,56 @@ class Slice(NalUnit):
 
     def slice_layer_without_partitioning_rbsp(self):
         self.slice_header()
+        print("\nSLICE HEADER:")
+        pprint(self.params)
+
+        self.slice_variables()
+        print("\nSLICE VAR:")
+        pprint(self.var)
+
         self.slice_data()
+        print("SLICE DATA:")
 
     def slice_header(self) :
         self.var["IdrPicFlag"] = 1 if self.params["nal_unit_type"] == 5 else 0
-        self.params["first_mb_in_slice"] = self.ue()
-        self.params["slice_type_int"] = self.ue()
+        self.params["first_mb_in_slice"] = self.bits.ue()
+        self.params["slice_type_int"] = self.bits.ue()
         self.params["slice_type"] = NalUnit.slice_types[self.params["slice_type_int"]]
-        self.params["pic_parameter_set_id"] = self.ue()
-        self.pps = self.pps[self.params["pic_parameter_set_id"]]
+        self.params["pic_parameter_set_id"] = self.bits.ue()
+        self.pps = self.pps_list[self.params["pic_parameter_set_id"]].params
         if self.sps["separate_colour_plane_flag"] == 1 :
-            self.params["colour_plane_id"] = self.u(2)
-        self.params["frame_num"] = self.u(self.sps["log2_max_frame_num_minus4"] + 4)
+            self.params["colour_plane_id"] = self.bits.u(2)
+        self.params["frame_num"] = self.bits.u(self.sps["log2_max_frame_num_minus4"] + 4)
         if self.sps["frame_mbs_only_flag"] == 0 :
-            self.params["field_pic_flag"] = self.u(1)
+            self.params["field_pic_flag"] = self.bits.u(1)
             if self.params["field_pic_flag"] > 0 :
-                self.params["bottom_field_flag"] = self.u(1)
+                self.params["bottom_field_flag"] = self.bits.u(1)
         else:
             self.params["field_pic_flag"] = 0
         if self.var["IdrPicFlag"] :
-            self.params["idr_pic_id"] = self.ue()
+            self.params["idr_pic_id"] = self.bits.ue()
         if self.sps["pic_order_cnt_type"] == 0 :
             self.params["pic_order_cnt_lsb"] = \
-                self.u(self.sps["log2_max_pic_order_cnt_lsb_minus4"] + 4)
+                self.bits.u(self.sps["log2_max_pic_order_cnt_lsb_minus4"] + 4)
             if (self.pps["bottom_field_pic_order_in_frame_present_flag"] > 0) and \
                (self.params["field_pic_flag"] == 0) :
-                self.params["delta_pic_order_cnt_bottom"] = self.se()
+                self.params["delta_pic_order_cnt_bottom"] = self.bits.se()
         self.params["delta_pic_order_cnt"] = []
         if (self.sps["pic_order_cnt_type"] == 1) and \
            (self.params["delta_pic_order_always_zero_flag"] == 0) :
-            self.params["delta_pic_order_cnt"].append(self.se())
+            self.params["delta_pic_order_cnt"].append(self.bits.se())
             if self.params["bottom_field_pic_order_in_frame_present_flag"] and (not self.params["field_pic_flag"]) :
-                self.params["delta_pic_order_cnt"].append(self.se())
+                self.params["delta_pic_order_cnt"].append(self.bits.se())
         if self.pps["redundant_pic_cnt_present_flag"] > 0 :
-            self.params["redundant_pic_cnt"] = self.ue()
+            self.params["redundant_pic_cnt"] = self.bits.ue()
         if self.params["slice_type"] == "B" :
-            self.params["direct_spatial_mv_pred_flag"] = self.u(1)
+            self.params["direct_spatial_mv_pred_flag"] = self.bits.u(1)
         if self.params["slice_type"] == "P" or self.params["slice_type"] == "SP" or self.params["slice_type"] == "B" :
-            self.params["num_ref_idx_active_override_flag"] = self.u(1)
+            self.params["num_ref_idx_active_override_flag"] = self.bits.u(1)
             if self.params["num_ref_idx_active_override_flag"] > 0 :
-                self.params["num_ref_idx_l0_active_minus1"] = self.ue()
+                self.params["num_ref_idx_l0_active_minus1"] = self.bits.ue()
                 if self.params["slice_type"] == "B" :
-                    self.params["num_ref_idx_l1_active_minus1"] = self.ue()
+                    self.params["num_ref_idx_l1_active_minus1"] = self.bits.ue()
         if self.params["nal_unit_type"] == 20 or self.params["nal_unit_type"] == 21 :
             self.ref_pic_list_mvc_modification()
         else:
@@ -72,26 +82,23 @@ class Slice(NalUnit):
         if self.pps["entropy_coding_mode_flag"] and \
            (self.params["slice_type"] != "I") and \
            (self.params["slice_type"] != "SI") :
-            self.params["cabac_init_idc"] = self.ue()
-        self.params["slice_qp_delta"] = self.se()
+            self.params["cabac_init_idc"] = self.bits.ue()
+        self.params["slice_qp_delta"] = self.bits.se()
         if (self.params["slice_type"] == "SP") or (self.params["slice_type"] == "SI") :
             if self.params["slice_type"] == "SP" :
-                self.params["sp_for_switch_flag"] = self.u(1)
-            self.params["slice_qs_delta"] = self.se()
+                self.params["sp_for_switch_flag"] = self.bits.u(1)
+            self.params["slice_qs_delta"] = self.bits.se()
         if self.pps["deblocking_filter_control_present_flag"] :
-            self.params["disable_deblocking_filter_idc"] = self.ue()
+            self.params["disable_deblocking_filter_idc"] = self.bits.ue()
             if self.params["disable_deblocking_filter_idc"] != 1 :
-                self.params["slice_alpha_c0_offset_div2"] = self.se()
-                self.params["slice_beta_offset_div2"] = self.se()
+                self.params["slice_alpha_c0_offset_div2"] = self.bits.se()
+                self.params["slice_beta_offset_div2"] = self.bits.se()
         if self.pps["num_slice_groups_minus1"] > 0 and \
            self.params["slice_group_map_type"] >= 3 and \
            self.params["slice_group_map_type"] <= 5:
             #WIP UV
             print("slice_group_change_cycle NOT impl")
-            #self.params["slice_group_change_cycle"] = self.u()
-        self.slice_variables()
-        print("SLICE HEADER:")
-        pprint(self.params)
+            #self.params["slice_group_change_cycle"] = self.bits.u()
 
     def slice_variables(self):
         self.var["PrevRefFrameNum"] = 0 if self.params["nal_unit_type"] == 5 else 1 # TO BE FIXED
@@ -112,27 +119,27 @@ class Slice(NalUnit):
 
     def ref_pic_list_modification(self):
         if (self.params["slice_type_int"] % 5 != 2) and (self.params["slice_type_int"] % 5 != 4) :
-            self.params["ref_pic_list_modification_flag_l0"] = self.u(1)
+            self.params["ref_pic_list_modification_flag_l0"] = self.bits.u(1)
             if self.params["ref_pic_list_modification_flag_l0"] :
                 while True :
-                    self.params["modification_of_pic_nums_idc"] = self.ue()
+                    self.params["modification_of_pic_nums_idc"] = self.bits.ue()
                     if self.params["modification_of_pic_nums_idc"] == 0 or \
                        self.params["modification_of_pic_nums_idc"] == 1 :
-                        self.params["abs_diff_pic_num_minus1"] = self.ue()
+                        self.params["abs_diff_pic_num_minus1"] = self.bits.ue()
                     elif self.params["modification_of_pic_nums_idc"] == 2 :
-                        self.params["long_term_pic_num"] = self.ue()
+                        self.params["long_term_pic_num"] = self.bits.ue()
                     if self.params["modification_of_pic_nums_idc"] == 3:
                         break
         if self.params["slice_type_int"] % 5 == 1 :
-            self.params["ref_pic_list_modification_flag_l1"] = self.u(1)
+            self.params["ref_pic_list_modification_flag_l1"] = self.bits.u(1)
             if self.params["ref_pic_list_modification_flag_l1"]: 
                 while True :
-                    self.params["modification_of_pic_nums_idc"] = self.ue()
+                    self.params["modification_of_pic_nums_idc"] = self.bits.ue()
                     if (self.params["modification_of_pic_nums_idc"] == 0) or \
                        (self.params["modification_of_pic_nums_idc"] == 1) :
-                        self.params["abs_diff_pic_num_minus1"] = self.ue()
+                        self.params["abs_diff_pic_num_minus1"] = self.bits.ue()
                     elif self.params["modification_of_pic_nums_idc"] == 2 :
-                        self.params["long_term_pic_num"] = self.ue()
+                        self.params["long_term_pic_num"] = self.bits.ue()
                     if self.params["modification_of_pic_nums_idc"] == 3 :
                         break
 
@@ -143,24 +150,24 @@ class Slice(NalUnit):
 
     def dec_ref_pic_marking(self):
         if self.var["IdrPicFlag"] :
-            self.params["no_output_of_prior_pics_flag"] = self.u(1)
-            self.params["long_term_reference_flag"] = self.u(1)
+            self.params["no_output_of_prior_pics_flag"] = self.bits.u(1)
+            self.params["long_term_reference_flag"] = self.bits.u(1)
         else :
-            self.params["adaptive_ref_pic_marking_mode_flag"] = self.u(1)
+            self.params["adaptive_ref_pic_marking_mode_flag"] = self.bits.u(1)
             if self.params["adaptive_ref_pic_marking_mode_flag"] :
                 while True :
-                    memory_management_control_operation = self.ue()
+                    memory_management_control_operation = self.bits.ue()
                     self.params["memory_management_control_operation"] = memory_management_control_operation
                     if memory_management_control_operation == 1 or \
                        memory_management_control_operation == 3 :
-                        self.params["difference_of_pic_nums_minus1"] = self.ue()
+                        self.params["difference_of_pic_nums_minus1"] = self.bits.ue()
                     if memory_management_control_operation == 2 :
-                        self.params["long_term_pic_num"] = self.ue()
+                        self.params["long_term_pic_num"] = self.bits.ue()
                     if memory_management_control_operation == 3 or \
                        memory_management_control_operation == 6 :
-                        self.params["long_term_frame_idx"] = self.ue()
+                        self.params["long_term_frame_idx"] = self.bits.ue()
                     if memory_management_control_operation == 4 :
-                        self.params["max_long_term_frame_idx_plus1"] = self.ue()
+                        self.params["max_long_term_frame_idx_plus1"] = self.bits.ue()
                     if memory_management_control_operation == 0 :
                         break
 
@@ -171,8 +178,8 @@ class Slice(NalUnit):
         return i
 
     def mb_to_slice_group_map(self) :
-        mapUnitToSliceGroupMap = [0] * 100
-        self.var["MbToSliceGroupMap"] = [0] * 100
+        mapUnitToSliceGroupMap = [None] * 100
+        mbToSliceGroupMap = [None] * 100
         if self.pps["num_slice_groups_minus1"] == 0:
             for i in range(self.var["PicSizeInMapUnits"]):
                 mapUnitToSliceGroupMap[i] = 0
@@ -263,38 +270,39 @@ class Slice(NalUnit):
             elif self.params["slice_group_map_type"] == 6:
                 # 8.2.2.7
                 mapUnitToSliceGroupMap[i] = self.params["slice_group_id"][i]
-        # 8.2.2.8 mapUnitToSliceGroupMap -> self.var["MbToSliceGroupMap"]
-            for i in range(int(self.var["PicSizeInMbs"])) :
-                if self.params["frame_mbs_only_flag"] == 1 or self.params["field_pic_flag"] == 1 :
-                    self.var["MbToSliceGroupMap"][ i ] = mapUnitToSliceGroupMap[ i ]
-                elif self.var["MbaffFrameFlag"] == 1 :
-                    self.var["MbToSliceGroupMap"][ i ] = mapUnitToSliceGroupMap[ i / 2 ]
-                elif self.params["frame_mbs_only_flag"] == 0 and mb_adaptive_frame_field_flag == 0 and self.params["field_pic_flag"] == 0:
-                    self.var["MbToSliceGroupMap"][ i ] = mapUnitToSliceGroupMap[ ( i / ( 2 * self.var["PicWidthInMbs"] ) ) * self.var["PicWidthInMbs"] + ( i % self.var["PicWidthInMbs"] ) ]
+        # 8.2.2.8 mapUnitToSliceGroupMap -> mbToSliceGroupMap
+        for i in range(int(self.var["PicSizeInMbs"])) :
+            if self.sps["frame_mbs_only_flag"] == 1 or self.params["field_pic_flag"] == 1 :
+                mbToSliceGroupMap[i] = mapUnitToSliceGroupMap[ i ]
+            elif self.var["MbaffFrameFlag"] == 1 :
+                mbToSliceGroupMap[i] = mapUnitToSliceGroupMap[ i / 2 ]
+            elif self.params["frame_mbs_only_flag"] == 0 and mb_adaptive_frame_field_flag == 0 and self.params["field_pic_flag"] == 0:
+                mbToSliceGroupMap[i] = mapUnitToSliceGroupMap[ ( i / ( 2 * self.var["PicWidthInMbs"] ) ) * self.var["PicWidthInMbs"] + ( i % self.var["PicWidthInMbs"] ) ]
+        self.var["MbToSliceGroupMap"] = list(filter(lambda x: x != None, mbToSliceGroupMap))
 
     def slice_data(self):
         if self.pps["entropy_coding_mode_flag"] :
-            while self.bits.pos % 8 != 0 :
-                self.params["cabac_alignment_one_bit"] = self.f(1)
+            while self.bits.byte_aligned():
+                self.params["cabac_alignment_one_bit"] = self.bits.f(1)
         CurrMbAddr = self.params["first_mb_in_slice"] * ( 1 + self.var["MbaffFrameFlag"] )
         moreDataFlag = True
         prevMbSkipped = False
         while True:
             if self.params["slice_type"] != "I" and self.params["slice_type"] != "SI" :
                 if not self.params["entropy_coding_mode_flag"] :
-                    self.params["mb_skip_run"] = self.ue()
+                    self.params["mb_skip_run"] = self.bits.ue()
                     prevMbSkipped = self.params["mb_skip_run"] > 0 
                     for i in range(self.params["mb_skip_run"]) :
                         CurrMbAddr = NextMbAddress( CurrMbAddr )
                     if self.params["mb_skip_run"] > 0 :
                         moreDataFlag = self.more_rbsp_data( )
                 else :
-                    self.params["mb_skip_flag"] = self.ae()
+                    self.params["mb_skip_flag"] = self.bits.ae()
                     moreDataFlag = not self.params["mb_skip_flag"]
             if moreDataFlag :
                 if self.var["MbaffFrameFlag"] and ( CurrMbAddr % 2 == 0 or ( CurrMbAddr % 2 == 1 and prevMbSkipped ) ) :
-                    self.params["mb_field_decoding_flag"] = self.u(1) # or self.ae()!!!!
-                self.macroblock_layer( )
+                    self.params["mb_field_decoding_flag"] = self.bits.u(1) # or self.bits.ae()!!!!
+                self.mbs.append(Macroblock(self))
             if not self.pps["entropy_coding_mode_flag"] :
                 moreDataFlag = self.more_rbsp_data()
             else :
@@ -303,12 +311,9 @@ class Slice(NalUnit):
                 if self.var["MbaffFrameFlag"] and CurrMbAddr % 2 == 0 :
                     moreDataFlag = True
                 else :
-                    self.params["end_of_slice_flag"] = self.ae()
+                    self.params["end_of_slice_flag"] = self.bits.ae()
                     moreDataFlag = not self.params["end_of_slice_flag"]
             CurrMbAddr = self.NextMbAddress( CurrMbAddr )
             if not moreDataFlag:
                 break
-        print("SLICE DATA:")
-        # print(self.bits.pos)
-        print(self.bits[self.bits.pos:].hex)
 

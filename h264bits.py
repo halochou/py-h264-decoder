@@ -1,4 +1,11 @@
 class H264Bits:
+    coded_block_pattern_intra = {
+        0 : 47
+    }
+
+    coded_block_pattern_inter = {
+        0 : 0
+    }
 
     def __init__(self, bits):
         self.bits = bits[32:]
@@ -22,6 +29,15 @@ class H264Bits:
         from math import ceil
         k = self.exp_golomb()
         return (-1)**(k+1) * ceil(k/2)
+
+    def me(self, mb_pred_mode):
+        if mb_pred_mode in ["Intra_8x8", "Intra_4x4"]:
+            return H264Bits.coded_block_pattern_intra[self.exp_golomb()]
+        elif mb_pred_mode == "Inter":
+            return H264Bits.coded_block_pattern_inter[self.exp_golomb()]
+        else:
+            print("ME Not possible branch")
+            assert False
 
     def ae(self):
         print("ae() not IMPL yet")

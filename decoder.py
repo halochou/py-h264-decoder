@@ -21,7 +21,7 @@ for nalu_bs in nalus_bs:
     elif params["nal_unit_type"] == 8: # PPS
         pps.append(PPS(nb, sps = sps, params = params))
     elif params["nal_unit_type"] in [1, 5]: # Slice
-        # slices.append(Slice(nb, sps = sps, pps = pps, params = params))
+        slices.append(Slice(nb, sps = sps, pps = pps, params = params))
         pass
 
 # nalus = [NalUnit(nalu_bit) for nalu_bit in nalus_bit]
