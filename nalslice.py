@@ -19,15 +19,15 @@ class Slice(NalUnit):
 
     def slice_layer_without_partitioning_rbsp(self):
         self.slice_header()
-        print("\nSLICE HEADER:")
-        pprint(self.params)
+        # print("\nSLICE HEADER:")
+        # pprint(self.params)
 
         self.slice_variables()
-        print("\nSLICE VAR:")
-        pprint(self.var)
+        # print("\nSLICE VAR:")
+        # pprint(self.var)
 
-        self.slice_data()
         print("SLICE DATA:")
+        self.slice_data()
 
     def slice_header(self) :
         self.var["IdrPicFlag"] = 1 if self.params["nal_unit_type"] == 5 else 0
@@ -301,10 +301,10 @@ class Slice(NalUnit):
                     moreDataFlag = not self.params["mb_skip_flag"]
             if moreDataFlag :
                 if self.var["MbaffFrameFlag"] and ( CurrMbAddr % 2 == 0 or ( CurrMbAddr % 2 == 1 and prevMbSkipped ) ) :
-                    self.params["mb_field_decoding_flag"] = self.bits.u(1) # or self.bits.ae()!!!!
+                    self.params["mb_field_decoding_flag"] = self.bits.ae() if self.pps["entropy_coding_mode_flag"] else self.bits.u(1)
                 self.mbs.append(Macroblock(self))
             if not self.pps["entropy_coding_mode_flag"] :
-                moreDataFlag = self.more_rbsp_data()
+                moreDataFlag = self.bits.more_rbsp_data()
             else :
                 if self.params["slice_type"] != "I" and self.params["slice_type"] != "SI" :
                     prevMbSkipped = self.params["mb_skip_flag"]

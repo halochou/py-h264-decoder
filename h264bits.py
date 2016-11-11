@@ -8,7 +8,7 @@ class H264Bits:
     }
 
     def __init__(self, bits):
-        self.bits = bits[32:]
+        self.bits = bits[24:]
 
     def u(self,n):
         return self.bits.read(n).uint
@@ -48,6 +48,22 @@ class H264Bits:
 
     def byte_aligned(self):
         return self.bits.pos % 8 == 0
+
+    def more_rbsp_data(self):
+        if not self.more_data():
+            return False
+        i = self.bits.length - 1
+        while i >= 0:
+            if self.bits[i] == True:
+                if self.bits.pos == i:
+                    return False
+                else:
+                    return True
+            i -= 1
+
+    def debug(self):
+        print(self.bits.bin, self.bits.pos)
+        assert False
 
 
 if __name__ == "__main__":

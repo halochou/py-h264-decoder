@@ -11,6 +11,9 @@ class PPS(NalUnit):
 
     def parse(self):
         self.pic_parameter_set_rbsp()
+        self.sps_not_present()
+        # print("PPS:")
+        # pprint(self.params)
 
     def pic_parameter_set_rbsp(self):
         self.params["pic_parameter_set_id"] = self.bits.ue()
@@ -52,7 +55,8 @@ class PPS(NalUnit):
         self.params["deblocking_filter_control_present_flag"] = self.bits.u(1)
         self.params["constrained_intra_pred_flag"] = self.bits.u(1)
         self.params["redundant_pic_cnt_present_flag"] = self.bits.u(1)
-        if self.more_rbsp_data() :
+
+        if self.bits.more_rbsp_data() :
             self.params["transform_8x8_mode_flag"] = self.bits.u(1)
             self.params["pic_scaling_matrix_present_flag"] = self.bits.u(1)
             if self.params["pic_scaling_matrix_present_flag"] > 0 :
@@ -62,6 +66,7 @@ class PPS(NalUnit):
                     elem = self.bits.u(1)
                     self.params["pic_scaling_list_present_flag"].append(elem)
                     if elem > 0:
+                        raise NameError("scaling_list not impl")
                         if i < 6 :
                             pass
                             #scaling_list( ScalingList4x4[ i ], 16, UseDefaultScalingMatrix4x4Flag[ i ] )
@@ -70,5 +75,10 @@ class PPS(NalUnit):
                             #scaling_list( ScalingList8x8[ i − 6 ], 64, UseDefaultScalingMatrix8x8Flag[ i − 6 ] )
             self.params["second_chroma_qp_index_offset"] = self.bits.se()
         self.rbsp_trailing_bits()
-        print("PPS:")
-        pprint(self.params)
+
+    def sps_not_present(self):
+        keys = self.params.keys()
+        if "transform_8x8_mode_flag" not in keys:
+            self.params["transform_8x8_mode_flag"] = 0
+        if "second_chroma_qp_index_offset" not in keys:
+            self.params["second_chroma_qp_index_offset"] = 0

@@ -11,14 +11,12 @@ class NalUnit:
     #     self.parse()
 
     def rbsp_trailing_bits(self):
+        # if self.bits.more_data():
         self.params["rbsp_stop_one_bit"] = self.bits.f(1)
         assert self.params["rbsp_stop_one_bit"] == 1
         # self.params["rbsp_alignment_zero_bit"] = self.bits[self.bits.pos:].int
         while not self.bits.byte_aligned():
             assert self.bits.f(1) == 0  
-
-    def more_rbsp_data(self):
-        return self.bits.more_data()
 
     # def parse(self):
     #     # if nal_unit_type == 14 or nal_unit_type == 20 or nal_unit_type == 21 :
