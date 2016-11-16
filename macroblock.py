@@ -1,27 +1,21 @@
 from block import Block
 from pprint import pprint
 
+mbtype_islice_table = ["I_NxN","I_16x16_0_0_0","I_16x16_1_0_0","I_16x16_2_0_0","I_16x16_3_0_0","I_16x16_0_1_0","I_16x16_1_1_0","I_16x16_2_1_0","I_16x16_3_1_0","I_16x16_0_2_0","I_16x16_1_2_0","I_16x16_2_2_0","I_16x16_3_2_0","I_16x16_0_0_1","I_16x16_1_0_1","I_16x16_2_0_1","I_16x16_3_0_1","I_16x16_0_1_1","I_16x16_1_1_1","I_16x16_2_1_1","I_16x16_3_1_1","I_16x16_0_2_1","I_16x16_1_2_1","I_16x16_2_2_1","I_16x16_3_2_1","I_PCM"]
 
-
-def MbPartPredMode(mb_type_int, n = 0):
-    if mb_type_int == 0:
-        return "Intra_4x4"
-    else:
-        assert False
-        print("  MbPartPredMode Not Impl")
 
 class Macroblock:
-    mb_type = {
-        0: "I_NxN"
-    }
 
     def __init__(self, parent_slice):
         self.slice = parent_slice
         self.params = {}
         self.var = {}
         self.mb_type_int = self.slice.bits.ue()
-        self.mb_type = Macroblock.mb_type[self.mb_type_int]
-        self.pred_mode = MbPartPredMode(self.mb_type_int)
+        if self.slice.params["slice_type"] == "I":
+            self.mb_type = mbtype_islice_table[self.mb_type_int]
+        else:
+            raise NameError("Unknow MB Type")
+        self.pred_mode = self.MbPartPredMode(self.mb_type_int)
         self.luma_blocks = []
         if self.pred_mode == "Intra_4x4":
             for i in range(16):
@@ -29,6 +23,11 @@ class Macroblock:
         elif self.pred_mode == "Intra_8x8":
             for i in range(4):
                 self.luma_blocks.append(Block(i, "LumaLevel8x8", self))
+        elif self.pred_mode == "Intra_16x16":
+            self.luma_i16x16_dc_block = Block(0, "Intra16x16DCLevel", self)
+            for i in range(16):
+                self.luma_blocks.append(Block(i, "Intra16x16ACLevel", self))
+
         self.chroma_dc_blocks = [Block(0, "ChromaDCLevel", self, "Cb"),
                                  Block(1, "ChromaDCLevel", self, "Cr")]
         self.chroma_ac_blocks = [None, None]
@@ -38,6 +37,10 @@ class Macroblock:
                 color = "Cb" if i == 0 else "Cr"
                 blk = Block(j, "ChromaACLevel", self, color)
                 self.chroma_ac_blocks[i].append(blk)
+        # self.luma_i16x16_ac_block = []
+        # if "16x16" in self.mb_type:
+        #     for i in range(16):
+        #         self.luma_i16x16_ac_block.append(Block(i, "Intra16x16ACLevel", self))
 
     def parse(self):
         print("  MacroBlock ", self.addr, " Decoding...")
@@ -119,20 +122,20 @@ class Macroblock:
     def residual_luma(self, startIdx, endIdx):
         if startIdx == 0 and \
            self.pred_mode == "Intra_16x16":
-            raise NameError("mb 107")
-            self.residual_block(self.i16x16DClevel, 0, 15, 16, "Intra16x16DCLevel")
+            self.luma_i16x16_dc_block.parse(0, 15, 16)
         for i8x8 in range(4):
             for i4x4 in range(4):
                 if self.CodedBlockPatternLuma & (1 << i8x8):
                     if self.pred_mode == "Intra_16x16":
-                        self.residual_block(self.i16x16AClevel[i8x8 * 4 + i4x4], max(0, startIdx - 1), endIdx - 1, 15, "Intra16x16ACLevel")
+                        # raise NameError("i16x16 not impl")
+                        self.luma_blocks[i8x8 * 4 + i4x4].parse(max(0, startIdx - 1), endIdx - 1, 15)
+                        # self.residual_block(self.i16x16AClevel[i8x8 * 4 + i4x4], max(0, startIdx - 1), endIdx - 1, 15, "Intra16x16ACLevel")
                     else:
                         self.luma_blocks[i8x8 * 4 + i4x4].mode = "LumaLevel4x4"
                         self.luma_blocks[i8x8 * 4 + i4x4].parse(startIdx, endIdx, 16)
                 elif self.pred_mode == "Intra_16x16":
-                    raise NameError("mb 114")
-                    for i in range(15):
-                        self.i16x16AClevel[i8x8 * 4 + i4x4][i] = 0
+                    # raise NameError("i16x16 not impl")
+                    self.luma_blocks[i8x8 * 4 + i4x4].coeffLevel = [0]*15
                 else:
                     self.luma_blocks[i8x8 * 4 + i4x4].coeffLevel = [0] * 16
                 if not self.slice.pps["entropy_coding_mode_flag"] and \
@@ -140,3 +143,14 @@ class Macroblock:
                     raise NameError("mb 123")
                     for i in range(16):
                         self.level8x8[ i8x8 ][ 4 * i + i4x4 ] = self.level4x4[ i8x8 * 4 + i4x4 ][ i ]
+
+    def MbPartPredMode(self, mb_type_int, n = 0):
+        if mb_type_int == 0:
+            return "Intra_4x4"
+        elif mb_type_int >= 1 and mb_type_int <= 24:
+            self.Intra16x16PredMode = (mb_type_int - 1) % 4
+            self.CodedBlockPatternChroma = ((mb_type_int - 1) // 4) % 3
+            self.CodedBlockPatternLuma = (mb_type_int // 13) * 15
+            return "Intra_16x16"
+        else:
+            raise NameError("Unknown MbPartPredMode")

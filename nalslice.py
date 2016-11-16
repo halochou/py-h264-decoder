@@ -316,7 +316,7 @@ class Slice(NalUnit):
                 else :
                     self.params["end_of_slice_flag"] = self.bits.ae()
                     moreDataFlag = not self.params["end_of_slice_flag"]
-            self.var["CurrMbAddr"] = self.NextMbAddress( self.var["CurrMbAddr"] )
+            self.var["CurrMbAddr"] = self.NextMbAddress(self.var["CurrMbAddr"])
             if not moreDataFlag:
                 break
 
