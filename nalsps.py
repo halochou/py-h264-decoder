@@ -152,6 +152,18 @@ class SPS(NalUnit):
         if "separate_colour_plane_flag" not in keys:
             self.params["separate_colour_plane_flag"] = 0
             self.params["ChromaArrayType"] = self.params["chroma_format_idc"]
+        if self.params["chroma_format_idc"] == 1 and self.params["separate_colour_plane_flag"] == 0:
+            self.params["SubWidthC"] = 2
+            self.params["SubHeightC"] = 2
+        elif self.params["chroma_format_idc"] == 2 and self.params["separate_colour_plane_flag"] == 0:
+            self.params["SubWidthC"] = 2
+            self.params["SubHeightC"] = 1
+        elif self.params["chroma_format_idc"] == 3 and self.params["separate_colour_plane_flag"] == 0:
+            self.params["SubWidthC"] = 1
+            self.params["SubHeightC"] = 1
+
+
+
         if "bit_depth_luma_minus8" not in keys:
             self.params["bit_depth_luma_minus8"] = 0
         if "bit_depth_chroma_minus8" not in keys:

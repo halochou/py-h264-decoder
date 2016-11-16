@@ -24,7 +24,7 @@ for nalu_ba in nalus_ba:
     elif params["nal_unit_type"] in [1, 5]: # Slice
         slices.append(Slice(nb, sps = sps, pps = pps, params = params))
     else:
-        print("NEW NALU TYPE!!!!!!!!")
+        print("Unknown Slice type, ignore...")
 
 # nalus = [NalUnit(nalu_bit) for nalu_bit in nalus_bit]
 input_file.close()

@@ -1,0 +1,548 @@
+Unknown Slice type, ignore...
+SLICE DATA:
+  MacroBlock:
+  Start decoding block  0
+      Find neighbor: A
+      xD, yD: -1 0
+      x, y: 0 0
+      xN, yN: -1 0
+      xW, yW: 15 0
+      mbAddrN: A None
+      lumaIdx: None
+      BLOCK A: None None
+      Find neighbor: B
+      xD, yD: 0 -1
+      x, y: 0 0
+      xN, yN: 0 -1
+      xW, yW: 0 15
+      mbAddrN: B None
+      lumaIdx: None
+      BLOCK B: None None
+    decoding coeff token with nC  0
+0000000000110001110001100011110111010101001111010100101000011111
+    T1s,Tc, token: 3 11 00000000001100
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    level_prefix: 3
+    level_suffix: 1 length: 1
+    level_prefix: 3
+    level_suffix: 3 length: 2
+    level_prefix: 0
+    level_suffix: 3 length: 3
+    level_prefix: 0
+    level_suffix: 2 length: 3
+    level_prefix: 0
+    level_suffix: 2 length: 3
+    level_prefix: 1
+    level_suffix: 7 length: 3
+    level_prefix: 1
+    level_suffix: 2 length: 3
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 11 16
+    find token, value: 010 3
+    ce_total_zeros,tzVlc,maxNumCoeff: 3 11 16
+    run_before, zero_left: 1 3
+    run_before, zero_left: 2 2
+    Decoded Luma Block: [6, -8, 2, 2, -2, -8, -4, 1, -1, 0, 0, -1, 0, 1, 0, 0]
+  Start decoding block  1
+      Find neighbor: A
+      xD, yD: -1 0
+      x, y: 4 0
+      xN, yN: 3 0
+      xW, yW: 3 0
+      mbAddrN: X 0
+      lumaIdx: 0
+      BLOCK A: 0 0
+      Find neighbor: B
+      xD, yD: 0 -1
+      x, y: 4 0
+      xN, yN: 4 -1
+      xW, yW: 4 15
+      mbAddrN: B None
+      lumaIdx: None
+      BLOCK B: None None
+    decoding coeff token with nC  11
+0111111101111010001001001011101010001110110000101101100010111111
+    T1s,Tc, token: 3 8 011111
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    level_prefix: 0
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 2
+    level_suffix: 0 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 8 16
+    find token, value: 010 6
+    ce_total_zeros,tzVlc,maxNumCoeff: 6 8 16
+    run_before, zero_left: 4 6
+    run_before, zero_left: 0 2
+    run_before, zero_left: 0 2
+    run_before, zero_left: 0 2
+    run_before, zero_left: 1 2
+    run_before, zero_left: 1 1
+    Decoded Luma Block: [3, 1, 0, 1, 0, -1, 1, 1, -1, 0, 0, 0, 0, -1, 0, 0]
+  Start decoding block  2
+      Find neighbor: A
+      xD, yD: -1 0
+      x, y: 0 4
+      xN, yN: -1 4
+      xW, yW: 15 4
+      mbAddrN: A None
+      lumaIdx: None
+      BLOCK A: None None
+      Find neighbor: B
+      xD, yD: 0 -1
+      x, y: 0 4
+      xN, yN: 0 3
+      xW, yW: 0 3
+      mbAddrN: X 0
+      lumaIdx: 0
+      BLOCK B: 0 0
+    decoding coeff token with nC  11
+1000111011000010110110001011111110011111001001110000110010011111
+    T1s,Tc, token: 3 9 100011
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    level_prefix: 4
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 2 length: 2
+    level_prefix: 0
+    level_suffix: 2 length: 2
+    level_prefix: 2
+    level_suffix: 1 length: 2
+    level_prefix: 0
+    level_suffix: 3 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 9 16
+    find token, value: 11 3
+    ce_total_zeros,tzVlc,maxNumCoeff: 3 9 16
+    run_before, zero_left: 1 3
+    run_before, zero_left: 1 2
+    run_before, zero_left: 0 1
+    run_before, zero_left: 0 1
+    run_before, zero_left: 0 1
+    run_before, zero_left: 0 1
+    run_before, zero_left: 1 1
+    Decoded Luma Block: [-2, -5, 0, 2, 2, 5, 1, -1, 0, 1, 0, -1, 0, 0, 0, 0]
+  Start decoding block  3
+      Find neighbor: A
+      xD, yD: -1 0
+      x, y: 4 4
+      xN, yN: 3 4
+      xW, yW: 3 4
+      mbAddrN: X 0
+      lumaIdx: 2
+      BLOCK A: 0 2
+      Find neighbor: B
+      xD, yD: 0 -1
+      x, y: 4 4
+      xN, yN: 4 3
+      xW, yW: 4 3
+      mbAddrN: X 0
+      lumaIdx: 1
+      BLOCK B: 0 1
+    decoding coeff token with nC  9
+0100111000011001001111100111010011011011011100001010100100011010
+    T1s,Tc, token: 3 5 010011
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    level_prefix: 2
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 5 16
+    find token, value: 0100 1
+    ce_total_zeros,tzVlc,maxNumCoeff: 1 5 16
+    run_before, zero_left: 0 1
+    run_before, zero_left: 0 1
+    run_before, zero_left: 0 1
+    run_before, zero_left: 0 1
+    Decoded Luma Block: [0, 1, 2, 1, 1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  4
+      Find neighbor: A
+      xD, yD: -1 0
+      x, y: 8 0
+      xN, yN: 7 0
+      xW, yW: 7 0
+      mbAddrN: X 0
+      lumaIdx: 1
+      BLOCK A: 0 1
+      Find neighbor: B
+      xD, yD: 0 -1
+      x, y: 8 0
+      xN, yN: 8 -1
+      xW, yW: 8 15
+      mbAddrN: B None
+      lumaIdx: None
+      BLOCK B: None None
+    decoding coeff token with nC  8
+1001110100110110110111000010101001000110100100010010111010100000
+    T1s,Tc, token: 3 10 100111
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    level_prefix: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 3
+    level_suffix: 0 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 10 16
+    find token, value: 10 4
+    ce_total_zeros,tzVlc,maxNumCoeff: 4 10 16
+    run_before, zero_left: 1 4
+    run_before, zero_left: 2 3
+    run_before, zero_left: 1 1
+    Decoded Luma Block: [4, 1, -2, -2, -1, 1, -1, 0, 1, 0, 0, -1, 0, 1, 0, 0]
+  Start decoding block  5
+      Find neighbor: A
+      xD, yD: -1 0
+      x, y: 12 0
+      xN, yN: 11 0
+      xW, yW: 11 0
+      mbAddrN: X 0
+      lumaIdx: 4
+      BLOCK A: 0 4
+      Find neighbor: B
+      xD, yD: 0 -1
+      x, y: 12 0
+      xN, yN: 12 -1
+      xW, yW: 12 15
+      mbAddrN: B None
+      lumaIdx: None
+      BLOCK B: None None
+    decoding coeff token with nC  10
+0011010010001001011101010000000010111000110000101111111000010000
+    T1s,Tc, token: 1 4 001101
+    trailing_ones_sign_flag: 0
+    level_prefix: 1
+    level_prefix: 3
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 1 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 4 16
+    find token, value: 110 4
+    ce_total_zeros,tzVlc,maxNumCoeff: 4 4 16
+    run_before, zero_left: 1 4
+    run_before, zero_left: 1 3
+    run_before, zero_left: 2 2
+    Decoded Luma Block: [-3, 0, 0, 4, 0, -2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  6
+      Find neighbor: A
+      xD, yD: -1 0
+      x, y: 8 4
+      xN, yN: 7 4
+      xW, yW: 7 4
+      mbAddrN: X 0
+      lumaIdx: 3
+      BLOCK A: 0 3
+      Find neighbor: B
+      xD, yD: 0 -1
+      x, y: 8 4
+      xN, yN: 8 3
+      xW, yW: 8 3
+      mbAddrN: X 0
+      lumaIdx: 4
+      BLOCK B: 0 4
+    decoding coeff token with nC  8
+0000010111000110000101111111000010000100011101001001100011010111
+    T1s,Tc, token: 1 1 000001
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded Luma Block: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  7
+      Find neighbor: A
+      xD, yD: -1 0
+      x, y: 12 4
+      xN, yN: 11 4
+      xW, yW: 11 4
+      mbAddrN: X 0
+      lumaIdx: 6
+      BLOCK A: 0 6
+      Find neighbor: B
+      xD, yD: 0 -1
+      x, y: 12 4
+      xN, yN: 12 3
+      xW, yW: 12 3
+      mbAddrN: X 0
+      lumaIdx: 5
+      BLOCK B: 0 5
+    decoding coeff token with nC  2
+1100011000010111111100001000010001110100100110001101011111001011
+    T1s,Tc, token: 0 0 11
+    Decoded Luma Block: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  8
+      Find neighbor: A
+      xD, yD: -1 0
+      x, y: 0 8
+      xN, yN: -1 8
+      xW, yW: 15 8
+      mbAddrN: A None
+      lumaIdx: None
+      BLOCK A: None None
+      Find neighbor: B
+      xD, yD: 0 -1
+      x, y: 0 8
+      xN, yN: 0 7
+      xW, yW: 0 7
+      mbAddrN: X 0
+      lumaIdx: 2
+      BLOCK B: 0 2
+    decoding coeff token with nC  9
+0001100001011111110000100001000111010010011000110101111100101111
+    T1s,Tc, token: 2 2 000110
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 16
+    find token, value: 0101 5
+    ce_total_zeros,tzVlc,maxNumCoeff: 5 2 16
+    run_before, zero_left: 0 5
+    Decoded Luma Block: [0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  9
+      Find neighbor: A
+      xD, yD: -1 0
+      x, y: 4 8
+      xN, yN: 3 8
+      xW, yW: 3 8
+      mbAddrN: X 0
+      lumaIdx: 8
+      BLOCK A: 0 8
+      Find neighbor: B
+      xD, yD: 0 -1
+      x, y: 4 8
+      xN, yN: 4 7
+      xW, yW: 4 7
+      mbAddrN: X 0
+      lumaIdx: 3
+      BLOCK B: 0 3
+    decoding coeff token with nC  4
+1111000010000100011101001001100011010111110010111100111000000100
+    T1s,Tc, token: 0 0 1111
+    Decoded Luma Block: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  10
+      Find neighbor: A
+      xD, yD: -1 0
+      x, y: 0 12
+      xN, yN: -1 12
+      xW, yW: 15 12
+      mbAddrN: A None
+      lumaIdx: None
+      BLOCK A: None None
+      Find neighbor: B
+      xD, yD: 0 -1
+      x, y: 0 12
+      xN, yN: 0 11
+      xW, yW: 0 11
+      mbAddrN: X 0
+      lumaIdx: 8
+      BLOCK B: 0 8
+    decoding coeff token with nC  2
+0000100001000111010010011000110101111100101111001110000001000110
+    T1s,Tc, token: 3 8 0000100
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 3
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 8 16
+    find token, value: 0001 1
+    ce_total_zeros,tzVlc,maxNumCoeff: 1 8 16
+    run_before, zero_left: 0 1
+    run_before, zero_left: 1 1
+    Decoded Luma Block: [-2, 2, 2, -1, -2, -1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  11
+      Find neighbor: A
+      xD, yD: -1 0
+      x, y: 4 12
+      xN, yN: 3 12
+      xW, yW: 3 12
+      mbAddrN: X 0
+      lumaIdx: 10
+      BLOCK A: 0 10
+      Find neighbor: B
+      xD, yD: 0 -1
+      x, y: 4 12
+      xN, yN: 4 11
+      xW, yW: 4 11
+      mbAddrN: X 0
+      lumaIdx: 9
+      BLOCK B: 0 9
+    decoding coeff token with nC  4
+1011111001011110011100000010001100110011110000100011111010010011
+    T1s,Tc, token: 3 4 1011
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    level_prefix: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 4 16
+    find token, value: 011 8
+    ce_total_zeros,tzVlc,maxNumCoeff: 8 4 16
+    run_before, zero_left: 1 8
+    run_before, zero_left: 4 7
+    run_before, zero_left: 1 3
+    Decoded Luma Block: [0, 0, 2, 0, -1, 0, 0, 0, 0, -1, 0, -1, 0, 0, 0, 0]
+  Start decoding block  12
+      Find neighbor: A
+      xD, yD: -1 0
+      x, y: 8 8
+      xN, yN: 7 8
+      xW, yW: 7 8
+      mbAddrN: X 0
+      lumaIdx: 9
+      BLOCK A: 0 9
+      Find neighbor: B
+      xD, yD: 0 -1
+      x, y: 8 8
+      xN, yN: 8 7
+      xW, yW: 8 7
+      mbAddrN: X 0
+      lumaIdx: 6
+      BLOCK B: 0 6
+    decoding coeff token with nC  0
+0000010001100110011110000100011111010010011010100111010011010101
+    T1s,Tc, token: 3 6 00000100
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    level_prefix: 2
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 6 16
+    find token, value: 110 3
+    ce_total_zeros,tzVlc,maxNumCoeff: 3 6 16
+    run_before, zero_left: 3 3
+    Decoded Luma Block: [-2, 1, 2, -1, -1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  13
+      Find neighbor: A
+      xD, yD: -1 0
+      x, y: 12 8
+      xN, yN: 11 8
+      xW, yW: 11 8
+      mbAddrN: X 0
+      lumaIdx: 12
+      BLOCK A: 0 12
+      Find neighbor: B
+      xD, yD: 0 -1
+      x, y: 12 8
+      xN, yN: 12 7
+      xW, yW: 12 7
+      mbAddrN: X 0
+      lumaIdx: 7
+      BLOCK B: 0 7
+    decoding coeff token with nC  3
+0100011111010010011010100111010011010101111110101010001101001011
+    T1s,Tc, token: 3 4 0100
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 4 16
+    find token, value: 110 4
+    ce_total_zeros,tzVlc,maxNumCoeff: 4 4 16
+    run_before, zero_left: 1 4
+    run_before, zero_left: 2 3
+    run_before, zero_left: 1 1
+    Decoded Luma Block: [1, 0, -1, 0, 0, -1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  14
+      Find neighbor: A
+      xD, yD: -1 0
+      x, y: 8 12
+      xN, yN: 7 12
+      xW, yW: 7 12
+      mbAddrN: X 0
+      lumaIdx: 11
+      BLOCK A: 0 11
+      Find neighbor: B
+      xD, yD: 0 -1
+      x, y: 8 12
+      xN, yN: 8 11
+      xW, yW: 8 11
+      mbAddrN: X 0
+      lumaIdx: 12
+      BLOCK B: 0 12
+    decoding coeff token with nC  5
+0110101001110100110101011111101010100011010010111100101100000011
+    T1s,Tc, token: 3 8 01101
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    level_prefix: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 8 16
+    find token, value: 10 5
+    ce_total_zeros,tzVlc,maxNumCoeff: 5 8 16
+    run_before, zero_left: 0 5
+    run_before, zero_left: 0 5
+    run_before, zero_left: 0 5
+    run_before, zero_left: 3 5
+    run_before, zero_left: 0 2
+    run_before, zero_left: 1 2
+    run_before, zero_left: 1 1
+    Decoded Luma Block: [2, 0, -2, 0, 2, -1, 0, 0, 0, -1, 1, -1, 1, 0, 0, 0]
+  Start decoding block  15
+      Find neighbor: A
+      xD, yD: -1 0
+      x, y: 12 12
+      xN, yN: 11 12
+      xW, yW: 11 12
+      mbAddrN: X 0
+      lumaIdx: 14
+      BLOCK A: 0 14
+      Find neighbor: B
+      xD, yD: 0 -1
+      x, y: 12 12
+      xN, yN: 12 11
+      xW, yW: 12 11
+      mbAddrN: X 0
+      lumaIdx: 13
+      BLOCK B: 0 13
+    decoding coeff token with nC  6
+0011010010111100101100000011100100100000110000001010101000110110
+    T1s,Tc, token: 2 6 001101
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    level_prefix: 0
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 2
+    level_suffix: 0 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 6 16
+    find token, value: 110 3
+    ce_total_zeros,tzVlc,maxNumCoeff: 3 6 16
+    run_before, zero_left: 3 3
+    Decoded Luma Block: [3, -1, -2, 2, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]

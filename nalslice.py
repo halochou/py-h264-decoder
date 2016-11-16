@@ -284,7 +284,7 @@ class Slice(NalUnit):
         if self.pps["entropy_coding_mode_flag"] :
             while self.bits.byte_aligned():
                 self.params["cabac_alignment_one_bit"] = self.bits.f(1)
-        CurrMbAddr = self.params["first_mb_in_slice"] * ( 1 + self.var["MbaffFrameFlag"] )
+        self.var["CurrMbAddr"] = self.params["first_mb_in_slice"] * ( 1 + self.var["MbaffFrameFlag"] )
         moreDataFlag = True
         prevMbSkipped = False
         while True:
@@ -293,27 +293,30 @@ class Slice(NalUnit):
                     self.params["mb_skip_run"] = self.bits.ue()
                     prevMbSkipped = self.params["mb_skip_run"] > 0 
                     for i in range(self.params["mb_skip_run"]) :
-                        CurrMbAddr = NextMbAddress( CurrMbAddr )
+                        self.var["CurrMbAddr"] = self.NextMbAddress( self.var["CurrMbAddr"] )
                     if self.params["mb_skip_run"] > 0 :
                         moreDataFlag = self.more_rbsp_data( )
                 else :
                     self.params["mb_skip_flag"] = self.bits.ae()
                     moreDataFlag = not self.params["mb_skip_flag"]
             if moreDataFlag :
-                if self.var["MbaffFrameFlag"] and ( CurrMbAddr % 2 == 0 or ( CurrMbAddr % 2 == 1 and prevMbSkipped ) ) :
+                if self.var["MbaffFrameFlag"] and ( self.var["CurrMbAddr"] % 2 == 0 or ( self.var["CurrMbAddr"] % 2 == 1 and prevMbSkipped ) ) :
                     self.params["mb_field_decoding_flag"] = self.bits.ae() if self.pps["entropy_coding_mode_flag"] else self.bits.u(1)
-                self.mbs.append(Macroblock(self))
+                mb = Macroblock(self)
+                mb.addr = len(self.mbs)
+                self.mbs.append(mb)
+                self.mbs[-1].parse()
             if not self.pps["entropy_coding_mode_flag"] :
                 moreDataFlag = self.bits.more_rbsp_data()
             else :
                 if self.params["slice_type"] != "I" and self.params["slice_type"] != "SI" :
                     prevMbSkipped = self.params["mb_skip_flag"]
-                if self.var["MbaffFrameFlag"] and CurrMbAddr % 2 == 0 :
+                if self.var["MbaffFrameFlag"] and self.var["CurrMbAddr"] % 2 == 0 :
                     moreDataFlag = True
                 else :
                     self.params["end_of_slice_flag"] = self.bits.ae()
                     moreDataFlag = not self.params["end_of_slice_flag"]
-            CurrMbAddr = self.NextMbAddress( CurrMbAddr )
+            self.var["CurrMbAddr"] = self.NextMbAddress( self.var["CurrMbAddr"] )
             if not moreDataFlag:
                 break
 
