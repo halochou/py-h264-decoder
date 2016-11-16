@@ -29,12 +29,15 @@ class Macroblock:
         elif self.pred_mode == "Intra_8x8":
             for i in range(4):
                 self.luma_blocks.append(Block(i, "LumaLevel8x8", self))
-        self.chroma_blocks = [None,None]
+        self.chroma_dc_blocks = [Block(0, "ChromaDCLevel", self, "Cb"),
+                                 Block(1, "ChromaDCLevel", self, "Cr")]
+        self.chroma_ac_blocks = [None, None]
         for i in range(2):
-            self.chroma_blocks[i] = []
+            self.chroma_ac_blocks[i] = []
             for j in range(4):
-                blk = Block(j, "ChromaDCLevel", self) if j==0 else Block(j, "ChromaACLevel", self)
-                self.chroma_blocks[i].append(blk)
+                color = "Cb" if i == 0 else "Cr"
+                blk = Block(j, "ChromaACLevel", self, color)
+                self.chroma_ac_blocks[i].append(blk)
 
     def parse(self):
         print("  MacroBlock ", self.addr, " Decoding...")
@@ -51,7 +54,7 @@ class Macroblock:
     def macroblock_layer(self) :
         self.mb_pred()
         if self.pred_mode != "Intra_16x16" :
-            self.coded_block_pattern = self.slice.bits.me(self.pred_mode)
+            self.coded_block_pattern = self.slice.bits.me(self.pred_mode, self.slice.sps["ChromaArrayType"])
             self.CodedBlockPatternLuma = self.coded_block_pattern % 16
             self.CodedBlockPatternChroma = self.coded_block_pattern // 16
         if self.CodedBlockPatternLuma > 0 or self.CodedBlockPatternChroma > 0 or \
@@ -100,16 +103,16 @@ class Macroblock:
             NumC8x8 = 4 // (self.slice.sps["SubWidthC"] * self.slice.sps["SubHeightC"])
             for iCbCr in range(2):
                 if self.CodedBlockPatternChroma & 3 and startIdx == 0:
-                    self.chroma_blocks[iCbCr][0].parse(0,4 * NumC8x8 - 1, 4 * NumC8x8)
+                    self.chroma_dc_blocks[iCbCr].parse(0,4 * NumC8x8 - 1, 4 * NumC8x8)
                 else:
-                    self.chroma_blocks[iCbCr][0].ChromaDCLevel = [0] * (4 * NumC8x8)
+                    self.chroma_dc_blocks[iCbCr].ChromaDCLevel = [0] * (4 * NumC8x8)
             for iCbCr in range(2):
                 for i8x8 in range(NumC8x8):
                     for i4x4 in range(4):
                         if self.CodedBlockPatternChroma & 2:
-                            self.chroma_blocks[iCbCr][i8x8*4+i4x4].parse(max(0, startIdx-1), endIdx-1, 15)
+                            self.chroma_ac_blocks[iCbCr][i8x8*4+i4x4].parse(max(0, startIdx-1), endIdx-1, 15)
                         else:
-                            self.chroma_blocks[iCbCr][i8x8*4+i4x4].ChromaACLevel = [0] * 16
+                            self.chroma_ac_blocks[iCbCr][i8x8*4+i4x4].ChromaACLevel = [0] * 16
         elif self.slice.sps["ChromaArrayType"] == 3:
             raise NameError("ChromaArrayType == 3 not impl")
 
@@ -131,9 +134,7 @@ class Macroblock:
                     for i in range(15):
                         self.i16x16AClevel[i8x8 * 4 + i4x4][i] = 0
                 else:
-                    raise NameError("mb 118")
-                    for i in range(16):
-                        self.level4x4[i8x8 * 4 + i4x4][i] = 0
+                    self.luma_blocks[i8x8 * 4 + i4x4].coeffLevel = [0] * 16
                 if not self.slice.pps["entropy_coding_mode_flag"] and \
                    self.params["transform_size_8x8_flag"]:
                     raise NameError("mb 123")

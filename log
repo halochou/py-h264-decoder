@@ -1,25 +1,10 @@
 Unknown Slice type, ignore...
 SLICE DATA:
-  MacroBlock:
+  MacroBlock  0  Decoding...
   Start decoding block  0
-      Find neighbor: A
-      xD, yD: -1 0
-      x, y: 0 0
-      xN, yN: -1 0
-      xW, yW: 15 0
-      mbAddrN: A None
-      lumaIdx: None
       BLOCK A: None None
-      Find neighbor: B
-      xD, yD: 0 -1
-      x, y: 0 0
-      xN, yN: 0 -1
-      xW, yW: 0 15
-      mbAddrN: B None
-      lumaIdx: None
       BLOCK B: None None
     decoding coeff token with nC  0
-0000000000110001110001100011110111010101001111010100101000011111
     T1s,Tc, token: 3 11 00000000001100
     trailing_ones_sign_flag: 0
     trailing_ones_sign_flag: 1
@@ -44,26 +29,11 @@ SLICE DATA:
     ce_total_zeros,tzVlc,maxNumCoeff: 3 11 16
     run_before, zero_left: 1 3
     run_before, zero_left: 2 2
-    Decoded Luma Block: [6, -8, 2, 2, -2, -8, -4, 1, -1, 0, 0, -1, 0, 1, 0, 0]
+    Decoded  Y LumaLevel4x4  :  [6, -8, 2, 2, -2, -8, -4, 1, -1, 0, 0, -1, 0, 1, 0, 0]
   Start decoding block  1
-      Find neighbor: A
-      xD, yD: -1 0
-      x, y: 4 0
-      xN, yN: 3 0
-      xW, yW: 3 0
-      mbAddrN: X 0
-      lumaIdx: 0
       BLOCK A: 0 0
-      Find neighbor: B
-      xD, yD: 0 -1
-      x, y: 4 0
-      xN, yN: 4 -1
-      xW, yW: 4 15
-      mbAddrN: B None
-      lumaIdx: None
       BLOCK B: None None
     decoding coeff token with nC  11
-0111111101111010001001001011101010001110110000101101100010111111
     T1s,Tc, token: 3 8 011111
     trailing_ones_sign_flag: 1
     trailing_ones_sign_flag: 1
@@ -86,26 +56,11 @@ SLICE DATA:
     run_before, zero_left: 0 2
     run_before, zero_left: 1 2
     run_before, zero_left: 1 1
-    Decoded Luma Block: [3, 1, 0, 1, 0, -1, 1, 1, -1, 0, 0, 0, 0, -1, 0, 0]
+    Decoded  Y LumaLevel4x4  :  [3, 1, 0, 1, 0, -1, 1, 1, -1, 0, 0, 0, 0, -1, 0, 0]
   Start decoding block  2
-      Find neighbor: A
-      xD, yD: -1 0
-      x, y: 0 4
-      xN, yN: -1 4
-      xW, yW: 15 4
-      mbAddrN: A None
-      lumaIdx: None
       BLOCK A: None None
-      Find neighbor: B
-      xD, yD: 0 -1
-      x, y: 0 4
-      xN, yN: 0 3
-      xW, yW: 0 3
-      mbAddrN: X 0
-      lumaIdx: 0
       BLOCK B: 0 0
     decoding coeff token with nC  11
-1000111011000010110110001011111110011111001001110000110010011111
     T1s,Tc, token: 3 9 100011
     trailing_ones_sign_flag: 1
     trailing_ones_sign_flag: 0
@@ -131,26 +86,13 @@ SLICE DATA:
     run_before, zero_left: 0 1
     run_before, zero_left: 0 1
     run_before, zero_left: 1 1
-    Decoded Luma Block: [-2, -5, 0, 2, 2, 5, 1, -1, 0, 1, 0, -1, 0, 0, 0, 0]
+    Decoded  Y LumaLevel4x4  :  [-2, -5, 0, 2, 2, 5, 1, -1, 0, 1, 0, -1, 0, 0, 0, 0]
   Start decoding block  3
-      Find neighbor: A
-      xD, yD: -1 0
-      x, y: 4 4
-      xN, yN: 3 4
-      xW, yW: 3 4
-      mbAddrN: X 0
-      lumaIdx: 2
       BLOCK A: 0 2
-      Find neighbor: B
-      xD, yD: 0 -1
-      x, y: 4 4
-      xN, yN: 4 3
-      xW, yW: 4 3
-      mbAddrN: X 0
-      lumaIdx: 1
       BLOCK B: 0 1
+    from nA nB 9 8
+15
     decoding coeff token with nC  9
-0100111000011001001111100111010011011011011100001010100100011010
     T1s,Tc, token: 3 5 010011
     trailing_ones_sign_flag: 1
     trailing_ones_sign_flag: 0
@@ -165,26 +107,11 @@ SLICE DATA:
     run_before, zero_left: 0 1
     run_before, zero_left: 0 1
     run_before, zero_left: 0 1
-    Decoded Luma Block: [0, 1, 2, 1, 1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    Decoded  Y LumaLevel4x4  :  [0, 1, 2, 1, 1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   Start decoding block  4
-      Find neighbor: A
-      xD, yD: -1 0
-      x, y: 8 0
-      xN, yN: 7 0
-      xW, yW: 7 0
-      mbAddrN: X 0
-      lumaIdx: 1
       BLOCK A: 0 1
-      Find neighbor: B
-      xD, yD: 0 -1
-      x, y: 8 0
-      xN, yN: 8 -1
-      xW, yW: 8 15
-      mbAddrN: B None
-      lumaIdx: None
       BLOCK B: None None
     decoding coeff token with nC  8
-1001110100110110110111000010101001000110100100010010111010100000
     T1s,Tc, token: 3 10 100111
     trailing_ones_sign_flag: 0
     trailing_ones_sign_flag: 1
@@ -208,26 +135,11 @@ SLICE DATA:
     run_before, zero_left: 1 4
     run_before, zero_left: 2 3
     run_before, zero_left: 1 1
-    Decoded Luma Block: [4, 1, -2, -2, -1, 1, -1, 0, 1, 0, 0, -1, 0, 1, 0, 0]
+    Decoded  Y LumaLevel4x4  :  [4, 1, -2, -2, -1, 1, -1, 0, 1, 0, 0, -1, 0, 1, 0, 0]
   Start decoding block  5
-      Find neighbor: A
-      xD, yD: -1 0
-      x, y: 12 0
-      xN, yN: 11 0
-      xW, yW: 11 0
-      mbAddrN: X 0
-      lumaIdx: 4
       BLOCK A: 0 4
-      Find neighbor: B
-      xD, yD: 0 -1
-      x, y: 12 0
-      xN, yN: 12 -1
-      xW, yW: 12 15
-      mbAddrN: B None
-      lumaIdx: None
       BLOCK B: None None
     decoding coeff token with nC  10
-0011010010001001011101010000000010111000110000101111111000010000
     T1s,Tc, token: 1 4 001101
     trailing_ones_sign_flag: 0
     level_prefix: 1
@@ -241,72 +153,31 @@ SLICE DATA:
     run_before, zero_left: 1 4
     run_before, zero_left: 1 3
     run_before, zero_left: 2 2
-    Decoded Luma Block: [-3, 0, 0, 4, 0, -2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+    Decoded  Y LumaLevel4x4  :  [-3, 0, 0, 4, 0, -2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
   Start decoding block  6
-      Find neighbor: A
-      xD, yD: -1 0
-      x, y: 8 4
-      xN, yN: 7 4
-      xW, yW: 7 4
-      mbAddrN: X 0
-      lumaIdx: 3
       BLOCK A: 0 3
-      Find neighbor: B
-      xD, yD: 0 -1
-      x, y: 8 4
-      xN, yN: 8 3
-      xW, yW: 8 3
-      mbAddrN: X 0
-      lumaIdx: 4
       BLOCK B: 0 4
+    from nA nB 5 10
+15
     decoding coeff token with nC  8
-0000010111000110000101111111000010000100011101001001100011010111
     T1s,Tc, token: 1 1 000001
     trailing_ones_sign_flag: 0
     decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
     find token, value: 1 0
     ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
-    Decoded Luma Block: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    Decoded  Y LumaLevel4x4  :  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   Start decoding block  7
-      Find neighbor: A
-      xD, yD: -1 0
-      x, y: 12 4
-      xN, yN: 11 4
-      xW, yW: 11 4
-      mbAddrN: X 0
-      lumaIdx: 6
       BLOCK A: 0 6
-      Find neighbor: B
-      xD, yD: 0 -1
-      x, y: 12 4
-      xN, yN: 12 3
-      xW, yW: 12 3
-      mbAddrN: X 0
-      lumaIdx: 5
       BLOCK B: 0 5
-    decoding coeff token with nC  2
-1100011000010111111100001000010001110100100110001101011111001011
+    from nA nB 1 4
+15
+    decoding coeff token with nC  3
     T1s,Tc, token: 0 0 11
-    Decoded Luma Block: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   Start decoding block  8
-      Find neighbor: A
-      xD, yD: -1 0
-      x, y: 0 8
-      xN, yN: -1 8
-      xW, yW: 15 8
-      mbAddrN: A None
-      lumaIdx: None
       BLOCK A: None None
-      Find neighbor: B
-      xD, yD: 0 -1
-      x, y: 0 8
-      xN, yN: 0 7
-      xW, yW: 0 7
-      mbAddrN: X 0
-      lumaIdx: 2
       BLOCK B: 0 2
     decoding coeff token with nC  9
-0001100001011111110000100001000111010010011000110101111100101111
     T1s,Tc, token: 2 2 000110
     trailing_ones_sign_flag: 0
     trailing_ones_sign_flag: 0
@@ -314,47 +185,19 @@ SLICE DATA:
     find token, value: 0101 5
     ce_total_zeros,tzVlc,maxNumCoeff: 5 2 16
     run_before, zero_left: 0 5
-    Decoded Luma Block: [0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   Start decoding block  9
-      Find neighbor: A
-      xD, yD: -1 0
-      x, y: 4 8
-      xN, yN: 3 8
-      xW, yW: 3 8
-      mbAddrN: X 0
-      lumaIdx: 8
       BLOCK A: 0 8
-      Find neighbor: B
-      xD, yD: 0 -1
-      x, y: 4 8
-      xN, yN: 4 7
-      xW, yW: 4 7
-      mbAddrN: X 0
-      lumaIdx: 3
       BLOCK B: 0 3
+    from nA nB 2 5
+15
     decoding coeff token with nC  4
-1111000010000100011101001001100011010111110010111100111000000100
     T1s,Tc, token: 0 0 1111
-    Decoded Luma Block: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   Start decoding block  10
-      Find neighbor: A
-      xD, yD: -1 0
-      x, y: 0 12
-      xN, yN: -1 12
-      xW, yW: 15 12
-      mbAddrN: A None
-      lumaIdx: None
       BLOCK A: None None
-      Find neighbor: B
-      xD, yD: 0 -1
-      x, y: 0 12
-      xN, yN: 0 11
-      xW, yW: 0 11
-      mbAddrN: X 0
-      lumaIdx: 8
       BLOCK B: 0 8
     decoding coeff token with nC  2
-0000100001000111010010011000110101111100101111001110000001000110
     T1s,Tc, token: 3 8 0000100
     trailing_ones_sign_flag: 0
     trailing_ones_sign_flag: 0
@@ -373,26 +216,13 @@ SLICE DATA:
     ce_total_zeros,tzVlc,maxNumCoeff: 1 8 16
     run_before, zero_left: 0 1
     run_before, zero_left: 1 1
-    Decoded Luma Block: [-2, 2, 2, -1, -2, -1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0]
+    Decoded  Y LumaLevel4x4  :  [-2, 2, 2, -1, -2, -1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0]
   Start decoding block  11
-      Find neighbor: A
-      xD, yD: -1 0
-      x, y: 4 12
-      xN, yN: 3 12
-      xW, yW: 3 12
-      mbAddrN: X 0
-      lumaIdx: 10
       BLOCK A: 0 10
-      Find neighbor: B
-      xD, yD: 0 -1
-      x, y: 4 12
-      xN, yN: 4 11
-      xW, yW: 4 11
-      mbAddrN: X 0
-      lumaIdx: 9
       BLOCK B: 0 9
+    from nA nB 8 0
+15
     decoding coeff token with nC  4
-1011111001011110011100000010001100110011110000100011111010010011
     T1s,Tc, token: 3 4 1011
     trailing_ones_sign_flag: 1
     trailing_ones_sign_flag: 1
@@ -404,26 +234,13 @@ SLICE DATA:
     run_before, zero_left: 1 8
     run_before, zero_left: 4 7
     run_before, zero_left: 1 3
-    Decoded Luma Block: [0, 0, 2, 0, -1, 0, 0, 0, 0, -1, 0, -1, 0, 0, 0, 0]
+    Decoded  Y LumaLevel4x4  :  [0, 0, 2, 0, -1, 0, 0, 0, 0, -1, 0, -1, 0, 0, 0, 0]
   Start decoding block  12
-      Find neighbor: A
-      xD, yD: -1 0
-      x, y: 8 8
-      xN, yN: 7 8
-      xW, yW: 7 8
-      mbAddrN: X 0
-      lumaIdx: 9
       BLOCK A: 0 9
-      Find neighbor: B
-      xD, yD: 0 -1
-      x, y: 8 8
-      xN, yN: 8 7
-      xW, yW: 8 7
-      mbAddrN: X 0
-      lumaIdx: 6
       BLOCK B: 0 6
-    decoding coeff token with nC  0
-0000010001100110011110000100011111010010011010100111010011010101
+    from nA nB 0 1
+15
+    decoding coeff token with nC  1
     T1s,Tc, token: 3 6 00000100
     trailing_ones_sign_flag: 0
     trailing_ones_sign_flag: 1
@@ -437,26 +254,13 @@ SLICE DATA:
     find token, value: 110 3
     ce_total_zeros,tzVlc,maxNumCoeff: 3 6 16
     run_before, zero_left: 3 3
-    Decoded Luma Block: [-2, 1, 2, -1, -1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
+    Decoded  Y LumaLevel4x4  :  [-2, 1, 2, -1, -1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
   Start decoding block  13
-      Find neighbor: A
-      xD, yD: -1 0
-      x, y: 12 8
-      xN, yN: 11 8
-      xW, yW: 11 8
-      mbAddrN: X 0
-      lumaIdx: 12
       BLOCK A: 0 12
-      Find neighbor: B
-      xD, yD: 0 -1
-      x, y: 12 8
-      xN, yN: 12 7
-      xW, yW: 12 7
-      mbAddrN: X 0
-      lumaIdx: 7
       BLOCK B: 0 7
+    from nA nB 6 0
+15
     decoding coeff token with nC  3
-0100011111010010011010100111010011010101111110101010001101001011
     T1s,Tc, token: 3 4 0100
     trailing_ones_sign_flag: 0
     trailing_ones_sign_flag: 1
@@ -468,26 +272,13 @@ SLICE DATA:
     run_before, zero_left: 1 4
     run_before, zero_left: 2 3
     run_before, zero_left: 1 1
-    Decoded Luma Block: [1, 0, -1, 0, 0, -1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+    Decoded  Y LumaLevel4x4  :  [1, 0, -1, 0, 0, -1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
   Start decoding block  14
-      Find neighbor: A
-      xD, yD: -1 0
-      x, y: 8 12
-      xN, yN: 7 12
-      xW, yW: 7 12
-      mbAddrN: X 0
-      lumaIdx: 11
       BLOCK A: 0 11
-      Find neighbor: B
-      xD, yD: 0 -1
-      x, y: 8 12
-      xN, yN: 8 11
-      xW, yW: 8 11
-      mbAddrN: X 0
-      lumaIdx: 12
       BLOCK B: 0 12
+    from nA nB 4 6
+15
     decoding coeff token with nC  5
-0110101001110100110101011111101010100011010010111100101100000011
     T1s,Tc, token: 3 8 01101
     trailing_ones_sign_flag: 0
     trailing_ones_sign_flag: 1
@@ -511,26 +302,13 @@ SLICE DATA:
     run_before, zero_left: 0 2
     run_before, zero_left: 1 2
     run_before, zero_left: 1 1
-    Decoded Luma Block: [2, 0, -2, 0, 2, -1, 0, 0, 0, -1, 1, -1, 1, 0, 0, 0]
+    Decoded  Y LumaLevel4x4  :  [2, 0, -2, 0, 2, -1, 0, 0, 0, -1, 1, -1, 1, 0, 0, 0]
   Start decoding block  15
-      Find neighbor: A
-      xD, yD: -1 0
-      x, y: 12 12
-      xN, yN: 11 12
-      xW, yW: 11 12
-      mbAddrN: X 0
-      lumaIdx: 14
       BLOCK A: 0 14
-      Find neighbor: B
-      xD, yD: 0 -1
-      x, y: 12 12
-      xN, yN: 12 11
-      xW, yW: 12 11
-      mbAddrN: X 0
-      lumaIdx: 13
       BLOCK B: 0 13
+    from nA nB 8 4
+15
     decoding coeff token with nC  6
-0011010010111100101100000011100100100000110000001010101000110110
     T1s,Tc, token: 2 6 001101
     trailing_ones_sign_flag: 0
     trailing_ones_sign_flag: 0
@@ -545,4 +323,3543 @@ SLICE DATA:
     find token, value: 110 3
     ce_total_zeros,tzVlc,maxNumCoeff: 3 6 16
     run_before, zero_left: 3 3
-    Decoded Luma Block: [3, -1, -2, 2, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
+    Decoded  Y LumaLevel4x4  :  [3, -1, -2, 2, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  0
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 0 1 000111
+    level_prefix: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 4
+    find token, value: 001 2
+    ce_total_zeros,tzVlc,maxNumCoeff: 2 1 4
+    Decoded  Cb ChromaDCLevel  :  [0, 0, 3, 0]
+  Start decoding block  1
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 1 3 0000011
+    trailing_ones_sign_flag: 0
+    level_prefix: 5
+    level_prefix: 1
+    level_suffix: 1 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 3 4
+    find token, value: 0 1
+    ce_total_zeros,tzVlc,maxNumCoeff: 1 3 4
+    run_before, zero_left: 0 1
+    run_before, zero_left: 1 1
+    Decoded  Cr ChromaDCLevel  :  [-3, 0, -4, 1]
+  Start decoding block  0
+      C-BLOCK A: None None
+      C-BLOCK B: None None
+    decoding coeff token with nC  0
+    T1s,Tc, token: 2 2 001
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 15
+    find token, value: 110 1
+    ce_total_zeros,tzVlc,maxNumCoeff: 1 2 15
+    run_before, zero_left: 0 1
+    Decoded  Cb ChromaACLevel  :  [0, 1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  1
+      C-BLOCK A: 0 0
+      C-BLOCK B: None None
+    decoding coeff token with nC  2
+    T1s,Tc, token: 2 3 001001
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 3 15
+    find token, value: 100 6
+    ce_total_zeros,tzVlc,maxNumCoeff: 6 3 15
+    run_before, zero_left: 5 6
+    run_before, zero_left: 0 1
+    Decoded  Cb ChromaACLevel  :  [0, 2, -1, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0]
+  Start decoding block  2
+      C-BLOCK A: None None
+      C-BLOCK B: 0 0
+    decoding coeff token with nC  2
+    T1s,Tc, token: 1 1 10
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 15
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 15
+    Decoded  Cb ChromaACLevel  :  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  3
+      C-BLOCK A: 0 2
+      C-BLOCK B: 0 1
+    from nA nB 1 3
+15
+    decoding coeff token with nC  2
+    T1s,Tc, token: 0 0 11
+    Decoded  Cb ChromaACLevel  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  0
+      C-BLOCK A: None None
+      C-BLOCK B: None None
+    decoding coeff token with nC  0
+    T1s,Tc, token: 3 7 000000100
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    level_prefix: 0
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 7 15
+    find token, value: 101 2
+    ce_total_zeros,tzVlc,maxNumCoeff: 2 7 15
+    run_before, zero_left: 2 2
+    Decoded  Cr ChromaACLevel  :  [1, -2, 2, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0]
+  Start decoding block  1
+      C-BLOCK A: 0 0
+      C-BLOCK B: None None
+    decoding coeff token with nC  7
+    T1s,Tc, token: 1 3 01100
+    trailing_ones_sign_flag: 0
+    level_prefix: 0
+    level_prefix: 2
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 3 15
+    find token, value: 100 6
+    ce_total_zeros,tzVlc,maxNumCoeff: 6 3 15
+    run_before, zero_left: 5 6
+    run_before, zero_left: 0 1
+    Decoded  Cr ChromaACLevel  :  [0, -3, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0]
+  Start decoding block  2
+      C-BLOCK A: None None
+      C-BLOCK B: 0 0
+    decoding coeff token with nC  7
+    T1s,Tc, token: 0 0 1111
+    Decoded  Cr ChromaACLevel  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  3
+      C-BLOCK A: 0 2
+      C-BLOCK B: 0 1
+    from nA nB 0 3
+15
+    decoding coeff token with nC  2
+    T1s,Tc, token: 0 0 11
+    Decoded  Cr ChromaACLevel  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  MacroBlock  1  Decoding...
+  Start decoding block  0
+      BLOCK A: 0 5
+      BLOCK B: None None
+    decoding coeff token with nC  4
+    T1s,Tc, token: 0 9 00001011
+    level_prefix: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 5
+    level_suffix: 0 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 9 16
+    find token, value: 11 3
+    ce_total_zeros,tzVlc,maxNumCoeff: 3 9 16
+    run_before, zero_left: 2 3
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [6, 1, -2, -1, -2, 2, -1, 0, 1, 0, 0, -2, 0, 0, 0, 0]
+  Start decoding block  1
+      BLOCK A: 1 0
+      BLOCK B: None None
+    decoding coeff token with nC  9
+    T1s,Tc, token: 3 10 100111
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 4
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    level_prefix: 2
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 2
+    level_suffix: 0 length: 1
+    level_prefix: 3
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 10 16
+    find token, value: 10 4
+    ce_total_zeros,tzVlc,maxNumCoeff: 4 10 16
+    run_before, zero_left: 0 4
+    run_before, zero_left: 0 4
+    run_before, zero_left: 2 4
+    run_before, zero_left: 0 2
+    run_before, zero_left: 1 2
+    run_before, zero_left: 0 1
+    run_before, zero_left: 0 1
+    run_before, zero_left: 0 1
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [1, 0, 4, 3, -1, 3, 0, -2, 3, 0, 0, -1, 1, -1, 0, 0]
+  Start decoding block  2
+      BLOCK A: 0 7
+      BLOCK B: 1 0
+    from nA nB 0 9
+15
+    decoding coeff token with nC  5
+    T1s,Tc, token: 0 0 1111
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  3
+      BLOCK A: 1 2
+      BLOCK B: 1 1
+    from nA nB 0 10
+15
+    decoding coeff token with nC  5
+    T1s,Tc, token: 3 7 1000
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 7 16
+    find token, value: 101 2
+    ce_total_zeros,tzVlc,maxNumCoeff: 2 7 16
+    run_before, zero_left: 0 2
+    run_before, zero_left: 2 2
+    Decoded  Y LumaLevel4x4  :  [-1, 1, 2, -1, -1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  4
+      BLOCK A: 1 1
+      BLOCK B: None None
+    decoding coeff token with nC  10
+    T1s,Tc, token: 0 0 000011
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  5
+      BLOCK A: 1 4
+      BLOCK B: None None
+    decoding coeff token with nC  0
+    T1s,Tc, token: 3 6 00000100
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 6 16
+    find token, value: 110 3
+    ce_total_zeros,tzVlc,maxNumCoeff: 3 6 16
+    run_before, zero_left: 3 3
+    Decoded  Y LumaLevel4x4  :  [-1, 1, 1, -1, -1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  6
+      BLOCK A: 1 3
+      BLOCK B: 1 4
+    from nA nB 7 0
+15
+    decoding coeff token with nC  4
+    T1s,Tc, token: 3 7 1000
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    level_prefix: 3
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 2
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 7 16
+    find token, value: 001 8
+    ce_total_zeros,tzVlc,maxNumCoeff: 8 7 16
+    run_before, zero_left: 2 8
+    run_before, zero_left: 0 6
+    run_before, zero_left: 1 6
+    run_before, zero_left: 0 5
+    run_before, zero_left: 4 5
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [-2, 0, 3, 0, 0, 0, 0, -1, -2, 0, 1, 1, 0, 0, 1, 0]
+  Start decoding block  7
+      BLOCK A: 1 6
+      BLOCK B: 1 5
+    from nA nB 7 6
+15
+    decoding coeff token with nC  7
+    T1s,Tc, token: 3 9 001100
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    level_prefix: 0
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 2
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 9 16
+    find token, value: 001 5
+    ce_total_zeros,tzVlc,maxNumCoeff: 5 9 16
+    run_before, zero_left: 1 5
+    run_before, zero_left: 2 4
+    run_before, zero_left: 2 2
+    Decoded  Y LumaLevel4x4  :  [1, -1, -3, 2, 2, 1, 0, 0, 1, 0, 0, -1, 0, 1, 0, 0]
+  Start decoding block  8
+      BLOCK A: 0 13
+      BLOCK B: 1 2
+    from nA nB 4 0
+15
+    decoding coeff token with nC  2
+    T1s,Tc, token: 1 6 00000110
+    trailing_ones_sign_flag: 1
+    level_prefix: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 6 16
+    find token, value: 101 4
+    ce_total_zeros,tzVlc,maxNumCoeff: 4 6 16
+    run_before, zero_left: 0 4
+    run_before, zero_left: 3 4
+    run_before, zero_left: 0 1
+    run_before, zero_left: 0 1
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [-2, 0, 2, 1, 1, 0, 0, 0, -2, -1, 0, 0, 0, 0, 0, 0]
+  Start decoding block  9
+      BLOCK A: 1 8
+      BLOCK B: 1 3
+    from nA nB 6 7
+15
+    decoding coeff token with nC  7
+    T1s,Tc, token: 2 5 01001
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    level_prefix: 3
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 2
+    level_suffix: 0 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 5 16
+    find token, value: 110 4
+    ce_total_zeros,tzVlc,maxNumCoeff: 4 5 16
+    run_before, zero_left: 3 4
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [3, -1, -3, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  10
+      BLOCK A: 0 15
+      BLOCK B: 1 8
+    from nA nB 6 6
+15
+    decoding coeff token with nC  6
+    T1s,Tc, token: 3 4 1011
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    level_prefix: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 4 16
+    find token, value: 101 5
+    ce_total_zeros,tzVlc,maxNumCoeff: 5 4 16
+    run_before, zero_left: 5 5
+    Decoded  Y LumaLevel4x4  :  [-1, 1, 1, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  11
+      BLOCK A: 1 10
+      BLOCK B: 1 9
+    from nA nB 4 5
+15
+    decoding coeff token with nC  5
+    T1s,Tc, token: 0 0 1111
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  12
+      BLOCK A: 1 9
+      BLOCK B: 1 6
+    from nA nB 5 7
+15
+    decoding coeff token with nC  6
+    T1s,Tc, token: 2 2 1101
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 16
+    find token, value: 110 1
+    ce_total_zeros,tzVlc,maxNumCoeff: 1 2 16
+    run_before, zero_left: 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  13
+      BLOCK A: 1 12
+      BLOCK B: 1 7
+    from nA nB 2 9
+15
+    decoding coeff token with nC  6
+    T1s,Tc, token: 2 2 1101
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 16
+    find token, value: 111 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 2 16
+    Decoded  Y LumaLevel4x4  :  [1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  14
+      BLOCK A: 1 11
+      BLOCK B: 1 12
+    from nA nB 0 2
+15
+    decoding coeff token with nC  1
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  15
+      BLOCK A: 1 14
+      BLOCK B: 1 13
+    from nA nB 0 2
+15
+    decoding coeff token with nC  1
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  0
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 1 4 00000011
+    trailing_ones_sign_flag: 0
+    level_prefix: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 3
+    level_suffix: 1 length: 1
+    Decoded  Cb ChromaDCLevel  :  [-4, 1, -2, 1]
+  Start decoding block  1
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 0 4 000010
+    level_prefix: 1
+    level_prefix: 3
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 3 length: 2
+    level_prefix: 1
+    level_suffix: 0 length: 2
+    Decoded  Cr ChromaDCLevel  :  [3, -2, 4, -2]
+  Start decoding block  0
+      C-BLOCK A: 0 1
+      C-BLOCK B: None None
+    decoding coeff token with nC  3
+    T1s,Tc, token: 1 2 00111
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 15
+    find token, value: 110 1
+    ce_total_zeros,tzVlc,maxNumCoeff: 1 2 15
+    run_before, zero_left: 0 1
+    Decoded  Cb ChromaACLevel  :  [0, 2, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  1
+      C-BLOCK A: 1 0
+      C-BLOCK B: None None
+    decoding coeff token with nC  2
+    T1s,Tc, token: 0 0 11
+    Decoded  Cb ChromaACLevel  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  2
+      C-BLOCK A: 0 3
+      C-BLOCK B: 1 0
+    from nA nB 0 2
+15
+    decoding coeff token with nC  1
+    T1s,Tc, token: 0 0 1
+    Decoded  Cb ChromaACLevel  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  3
+      C-BLOCK A: 1 2
+      C-BLOCK B: 1 1
+    from nA nB 0 0
+15
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Cb ChromaACLevel  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  0
+      C-BLOCK A: 0 1
+      C-BLOCK B: None None
+    decoding coeff token with nC  3
+    T1s,Tc, token: 1 4 000110
+    trailing_ones_sign_flag: 0
+    level_prefix: 0
+    level_prefix: 3
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 4 15
+    find token, value: 101 5
+    ce_total_zeros,tzVlc,maxNumCoeff: 5 4 15
+    run_before, zero_left: 5 5
+    Decoded  Cr ChromaACLevel  :  [-1, -4, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0]
+  Start decoding block  1
+      C-BLOCK A: 1 0
+      C-BLOCK B: None None
+    decoding coeff token with nC  4
+    T1s,Tc, token: 0 0 1111
+    Decoded  Cr ChromaACLevel  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  2
+      C-BLOCK A: 0 3
+      C-BLOCK B: 1 0
+    from nA nB 0 4
+15
+    decoding coeff token with nC  2
+    T1s,Tc, token: 0 0 11
+    Decoded  Cr ChromaACLevel  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  3
+      C-BLOCK A: 1 2
+      C-BLOCK B: 1 1
+    from nA nB 0 0
+15
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Cr ChromaACLevel  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  MacroBlock  2  Decoding...
+  Start decoding block  0
+      BLOCK A: 1 5
+      BLOCK B: None None
+    decoding coeff token with nC  6
+    T1s,Tc, token: 3 9 001100
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 3
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 2
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 2
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 9 16
+    find token, value: 11 3
+    ce_total_zeros,tzVlc,maxNumCoeff: 3 9 16
+    run_before, zero_left: 0 3
+    run_before, zero_left: 0 3
+    run_before, zero_left: 0 3
+    run_before, zero_left: 0 3
+    run_before, zero_left: 3 3
+    Decoded  Y LumaLevel4x4  :  [-3, 1, 3, -1, 0, 0, 0, -1, -2, -1, 1, 1, 0, 0, 0, 0]
+  Start decoding block  1
+      BLOCK A: 2 0
+      BLOCK B: None None
+    decoding coeff token with nC  9
+    T1s,Tc, token: 0 7 011000
+    level_prefix: 2
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 7 16
+    find token, value: 101 2
+    ce_total_zeros,tzVlc,maxNumCoeff: 2 7 16
+    run_before, zero_left: 2 2
+    Decoded  Y LumaLevel4x4  :  [1, -1, -2, 2, 2, 1, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  2
+      BLOCK A: 1 7
+      BLOCK B: 2 0
+    from nA nB 9 9
+15
+    decoding coeff token with nC  9
+    T1s,Tc, token: 2 2 000110
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 16
+    find token, value: 0011 7
+    ce_total_zeros,tzVlc,maxNumCoeff: 7 2 16
+    run_before, zero_left: 5 7
+    Decoded  Y LumaLevel4x4  :  [0, 0, 1, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  3
+      BLOCK A: 2 2
+      BLOCK B: 2 1
+    from nA nB 2 7
+15
+    decoding coeff token with nC  5
+    T1s,Tc, token: 1 1 1110
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  4
+      BLOCK A: 2 1
+      BLOCK B: None None
+    decoding coeff token with nC  7
+    T1s,Tc, token: 1 1 1110
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 010 2
+    ce_total_zeros,tzVlc,maxNumCoeff: 2 1 16
+    Decoded  Y LumaLevel4x4  :  [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  5
+      BLOCK A: 2 4
+      BLOCK B: None None
+    decoding coeff token with nC  1
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  6
+      BLOCK A: 2 3
+      BLOCK B: 2 4
+    from nA nB 1 1
+15
+    decoding coeff token with nC  1
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  7
+      BLOCK A: 2 6
+      BLOCK B: 2 5
+    from nA nB 0 0
+15
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  8
+      BLOCK A: 1 13
+      BLOCK B: 2 2
+    from nA nB 2 2
+15
+    decoding coeff token with nC  2
+    T1s,Tc, token: 0 0 11
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  9
+      BLOCK A: 2 8
+      BLOCK B: 2 3
+    from nA nB 0 1
+15
+    decoding coeff token with nC  1
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  10
+      BLOCK A: 1 15
+      BLOCK B: 2 8
+    from nA nB 0 0
+15
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  11
+      BLOCK A: 2 10
+      BLOCK B: 2 9
+    from nA nB 0 0
+15
+    decoding coeff token with nC  0
+    T1s,Tc, token: 3 8 0000000100
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    level_prefix: 3
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 8 16
+    find token, value: 011 3
+    ce_total_zeros,tzVlc,maxNumCoeff: 3 8 16
+    run_before, zero_left: 0 3
+    run_before, zero_left: 0 3
+    run_before, zero_left: 3 3
+    Decoded  Y LumaLevel4x4  :  [-2, 2, 2, -2, -2, 0, 0, 0, 1, 1, -1, 0, 0, 0, 0, 0]
+  Start decoding block  12
+      BLOCK A: 2 9
+      BLOCK B: 2 6
+    from nA nB 0 0
+15
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  13
+      BLOCK A: 2 12
+      BLOCK B: 2 7
+    from nA nB 0 0
+15
+    decoding coeff token with nC  0
+    T1s,Tc, token: 3 5 0000100
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    level_prefix: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 5 16
+    find token, value: 100 6
+    ce_total_zeros,tzVlc,maxNumCoeff: 6 5 16
+    run_before, zero_left: 1 6
+    run_before, zero_left: 0 5
+    run_before, zero_left: 2 5
+    run_before, zero_left: 0 3
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, -1, -1, 0, 0, 1, 1, 0, -1, 0, 0, 0, 0, 0]
+  Start decoding block  14
+      BLOCK A: 2 11
+      BLOCK B: 2 12
+    from nA nB 8 0
+15
+    decoding coeff token with nC  4
+    T1s,Tc, token: 1 2 01111
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 16
+    find token, value: 0011 7
+    ce_total_zeros,tzVlc,maxNumCoeff: 7 2 16
+    run_before, zero_left: 5 7
+    Decoded  Y LumaLevel4x4  :  [0, 0, 2, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  15
+      BLOCK A: 2 14
+      BLOCK B: 2 13
+    from nA nB 2 5
+15
+    decoding coeff token with nC  4
+    T1s,Tc, token: 3 8 01101
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    level_prefix: 0
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 8 16
+    find token, value: 001 7
+    ce_total_zeros,tzVlc,maxNumCoeff: 7 8 16
+    run_before, zero_left: 3 7
+    run_before, zero_left: 0 4
+    run_before, zero_left: 0 4
+    run_before, zero_left: 4 4
+    Decoded  Y LumaLevel4x4  :  [-1, 1, 2, -1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, -1, 0]
+  Start decoding block  0
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 2 2 001
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 4
+    find token, value: 01 1
+    ce_total_zeros,tzVlc,maxNumCoeff: 1 2 4
+    run_before, zero_left: 1 1
+    Decoded  Cb ChromaDCLevel  :  [-1, 0, -1, 0]
+  Start decoding block  1
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 2 2 001
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 4
+    find token, value: 01 1
+    ce_total_zeros,tzVlc,maxNumCoeff: 1 2 4
+    run_before, zero_left: 1 1
+    Decoded  Cr ChromaDCLevel  :  [1, 0, 1, 0]
+  MacroBlock  3  Decoding...
+  Start decoding block  4
+      BLOCK A: 3 1
+      BLOCK B: None None
+    decoding coeff token with nC  0
+    T1s,Tc, token: 1 1 01
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  5
+      BLOCK A: 3 4
+      BLOCK B: None None
+    decoding coeff token with nC  1
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  6
+      BLOCK A: 3 3
+      BLOCK B: 3 4
+    from nA nB 0 1
+14
+    decoding coeff token with nC  1
+    T1s,Tc, token: 3 8 0000000100
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    level_prefix: 3
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    level_prefix: 4
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 2 length: 2
+    level_prefix: 1
+    level_suffix: 3 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 8 16
+    find token, value: 11 4
+    ce_total_zeros,tzVlc,maxNumCoeff: 4 8 16
+    run_before, zero_left: 0 4
+    run_before, zero_left: 0 4
+    run_before, zero_left: 4 4
+    Decoded  Y LumaLevel4x4  :  [-4, 2, 5, -2, -2, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0]
+  Start decoding block  7
+      BLOCK A: 3 6
+      BLOCK B: 3 5
+    from nA nB 8 0
+14
+    decoding coeff token with nC  4
+    T1s,Tc, token: 3 4 1011
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    level_prefix: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 4 16
+    find token, value: 011 8
+    ce_total_zeros,tzVlc,maxNumCoeff: 8 4 16
+    run_before, zero_left: 0 8
+    run_before, zero_left: 0 8
+    run_before, zero_left: 8 8
+    Decoded  Y LumaLevel4x4  :  [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, -1, -1, 0, 0, 0, 0]
+  Start decoding block  8
+      BLOCK A: 2 13
+      BLOCK B: 3 2
+    from nA nB 5 0
+14
+    decoding coeff token with nC  3
+    T1s,Tc, token: 3 8 0000100
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 2
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 3
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 8 16
+    find token, value: 11 4
+    ce_total_zeros,tzVlc,maxNumCoeff: 4 8 16
+    run_before, zero_left: 0 4
+    run_before, zero_left: 1 4
+    run_before, zero_left: 3 3
+    Decoded  Y LumaLevel4x4  :  [-4, 1, 3, -1, -1, 0, 0, 0, -1, 0, 1, 1, 0, 0, 0, 0]
+  Start decoding block  9
+      BLOCK A: 3 8
+      BLOCK B: 3 3
+    from nA nB 8 0
+14
+    decoding coeff token with nC  4
+    T1s,Tc, token: 2 2 1101
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 16
+    find token, value: 110 1
+    ce_total_zeros,tzVlc,maxNumCoeff: 1 2 16
+    run_before, zero_left: 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  10
+      BLOCK A: 2 15
+      BLOCK B: 3 8
+    from nA nB 8 8
+14
+    decoding coeff token with nC  8
+    T1s,Tc, token: 3 9 100011
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    level_prefix: 1
+    level_prefix: 2
+    level_suffix: 0 length: 1
+    level_prefix: 2
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 9 16
+    find token, value: 11 3
+    ce_total_zeros,tzVlc,maxNumCoeff: 3 9 16
+    run_before, zero_left: 0 3
+    run_before, zero_left: 0 3
+    run_before, zero_left: 0 3
+    run_before, zero_left: 3 3
+    Decoded  Y LumaLevel4x4  :  [1, -1, -2, 3, 3, 0, 0, 0, -1, -1, -1, -1, 0, 0, 0, 0]
+  Start decoding block  11
+      BLOCK A: 3 10
+      BLOCK B: 3 9
+    from nA nB 9 2
+14
+    decoding coeff token with nC  6
+    T1s,Tc, token: 3 4 1011
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 3
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 4 16
+    find token, value: 0011 7
+    ce_total_zeros,tzVlc,maxNumCoeff: 7 4 16
+    run_before, zero_left: 1 7
+    run_before, zero_left: 4 6
+    run_before, zero_left: 0 2
+    Decoded  Y LumaLevel4x4  :  [0, 0, -2, -1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0]
+  Start decoding block  12
+      BLOCK A: 3 9
+      BLOCK B: 3 6
+    from nA nB 2 8
+14
+    decoding coeff token with nC  5
+    T1s,Tc, token: 2 7 001001
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 7 16
+    find token, value: 001 8
+    ce_total_zeros,tzVlc,maxNumCoeff: 8 7 16
+    run_before, zero_left: 4 8
+    run_before, zero_left: 0 4
+    run_before, zero_left: 0 4
+    run_before, zero_left: 2 4
+    run_before, zero_left: 0 2
+    run_before, zero_left: 1 2
+    Decoded  Y LumaLevel4x4  :  [0, -1, 0, 1, 1, 0, 0, -1, -2, -1, 0, 0, 0, 0, 1, 0]
+  Start decoding block  13
+      BLOCK A: 3 12
+      BLOCK B: 3 7
+    from nA nB 7 4
+14
+    decoding coeff token with nC  6
+    T1s,Tc, token: 1 6 001110
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 4
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 2 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 6 16
+    find token, value: 001 9
+    ce_total_zeros,tzVlc,maxNumCoeff: 9 6 16
+    run_before, zero_left: 5 9
+    run_before, zero_left: 0 4
+    run_before, zero_left: 3 4
+    run_before, zero_left: 0 1
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [2, 0, -5, 1, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, -1, 0]
+  Start decoding block  14
+      BLOCK A: 3 11
+      BLOCK B: 3 12
+    from nA nB 4 7
+14
+    decoding coeff token with nC  6
+    T1s,Tc, token: 0 0 1111
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  15
+      BLOCK A: 3 14
+      BLOCK B: 3 13
+    from nA nB 0 6
+14
+    decoding coeff token with nC  3
+    T1s,Tc, token: 0 0 11
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  MacroBlock  4  Decoding...
+  Start decoding block  0
+      BLOCK A: 3 5
+      BLOCK B: None None
+    decoding coeff token with nC  0
+    T1s,Tc, token: 3 7 000000100
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 3
+    level_prefix: 2
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 2
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 7 16
+    find token, value: 100 3
+    ce_total_zeros,tzVlc,maxNumCoeff: 3 7 16
+    run_before, zero_left: 0 3
+    run_before, zero_left: 3 3
+    Decoded  Y LumaLevel4x4  :  [-3, 2, 3, -2, -1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0]
+  Start decoding block  1
+      BLOCK A: 4 0
+      BLOCK B: None None
+    decoding coeff token with nC  7
+    T1s,Tc, token: 2 2 1101
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 16
+    find token, value: 100 3
+    ce_total_zeros,tzVlc,maxNumCoeff: 3 2 16
+    run_before, zero_left: 0 3
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  2
+      BLOCK A: 3 7
+      BLOCK B: 4 0
+    from nA nB 4 7
+15
+    decoding coeff token with nC  6
+    T1s,Tc, token: 3 6 1001
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 6 16
+    find token, value: 011 6
+    ce_total_zeros,tzVlc,maxNumCoeff: 6 6 16
+    run_before, zero_left: 0 6
+    run_before, zero_left: 0 6
+    run_before, zero_left: 0 6
+    run_before, zero_left: 5 6
+    run_before, zero_left: 0 1
+    Decoded  Y LumaLevel4x4  :  [0, -1, -1, 0, 0, 0, 0, 0, -1, -1, 1, 1, 0, 0, 0, 0]
+  Start decoding block  3
+      BLOCK A: 4 2
+      BLOCK B: 4 1
+    from nA nB 6 2
+15
+    decoding coeff token with nC  4
+    T1s,Tc, token: 2 8 0001101
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 2
+    level_suffix: 0 length: 1
+    level_prefix: 5
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 2
+    level_prefix: 0
+    level_suffix: 0 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 8 16
+    find token, value: 11 4
+    ce_total_zeros,tzVlc,maxNumCoeff: 4 8 16
+    run_before, zero_left: 0 4
+    run_before, zero_left: 1 4
+    run_before, zero_left: 3 3
+    Decoded  Y LumaLevel4x4  :  [1, -1, -6, 3, 2, 0, 0, 0, 2, 0, -1, -1, 0, 0, 0, 0]
+  Start decoding block  4
+      BLOCK A: 4 1
+      BLOCK B: None None
+    decoding coeff token with nC  2
+    T1s,Tc, token: 3 6 001000
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 2
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 2
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 6 16
+    find token, value: 011 6
+    ce_total_zeros,tzVlc,maxNumCoeff: 6 6 16
+    run_before, zero_left: 0 6
+    run_before, zero_left: 6 6
+    Decoded  Y LumaLevel4x4  :  [-3, 1, 2, -1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0]
+  Start decoding block  5
+      BLOCK A: 4 4
+      BLOCK B: None None
+    decoding coeff token with nC  6
+    T1s,Tc, token: 3 8 01101
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    level_prefix: 4
+    level_prefix: 3
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 3 length: 2
+    level_prefix: 0
+    level_suffix: 3 length: 2
+    level_prefix: 0
+    level_suffix: 2 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 8 16
+    find token, value: 10 5
+    ce_total_zeros,tzVlc,maxNumCoeff: 5 8 16
+    run_before, zero_left: 0 5
+    run_before, zero_left: 0 5
+    run_before, zero_left: 5 5
+    Decoded  Y LumaLevel4x4  :  [2, -2, -4, 4, 3, 0, 0, 0, 0, 0, -1, -1, 1, 0, 0, 0]
+  Start decoding block  6
+      BLOCK A: 4 3
+      BLOCK B: 4 4
+    from nA nB 8 6
+15
+    decoding coeff token with nC  7
+    T1s,Tc, token: 2 2 1101
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 16
+    find token, value: 0011 7
+    ce_total_zeros,tzVlc,maxNumCoeff: 7 2 16
+    run_before, zero_left: 4 7
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, -1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  7
+      BLOCK A: 4 6
+      BLOCK B: 4 5
+    from nA nB 2 8
+15
+    decoding coeff token with nC  5
+    T1s,Tc, token: 1 1 1110
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  8
+      BLOCK A: 3 13
+      BLOCK B: 4 2
+    from nA nB 6 6
+15
+    decoding coeff token with nC  6
+    T1s,Tc, token: 0 1 001111
+    level_prefix: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  9
+      BLOCK A: 4 8
+      BLOCK B: 4 3
+    from nA nB 1 8
+15
+    decoding coeff token with nC  5
+    T1s,Tc, token: 1 1 1110
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  10
+      BLOCK A: 3 15
+      BLOCK B: 4 8
+    from nA nB 0 1
+15
+    decoding coeff token with nC  1
+    T1s,Tc, token: 1 1 01
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  11
+      BLOCK A: 4 10
+      BLOCK B: 4 9
+    from nA nB 1 1
+15
+    decoding coeff token with nC  1
+    T1s,Tc, token: 1 1 01
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  12
+      BLOCK A: 4 9
+      BLOCK B: 4 6
+    from nA nB 1 2
+15
+    decoding coeff token with nC  2
+    T1s,Tc, token: 0 0 11
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  13
+      BLOCK A: 4 12
+      BLOCK B: 4 7
+    from nA nB 0 1
+15
+    decoding coeff token with nC  1
+    T1s,Tc, token: 1 1 01
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  14
+      BLOCK A: 4 11
+      BLOCK B: 4 12
+    from nA nB 1 0
+15
+    decoding coeff token with nC  1
+    T1s,Tc, token: 1 1 01
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  15
+      BLOCK A: 4 14
+      BLOCK B: 4 13
+    from nA nB 1 1
+15
+    decoding coeff token with nC  1
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  0
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 2 3 0000010
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 3 4
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 3 4
+    Decoded  Cb ChromaDCLevel  :  [2, -1, -1, 0]
+  Start decoding block  1
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 1 1 1
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 4
+    find token, value: 001 2
+    ce_total_zeros,tzVlc,maxNumCoeff: 2 1 4
+    Decoded  Cr ChromaDCLevel  :  [0, 0, 1, 0]
+  MacroBlock  5  Decoding...
+  Start decoding block  0
+      BLOCK A: 4 5
+      BLOCK B: None None
+    decoding coeff token with nC  8
+    T1s,Tc, token: 3 4 001111
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 4 16
+    find token, value: 011 8
+    ce_total_zeros,tzVlc,maxNumCoeff: 8 4 16
+    run_before, zero_left: 0 8
+    run_before, zero_left: 5 8
+    run_before, zero_left: 0 3
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, -1, -1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0]
+  Start decoding block  1
+      BLOCK A: 5 0
+      BLOCK B: None None
+    decoding coeff token with nC  4
+    T1s,Tc, token: 0 1 001111
+    level_prefix: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  2
+      BLOCK A: 4 7
+      BLOCK B: 5 0
+    from nA nB 1 4
+3
+    decoding coeff token with nC  3
+    T1s,Tc, token: 3 4 0100
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 4 16
+    find token, value: 101 5
+    ce_total_zeros,tzVlc,maxNumCoeff: 5 4 16
+    run_before, zero_left: 4 5
+    run_before, zero_left: 0 1
+    run_before, zero_left: 0 1
+    Decoded  Y LumaLevel4x4  :  [0, -1, -1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  3
+      BLOCK A: 5 2
+      BLOCK B: 5 1
+    from nA nB 4 1
+3
+    decoding coeff token with nC  3
+    T1s,Tc, token: 0 0 11
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  4
+      BLOCK A: 5 1
+      BLOCK B: None None
+    decoding coeff token with nC  1
+    T1s,Tc, token: 1 1 01
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 011 1
+    ce_total_zeros,tzVlc,maxNumCoeff: 1 1 16
+    Decoded  Y LumaLevel4x4  :  [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  5
+      BLOCK A: 5 4
+      BLOCK B: None None
+    decoding coeff token with nC  1
+    T1s,Tc, token: 2 2 001
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 16
+    find token, value: 0100 6
+    ce_total_zeros,tzVlc,maxNumCoeff: 6 2 16
+    run_before, zero_left: 1 6
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, -1, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  6
+      BLOCK A: 5 3
+      BLOCK B: 5 4
+    from nA nB 0 1
+3
+    decoding coeff token with nC  1
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  7
+      BLOCK A: 5 6
+      BLOCK B: 5 5
+    from nA nB 0 2
+3
+    decoding coeff token with nC  1
+    T1s,Tc, token: 2 2 001
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 16
+    find token, value: 110 1
+    ce_total_zeros,tzVlc,maxNumCoeff: 1 2 16
+    run_before, zero_left: 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  0
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 1 1 1
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 4
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 4
+    Decoded  Cb ChromaDCLevel  :  [1, 0, 0, 0]
+  Start decoding block  1
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 1 1 1
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 4
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 4
+    Decoded  Cr ChromaDCLevel  :  [-1, 0, 0, 0]
+  Start decoding block  0
+      C-BLOCK A: 4 1
+      C-BLOCK B: None None
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Cb ChromaACLevel  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  1
+      C-BLOCK A: 5 0
+      C-BLOCK B: None None
+    decoding coeff token with nC  0
+    T1s,Tc, token: 1 1 01
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 15
+    find token, value: 011 1
+    ce_total_zeros,tzVlc,maxNumCoeff: 1 1 15
+    Decoded  Cb ChromaACLevel  :  [0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  2
+      C-BLOCK A: 4 3
+      C-BLOCK B: 5 0
+    from nA nB 0 0
+3
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Cb ChromaACLevel  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  3
+      C-BLOCK A: 5 2
+      C-BLOCK B: 5 1
+    from nA nB 0 1
+3
+    decoding coeff token with nC  1
+    T1s,Tc, token: 0 0 1
+    Decoded  Cb ChromaACLevel  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  0
+      C-BLOCK A: 4 1
+      C-BLOCK B: None None
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Cr ChromaACLevel  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  1
+      C-BLOCK A: 5 0
+      C-BLOCK B: None None
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Cr ChromaACLevel  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  2
+      C-BLOCK A: 4 3
+      C-BLOCK B: 5 0
+    from nA nB 0 0
+3
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Cr ChromaACLevel  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  3
+      C-BLOCK A: 5 2
+      C-BLOCK B: 5 1
+    from nA nB 0 0
+3
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Cr ChromaACLevel  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  MacroBlock  6  Decoding...
+  Start decoding block  0
+      BLOCK A: 5 5
+      BLOCK B: None None
+    decoding coeff token with nC  2
+    T1s,Tc, token: 0 0 11
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  1
+      BLOCK A: 6 0
+      BLOCK B: None None
+    decoding coeff token with nC  0
+    T1s,Tc, token: 3 8 0000000100
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 3
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 3 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 8 16
+    find token, value: 0001 1
+    ce_total_zeros,tzVlc,maxNumCoeff: 1 8 16
+    run_before, zero_left: 0 1
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [-4, 4, -1, -1, 1, -1, 0, -1, 1, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  2
+      BLOCK A: 5 7
+      BLOCK B: 6 0
+    from nA nB 2 0
+11
+    decoding coeff token with nC  1
+    T1s,Tc, token: 1 1 01
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 010 2
+    ce_total_zeros,tzVlc,maxNumCoeff: 2 1 16
+    Decoded  Y LumaLevel4x4  :  [0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  3
+      BLOCK A: 6 2
+      BLOCK B: 6 1
+    from nA nB 1 8
+11
+    decoding coeff token with nC  5
+    T1s,Tc, token: 0 0 1111
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  4
+      BLOCK A: 6 1
+      BLOCK B: None None
+    decoding coeff token with nC  8
+    T1s,Tc, token: 3 9 100011
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 3
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 9 16
+    find token, value: 11 3
+    ce_total_zeros,tzVlc,maxNumCoeff: 3 9 16
+    run_before, zero_left: 2 3
+    run_before, zero_left: 0 1
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [-4, 1, -1, 1, -1, 1, 0, -1, 1, 0, 0, 1, 0, 0, 0, 0]
+  Start decoding block  5
+      BLOCK A: 6 4
+      BLOCK B: None None
+    decoding coeff token with nC  9
+    T1s,Tc, token: 0 5 010000
+    level_prefix: 0
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    level_prefix: 3
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 3 length: 2
+    level_prefix: 2
+    level_suffix: 0 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 5 16
+    find token, value: 110 4
+    ce_total_zeros,tzVlc,maxNumCoeff: 4 5 16
+    run_before, zero_left: 0 4
+    run_before, zero_left: 4 4
+    Decoded  Y LumaLevel4x4  :  [5, -4, 4, 0, 0, 0, 0, -2, 2, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  6
+      BLOCK A: 6 3
+      BLOCK B: 6 4
+    from nA nB 0 9
+11
+    decoding coeff token with nC  5
+    T1s,Tc, token: 3 6 1001
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    level_prefix: 2
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 3
+    level_suffix: 0 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 6 16
+    find token, value: 110 3
+    ce_total_zeros,tzVlc,maxNumCoeff: 3 6 16
+    run_before, zero_left: 0 3
+    run_before, zero_left: 1 3
+    run_before, zero_left: 0 2
+    run_before, zero_left: 0 2
+    run_before, zero_left: 2 2
+    Decoded  Y LumaLevel4x4  :  [4, 0, 0, -1, 2, -1, 0, -1, 1, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  7
+      BLOCK A: 6 6
+      BLOCK B: 6 5
+    from nA nB 6 5
+11
+    decoding coeff token with nC  6
+    T1s,Tc, token: 2 2 1101
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 16
+    find token, value: 0011 7
+    ce_total_zeros,tzVlc,maxNumCoeff: 7 2 16
+    run_before, zero_left: 0 7
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, -1, 1, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  12
+      BLOCK A: 6 9
+      BLOCK B: 6 6
+    from nA nB 0 6
+11
+    decoding coeff token with nC  3
+    T1s,Tc, token: 1 1 10
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  13
+      BLOCK A: 6 12
+      BLOCK B: 6 7
+    from nA nB 1 2
+11
+    decoding coeff token with nC  2
+    T1s,Tc, token: 2 2 011
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 16
+    find token, value: 101 2
+    ce_total_zeros,tzVlc,maxNumCoeff: 2 2 16
+    run_before, zero_left: 0 2
+    Decoded  Y LumaLevel4x4  :  [0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  14
+      BLOCK A: 6 11
+      BLOCK B: 6 12
+    from nA nB 0 1
+11
+    decoding coeff token with nC  1
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  15
+      BLOCK A: 6 14
+      BLOCK B: 6 13
+    from nA nB 0 2
+11
+    decoding coeff token with nC  1
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  0
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 1 2 000110
+    trailing_ones_sign_flag: 0
+    level_prefix: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 4
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 2 4
+    Decoded  Cb ChromaDCLevel  :  [-2, 1, 0, 0]
+  Start decoding block  1
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 0 0 01
+    Decoded  Cr ChromaDCLevel  :  [0, 0, 0, 0]
+  MacroBlock  7  Decoding...
+  Start decoding block  0
+      BLOCK A: 6 5
+      BLOCK B: None None
+    decoding coeff token with nC  5
+    T1s,Tc, token: 1 2 01111
+    trailing_ones_sign_flag: 1
+    level_prefix: 4
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 16
+    find token, value: 111 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 2 16
+    Decoded  Y LumaLevel4x4  :  [4, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  1
+      BLOCK A: 7 0
+      BLOCK B: None None
+    decoding coeff token with nC  2
+    T1s,Tc, token: 1 1 10
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  2
+      BLOCK A: 6 7
+      BLOCK B: 7 0
+    from nA nB 2 2
+15
+    decoding coeff token with nC  2
+    T1s,Tc, token: 0 0 11
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  3
+      BLOCK A: 7 2
+      BLOCK B: 7 1
+    from nA nB 0 1
+15
+    decoding coeff token with nC  1
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  4
+      BLOCK A: 7 1
+      BLOCK B: None None
+    decoding coeff token with nC  1
+    T1s,Tc, token: 1 1 01
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  5
+      BLOCK A: 7 4
+      BLOCK B: None None
+    decoding coeff token with nC  1
+    T1s,Tc, token: 1 1 01
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  6
+      BLOCK A: 7 3
+      BLOCK B: 7 4
+    from nA nB 0 1
+15
+    decoding coeff token with nC  1
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  7
+      BLOCK A: 7 6
+      BLOCK B: 7 5
+    from nA nB 0 1
+15
+    decoding coeff token with nC  1
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  8
+      BLOCK A: 6 13
+      BLOCK B: 7 2
+    from nA nB 2 0
+15
+    decoding coeff token with nC  1
+    T1s,Tc, token: 2 6 0000000101
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 6 16
+    find token, value: 001 9
+    ce_total_zeros,tzVlc,maxNumCoeff: 9 6 16
+    run_before, zero_left: 0 9
+    run_before, zero_left: 4 9
+    run_before, zero_left: 0 5
+    run_before, zero_left: 2 5
+    run_before, zero_left: 3 3
+    Decoded  Y LumaLevel4x4  :  [-2, 0, 0, 0, -1, 0, 0, -2, 2, 0, 0, 0, 0, -1, 1, 0]
+  Start decoding block  9
+      BLOCK A: 7 8
+      BLOCK B: 7 3
+    from nA nB 6 0
+15
+    decoding coeff token with nC  3
+    T1s,Tc, token: 1 1 10
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  10
+      BLOCK A: 6 15
+      BLOCK B: 7 8
+    from nA nB 0 6
+15
+    decoding coeff token with nC  3
+    T1s,Tc, token: 2 2 011
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 16
+    find token, value: 0011 7
+    ce_total_zeros,tzVlc,maxNumCoeff: 7 2 16
+    run_before, zero_left: 0 7
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, -1, 1, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  11
+      BLOCK A: 7 10
+      BLOCK B: 7 9
+    from nA nB 2 1
+15
+    decoding coeff token with nC  2
+    T1s,Tc, token: 3 4 0100
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 4 16
+    find token, value: 011 8
+    ce_total_zeros,tzVlc,maxNumCoeff: 8 4 16
+    run_before, zero_left: 2 8
+    run_before, zero_left: 0 6
+    run_before, zero_left: 6 6
+    Decoded  Y LumaLevel4x4  :  [1, 0, 0, 0, 0, 0, 0, -1, 1, 0, 0, -1, 0, 0, 0, 0]
+  Start decoding block  12
+      BLOCK A: 7 9
+      BLOCK B: 7 6
+    from nA nB 1 0
+15
+    decoding coeff token with nC  1
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  13
+      BLOCK A: 7 12
+      BLOCK B: 7 7
+    from nA nB 0 0
+15
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  14
+      BLOCK A: 7 11
+      BLOCK B: 7 12
+    from nA nB 4 0
+15
+    decoding coeff token with nC  2
+    T1s,Tc, token: 3 5 00110
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 5 16
+    find token, value: 011 7
+    ce_total_zeros,tzVlc,maxNumCoeff: 7 5 16
+    run_before, zero_left: 2 7
+    run_before, zero_left: 3 5
+    run_before, zero_left: 1 2
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [-1, 0, 1, 0, -1, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0]
+  Start decoding block  15
+      BLOCK A: 7 14
+      BLOCK B: 7 13
+    from nA nB 5 0
+15
+    decoding coeff token with nC  3
+    T1s,Tc, token: 0 0 11
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  0
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 1 1 1
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 4
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 4
+    Decoded  Cb ChromaDCLevel  :  [-1, 0, 0, 0]
+  Start decoding block  1
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 2 2 001
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 4
+    find token, value: 01 1
+    ce_total_zeros,tzVlc,maxNumCoeff: 1 2 4
+    run_before, zero_left: 1 1
+    Decoded  Cr ChromaDCLevel  :  [1, 0, -1, 0]
+  MacroBlock  8  Decoding...
+  Start decoding block  0
+      BLOCK A: 7 5
+      BLOCK B: None None
+    decoding coeff token with nC  1
+    T1s,Tc, token: 1 9 00000000001110
+    trailing_ones_sign_flag: 1
+    level_prefix: 1
+    level_prefix: 2
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 3
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 2
+    level_prefix: 0
+    level_suffix: 1 length: 2
+    level_prefix: 0
+    level_suffix: 2 length: 2
+    level_prefix: 4
+    level_suffix: 1 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 9 16
+    find token, value: 11 3
+    ce_total_zeros,tzVlc,maxNumCoeff: 3 9 16
+    run_before, zero_left: 2 3
+    run_before, zero_left: 0 1
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [-9, 2, -1, 1, -4, 1, 0, 3, -2, 0, 0, -1, 0, 0, 0, 0]
+  Start decoding block  1
+      BLOCK A: 8 0
+      BLOCK B: None None
+    decoding coeff token with nC  9
+    T1s,Tc, token: 3 8 011111
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 4
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 2
+    level_suffix: 1 length: 1
+    level_prefix: 9
+    level_suffix: 0 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 8 16
+    find token, value: 0001 1
+    ce_total_zeros,tzVlc,maxNumCoeff: 1 8 16
+    run_before, zero_left: 0 1
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [10, -3, 2, -1, 3, -1, 0, 1, -1, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  2
+      BLOCK A: 7 7
+      BLOCK B: 8 0
+    from nA nB 0 9
+15
+    decoding coeff token with nC  5
+    T1s,Tc, token: 2 2 1101
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 16
+    find token, value: 0011 7
+    ce_total_zeros,tzVlc,maxNumCoeff: 7 2 16
+    run_before, zero_left: 6 7
+    Decoded  Y LumaLevel4x4  :  [0, -1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  3
+      BLOCK A: 8 2
+      BLOCK B: 8 1
+    from nA nB 2 8
+15
+    decoding coeff token with nC  5
+    T1s,Tc, token: 3 5 1010
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 5 16
+    find token, value: 011 7
+    ce_total_zeros,tzVlc,maxNumCoeff: 7 5 16
+    run_before, zero_left: 2 7
+    run_before, zero_left: 3 5
+    run_before, zero_left: 1 2
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [-2, 0, 1, 0, -1, 0, 0, 0, -1, 0, 0, -1, 0, 0, 0, 0]
+  Start decoding block  4
+      BLOCK A: 8 1
+      BLOCK B: None None
+    decoding coeff token with nC  8
+    T1s,Tc, token: 0 0 000011
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  5
+      BLOCK A: 8 4
+      BLOCK B: None None
+    decoding coeff token with nC  0
+    T1s,Tc, token: 1 1 01
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  6
+      BLOCK A: 8 3
+      BLOCK B: 8 4
+    from nA nB 5 0
+15
+    decoding coeff token with nC  3
+    T1s,Tc, token: 3 3 0101
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 3 16
+    find token, value: 00011 9
+    ce_total_zeros,tzVlc,maxNumCoeff: 9 3 16
+    run_before, zero_left: 2 9
+    run_before, zero_left: 0 7
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 1, -1, 0, 0, -1, 0, 0, 0, 0]
+  Start decoding block  7
+      BLOCK A: 8 6
+      BLOCK B: 8 5
+    from nA nB 3 1
+15
+    decoding coeff token with nC  2
+    T1s,Tc, token: 1 1 10
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  8
+      BLOCK A: 7 13
+      BLOCK B: 8 2
+    from nA nB 0 2
+15
+    decoding coeff token with nC  1
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  9
+      BLOCK A: 8 8
+      BLOCK B: 8 3
+    from nA nB 0 5
+15
+    decoding coeff token with nC  3
+    T1s,Tc, token: 1 1 10
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  10
+      BLOCK A: 7 15
+      BLOCK B: 8 8
+    from nA nB 0 0
+15
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  11
+      BLOCK A: 8 10
+      BLOCK B: 8 9
+    from nA nB 0 1
+15
+    decoding coeff token with nC  1
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  12
+      BLOCK A: 8 9
+      BLOCK B: 8 6
+    from nA nB 1 3
+15
+    decoding coeff token with nC  2
+    T1s,Tc, token: 3 4 0100
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    level_prefix: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 4 16
+    find token, value: 011 8
+    ce_total_zeros,tzVlc,maxNumCoeff: 8 4 16
+    run_before, zero_left: 6 8
+    run_before, zero_left: 1 2
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [1, 0, 1, 0, -1, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0]
+  Start decoding block  13
+      BLOCK A: 8 12
+      BLOCK B: 8 7
+    from nA nB 4 1
+15
+    decoding coeff token with nC  3
+    T1s,Tc, token: 1 1 10
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  14
+      BLOCK A: 8 11
+      BLOCK B: 8 12
+    from nA nB 0 4
+15
+    decoding coeff token with nC  2
+    T1s,Tc, token: 1 1 10
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 0010 4
+    ce_total_zeros,tzVlc,maxNumCoeff: 4 1 16
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  15
+      BLOCK A: 8 14
+      BLOCK B: 8 13
+    from nA nB 1 1
+15
+    decoding coeff token with nC  1
+    T1s,Tc, token: 3 5 0000100
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    level_prefix: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 5 16
+    find token, value: 011 7
+    ce_total_zeros,tzVlc,maxNumCoeff: 7 5 16
+    run_before, zero_left: 6 7
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [-1, -1, 1, 0, -1, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0]
+  Start decoding block  0
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 1 1 1
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 4
+    find token, value: 001 2
+    ce_total_zeros,tzVlc,maxNumCoeff: 2 1 4
+    Decoded  Cb ChromaDCLevel  :  [0, 0, 1, 0]
+  Start decoding block  1
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 0 0 01
+    Decoded  Cr ChromaDCLevel  :  [0, 0, 0, 0]
+  MacroBlock  9  Decoding...
+  Start decoding block  0
+      BLOCK A: 8 5
+      BLOCK B: None None
+    decoding coeff token with nC  1
+    T1s,Tc, token: 1 8 0000000001010
+    trailing_ones_sign_flag: 0
+    level_prefix: 3
+    level_prefix: 2
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 3
+    level_suffix: 1 length: 1
+    level_prefix: 1
+    level_suffix: 2 length: 2
+    level_prefix: 4
+    level_suffix: 3 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 8 16
+    find token, value: 11 4
+    ce_total_zeros,tzVlc,maxNumCoeff: 4 8 16
+    run_before, zero_left: 2 4
+    run_before, zero_left: 0 2
+    run_before, zero_left: 1 2
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [-10, 4, -4, 1, 0, 1, 0, 3, -3, 0, 0, 1, 0, 0, 0, 0]
+  Start decoding block  1
+      BLOCK A: 9 0
+      BLOCK B: None None
+    decoding coeff token with nC  8
+    T1s,Tc, token: 3 8 011111
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 2
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 2
+    level_suffix: 0 length: 1
+    level_prefix: 3
+    level_suffix: 1 length: 1
+    level_prefix: 3
+    level_suffix: 2 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 8 16
+    find token, value: 010 6
+    ce_total_zeros,tzVlc,maxNumCoeff: 6 8 16
+    run_before, zero_left: 4 6
+    run_before, zero_left: 2 2
+    Decoded  Y LumaLevel4x4  :  [8, -4, 3, -1, 2, -1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0]
+  Start decoding block  2
+      BLOCK A: 8 7
+      BLOCK B: 9 0
+    from nA nB 1 8
+15
+    decoding coeff token with nC  5
+    T1s,Tc, token: 1 1 1110
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  3
+      BLOCK A: 9 2
+      BLOCK B: 9 1
+    from nA nB 1 8
+15
+    decoding coeff token with nC  5
+    T1s,Tc, token: 2 7 001001
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 7 16
+    find token, value: 0001 7
+    ce_total_zeros,tzVlc,maxNumCoeff: 7 7 16
+    run_before, zero_left: 4 7
+    run_before, zero_left: 0 3
+    run_before, zero_left: 2 3
+    run_before, zero_left: 0 1
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [-2, 1, 0, 1, -1, 0, 0, 2, -1, 0, 0, 0, 0, 1, 0, 0]
+  Start decoding block  4
+      BLOCK A: 9 1
+      BLOCK B: None None
+    decoding coeff token with nC  8
+    T1s,Tc, token: 0 0 000011
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  5
+      BLOCK A: 9 4
+      BLOCK B: None None
+    decoding coeff token with nC  0
+    T1s,Tc, token: 3 8 0000000100
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 3
+    level_prefix: 2
+    level_suffix: 0 length: 1
+    level_prefix: 3
+    level_suffix: 1 length: 1
+    level_prefix: 1
+    level_suffix: 2 length: 2
+    level_prefix: 1
+    level_suffix: 1 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 8 16
+    find token, value: 010 6
+    ce_total_zeros,tzVlc,maxNumCoeff: 6 8 16
+    run_before, zero_left: 1 6
+    run_before, zero_left: 3 5
+    run_before, zero_left: 1 2
+    run_before, zero_left: 0 1
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [-3, 4, -4, 0, 3, -2, 0, -1, 0, 0, 0, 1, 0, -1, 0, 0]
+  Start decoding block  6
+      BLOCK A: 9 3
+      BLOCK B: 9 4
+    from nA nB 7 0
+15
+    decoding coeff token with nC  4
+    T1s,Tc, token: 3 3 1100
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 3 16
+    find token, value: 110 2
+    ce_total_zeros,tzVlc,maxNumCoeff: 2 3 16
+    run_before, zero_left: 1 2
+    run_before, zero_left: 0 1
+    Decoded  Y LumaLevel4x4  :  [0, -1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  7
+      BLOCK A: 9 6
+      BLOCK B: 9 5
+    from nA nB 3 8
+15
+    decoding coeff token with nC  6
+    T1s,Tc, token: 1 1 1110
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  8
+      BLOCK A: 8 13
+      BLOCK B: 9 2
+    from nA nB 1 1
+15
+    decoding coeff token with nC  1
+    T1s,Tc, token: 1 1 01
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  9
+      BLOCK A: 9 8
+      BLOCK B: 9 3
+    from nA nB 1 7
+15
+    decoding coeff token with nC  4
+    T1s,Tc, token: 0 0 1111
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  10
+      BLOCK A: 8 15
+      BLOCK B: 9 8
+    from nA nB 5 1
+15
+    decoding coeff token with nC  3
+    T1s,Tc, token: 3 4 0100
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 4 16
+    find token, value: 011 8
+    ce_total_zeros,tzVlc,maxNumCoeff: 8 4 16
+    run_before, zero_left: 6 8
+    run_before, zero_left: 0 2
+    run_before, zero_left: 1 2
+    Decoded  Y LumaLevel4x4  :  [0, 1, 0, -1, -1, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0]
+  Start decoding block  11
+      BLOCK A: 9 10
+      BLOCK B: 9 9
+    from nA nB 4 0
+15
+    decoding coeff token with nC  2
+    T1s,Tc, token: 0 0 11
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  12
+      BLOCK A: 9 9
+      BLOCK B: 9 6
+    from nA nB 0 3
+15
+    decoding coeff token with nC  2
+    T1s,Tc, token: 3 5 00110
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 5 16
+    find token, value: 011 7
+    ce_total_zeros,tzVlc,maxNumCoeff: 7 5 16
+    run_before, zero_left: 5 7
+    run_before, zero_left: 0 2
+    run_before, zero_left: 1 2
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [-2, 0, 1, 0, -1, 1, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0]
+  Start decoding block  13
+      BLOCK A: 9 12
+      BLOCK B: 9 7
+    from nA nB 5 1
+15
+    decoding coeff token with nC  3
+    T1s,Tc, token: 0 0 11
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  14
+      BLOCK A: 9 11
+      BLOCK B: 9 12
+    from nA nB 0 5
+15
+    decoding coeff token with nC  3
+    T1s,Tc, token: 0 0 11
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  15
+      BLOCK A: 9 14
+      BLOCK B: 9 13
+    from nA nB 0 0
+15
+    decoding coeff token with nC  0
+    T1s,Tc, token: 1 5 0000000110
+    trailing_ones_sign_flag: 0
+    level_prefix: 1
+    level_prefix: 2
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 5 16
+    find token, value: 0010 8
+    ce_total_zeros,tzVlc,maxNumCoeff: 8 5 16
+    run_before, zero_left: 0 8
+    run_before, zero_left: 6 8
+    run_before, zero_left: 2 2
+    Decoded  Y LumaLevel4x4  :  [-1, 1, 0, 0, -3, 0, 0, 0, 0, 0, 0, -2, 1, 0, 0, 0]
+  MacroBlock  10  Decoding...
+  Start decoding block  0
+      BLOCK A: 9 5
+      BLOCK B: None None
+    decoding coeff token with nC  8
+    T1s,Tc, token: 1 8 011101
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 2
+    level_suffix: 0 length: 1
+    level_prefix: 2
+    level_suffix: 1 length: 1
+    level_prefix: 2
+    level_suffix: 0 length: 1
+    level_prefix: 4
+    level_suffix: 1 length: 1
+    level_prefix: 1
+    level_suffix: 2 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 8 16
+    find token, value: 10 5
+    ce_total_zeros,tzVlc,maxNumCoeff: 5 8 16
+    run_before, zero_left: 0 5
+    run_before, zero_left: 0 5
+    run_before, zero_left: 1 5
+    run_before, zero_left: 0 4
+    run_before, zero_left: 4 4
+    Decoded  Y LumaLevel4x4  :  [4, -5, 3, 0, 0, 0, 0, -3, 3, 0, -1, 2, -1, 0, 0, 0]
+  Start decoding block  1
+      BLOCK A: 10 0
+      BLOCK B: None None
+    decoding coeff token with nC  8
+    T1s,Tc, token: 3 3 001011
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 3 16
+    find token, value: 101 3
+    ce_total_zeros,tzVlc,maxNumCoeff: 3 3 16
+    run_before, zero_left: 2 3
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [-1, 0, -1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  2
+      BLOCK A: 9 7
+      BLOCK B: 10 0
+    from nA nB 1 8
+15
+    decoding coeff token with nC  5
+    T1s,Tc, token: 3 7 1000
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 7 16
+    find token, value: 010 6
+    ce_total_zeros,tzVlc,maxNumCoeff: 6 7 16
+    run_before, zero_left: 0 6
+    run_before, zero_left: 2 6
+    run_before, zero_left: 0 4
+    run_before, zero_left: 3 4
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [-2, 2, 0, 1, 0, 0, 0, 1, -1, 0, 0, 1, -1, 0, 0, 0]
+  Start decoding block  3
+      BLOCK A: 10 2
+      BLOCK B: 10 1
+    from nA nB 7 3
+15
+    decoding coeff token with nC  5
+    T1s,Tc, token: 3 8 01101
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 8 16
+    find token, value: 010 6
+    ce_total_zeros,tzVlc,maxNumCoeff: 6 8 16
+    run_before, zero_left: 1 6
+    run_before, zero_left: 2 5
+    run_before, zero_left: 0 3
+    run_before, zero_left: 1 3
+    run_before, zero_left: 0 2
+    run_before, zero_left: 2 2
+    Decoded  Y LumaLevel4x4  :  [2, -1, 0, 0, 2, -1, 0, 1, -1, 0, 0, 1, 0, 1, 0, 0]
+  Start decoding block  4
+      BLOCK A: 10 1
+      BLOCK B: None None
+    decoding coeff token with nC  3
+    T1s,Tc, token: 2 9 00000001001
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    level_prefix: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    level_prefix: 5
+    level_suffix: 0 length: 1
+    level_prefix: 4
+    level_suffix: 1 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 9 16
+    find token, value: 10 4
+    ce_total_zeros,tzVlc,maxNumCoeff: 4 9 16
+    run_before, zero_left: 0 4
+    run_before, zero_left: 2 4
+    run_before, zero_left: 0 2
+    run_before, zero_left: 1 2
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [-9, 6, -2, 1, 0, 1, 0, 2, -2, 0, 0, 1, -1, 0, 0, 0]
+  Start decoding block  5
+      BLOCK A: 10 4
+      BLOCK B: None None
+    decoding coeff token with nC  9
+    T1s,Tc, token: 3 10 100111
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    level_prefix: 0
+    level_prefix: 2
+    level_suffix: 1 length: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 2
+    level_suffix: 0 length: 1
+    level_prefix: 3
+    level_suffix: 1 length: 1
+    level_prefix: 4
+    level_suffix: 2 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 10 16
+    find token, value: 01 5
+    ce_total_zeros,tzVlc,maxNumCoeff: 5 10 16
+    run_before, zero_left: 0 5
+    run_before, zero_left: 1 5
+    run_before, zero_left: 4 4
+    Decoded  Y LumaLevel4x4  :  [10, -4, 3, -1, 2, -3, 1, 0, 0, 0, 0, 1, 0, 1, -1, 0]
+  Start decoding block  6
+      BLOCK A: 10 3
+      BLOCK B: 10 4
+    from nA nB 8 9
+15
+    decoding coeff token with nC  9
+    T1s,Tc, token: 2 2 000110
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 16
+    find token, value: 111 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 2 16
+    Decoded  Y LumaLevel4x4  :  [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  7
+      BLOCK A: 10 6
+      BLOCK B: 10 5
+    from nA nB 2 10
+15
+    decoding coeff token with nC  6
+    T1s,Tc, token: 3 5 1010
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    level_prefix: 2
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 5 16
+    find token, value: 00001 9
+    ce_total_zeros,tzVlc,maxNumCoeff: 9 5 16
+    run_before, zero_left: 5 9
+    run_before, zero_left: 2 4
+    run_before, zero_left: 2 2
+    Decoded  Y LumaLevel4x4  :  [-3, 1, 0, 0, -1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0]
+  Start decoding block  8
+      BLOCK A: 9 13
+      BLOCK B: 10 2
+    from nA nB 0 7
+15
+    decoding coeff token with nC  4
+    T1s,Tc, token: 0 0 1111
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  9
+      BLOCK A: 10 8
+      BLOCK B: 10 3
+    from nA nB 0 8
+15
+    decoding coeff token with nC  4
+    T1s,Tc, token: 2 6 001101
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 6 16
+    find token, value: 0001 8
+    ce_total_zeros,tzVlc,maxNumCoeff: 8 6 16
+    run_before, zero_left: 4 8
+    run_before, zero_left: 0 4
+    run_before, zero_left: 2 4
+    run_before, zero_left: 2 2
+    Decoded  Y LumaLevel4x4  :  [-1, 2, 0, 0, -1, 0, 0, 2, -1, 0, 0, 0, 0, 1, 0, 0]
+  Start decoding block  10
+      BLOCK A: 9 15
+      BLOCK B: 10 8
+    from nA nB 5 0
+15
+    decoding coeff token with nC  3
+    T1s,Tc, token: 2 2 011
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 16
+    find token, value: 011 4
+    ce_total_zeros,tzVlc,maxNumCoeff: 4 2 16
+    run_before, zero_left: 3 4
+    Decoded  Y LumaLevel4x4  :  [0, -1, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  11
+      BLOCK A: 10 10
+      BLOCK B: 10 9
+    from nA nB 2 6
+15
+    decoding coeff token with nC  4
+    T1s,Tc, token: 0 0 1111
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  12
+      BLOCK A: 10 9
+      BLOCK B: 10 6
+    from nA nB 6 2
+15
+    decoding coeff token with nC  4
+    T1s,Tc, token: 3 5 1010
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    level_prefix: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 5 16
+    find token, value: 111 3
+    ce_total_zeros,tzVlc,maxNumCoeff: 3 5 16
+    run_before, zero_left: 1 3
+    run_before, zero_left: 0 2
+    run_before, zero_left: 1 2
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [1, 0, -1, 0, 1, -1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  13
+      BLOCK A: 10 12
+      BLOCK B: 10 7
+    from nA nB 5 5
+15
+    decoding coeff token with nC  5
+    T1s,Tc, token: 1 1 1110
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 0010 4
+    ce_total_zeros,tzVlc,maxNumCoeff: 4 1 16
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  14
+      BLOCK A: 10 11
+      BLOCK B: 10 12
+    from nA nB 0 5
+15
+    decoding coeff token with nC  3
+    T1s,Tc, token: 2 6 00000101
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    level_prefix: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 2
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 6 16
+    find token, value: 0001 8
+    ce_total_zeros,tzVlc,maxNumCoeff: 8 6 16
+    run_before, zero_left: 0 8
+    run_before, zero_left: 0 8
+    run_before, zero_left: 3 8
+    run_before, zero_left: 1 5
+    run_before, zero_left: 0 4
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, -3, 1, 0, 1, 0, 0, 0, -2, 1, 1, 0, 0]
+  Start decoding block  15
+      BLOCK A: 10 14
+      BLOCK B: 10 13
+    from nA nB 6 1
+15
+    decoding coeff token with nC  4
+    T1s,Tc, token: 3 6 1001
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    level_prefix: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 6 16
+    find token, value: 011 6
+    ce_total_zeros,tzVlc,maxNumCoeff: 6 6 16
+    run_before, zero_left: 2 6
+    run_before, zero_left: 1 4
+    run_before, zero_left: 0 3
+    run_before, zero_left: 2 3
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [-2, 0, 2, 0, 0, -1, 1, 0, -1, 0, 0, -1, 0, 0, 0, 0]
+  Start decoding block  0
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 1 1 1
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 4
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 4
+    Decoded  Cb ChromaDCLevel  :  [-1, 0, 0, 0]
+  Start decoding block  1
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 1 1 1
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 4
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 4
+    Decoded  Cr ChromaDCLevel  :  [1, 0, 0, 0]
+  MacroBlock  11  Decoding...
+  Start decoding block  0
+      BLOCK A: None None
+      BLOCK B: 0 10
+    decoding coeff token with nC  8
+    T1s,Tc, token: 2 8 011110
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    level_prefix: 0
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 3
+    level_suffix: 1 length: 1
+    level_prefix: 1
+    level_suffix: 0 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 8 16
+    find token, value: 0001 1
+    ce_total_zeros,tzVlc,maxNumCoeff: 1 8 16
+    run_before, zero_left: 0 1
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [3, -4, -1, -1, 1, 2, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  1
+      BLOCK A: 11 0
+      BLOCK B: 0 11
+    from nA nB 8 4
+15
+    decoding coeff token with nC  6
+    T1s,Tc, token: 3 8 01101
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 8 16
+    find token, value: 11 4
+    ce_total_zeros,tzVlc,maxNumCoeff: 4 8 16
+    run_before, zero_left: 2 4
+    run_before, zero_left: 0 2
+    run_before, zero_left: 1 2
+    run_before, zero_left: 0 1
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [-2, 2, -1, 0, 2, -1, 0, -1, 1, 0, 0, -1, 0, 0, 0, 0]
+  Start decoding block  2
+      BLOCK A: None None
+      BLOCK B: 11 0
+    decoding coeff token with nC  8
+    T1s,Tc, token: 0 0 000011
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  3
+      BLOCK A: 11 2
+      BLOCK B: 11 1
+    from nA nB 0 8
+15
+    decoding coeff token with nC  4
+    T1s,Tc, token: 1 1 1110
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  4
+      BLOCK A: 11 1
+      BLOCK B: 0 14
+    from nA nB 8 8
+15
+    decoding coeff token with nC  8
+    T1s,Tc, token: 3 4 001111
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 4 16
+    find token, value: 111 1
+    ce_total_zeros,tzVlc,maxNumCoeff: 1 4 16
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [1, -1, -1, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  5
+      BLOCK A: 11 4
+      BLOCK B: 0 15
+    from nA nB 4 6
+15
+    decoding coeff token with nC  5
+    T1s,Tc, token: 0 0 1111
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  6
+      BLOCK A: 11 3
+      BLOCK B: 11 4
+    from nA nB 1 4
+15
+    decoding coeff token with nC  3
+    T1s,Tc, token: 0 0 11
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  7
+      BLOCK A: 11 6
+      BLOCK B: 11 5
+    from nA nB 0 0
+15
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  8
+      BLOCK A: None None
+      BLOCK B: 11 2
+    decoding coeff token with nC  0
+    T1s,Tc, token: 1 1 01
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 00011 5
+    ce_total_zeros,tzVlc,maxNumCoeff: 5 1 16
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  9
+      BLOCK A: 11 8
+      BLOCK B: 11 3
+    from nA nB 1 1
+15
+    decoding coeff token with nC  1
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  10
+      BLOCK A: None None
+      BLOCK B: 11 8
+    decoding coeff token with nC  1
+    T1s,Tc, token: 3 6 00000100
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 6 16
+    find token, value: 111 2
+    ce_total_zeros,tzVlc,maxNumCoeff: 2 6 16
+    run_before, zero_left: 1 2
+    run_before, zero_left: 0 1
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [-2, 2, 1, 0, -1, 1, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  11
+      BLOCK A: 11 10
+      BLOCK B: 11 9
+    from nA nB 6 0
+15
+    decoding coeff token with nC  3
+    T1s,Tc, token: 1 8 00000001110
+    trailing_ones_sign_flag: 0
+    level_prefix: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 3
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 2
+    level_prefix: 0
+    level_suffix: 1 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 8 16
+    find token, value: 11 4
+    ce_total_zeros,tzVlc,maxNumCoeff: 4 8 16
+    run_before, zero_left: 2 4
+    run_before, zero_left: 0 2
+    run_before, zero_left: 2 2
+    Decoded  Y LumaLevel4x4  :  [-1, 1, 4, -1, -1, 0, 0, -1, -2, 0, 0, 1, 0, 0, 0, 0]
+  Start decoding block  12
+      BLOCK A: 11 9
+      BLOCK B: 11 6
+    from nA nB 0 0
+15
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  13
+      BLOCK A: 11 12
+      BLOCK B: 11 7
+    from nA nB 0 0
+15
+    decoding coeff token with nC  0
+    T1s,Tc, token: 3 7 000000100
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 1
+    level_prefix: 4
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 2
+    level_prefix: 1
+    level_suffix: 3 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 7 16
+    find token, value: 11 5
+    ce_total_zeros,tzVlc,maxNumCoeff: 5 7 16
+    run_before, zero_left: 0 5
+    run_before, zero_left: 5 5
+    Decoded  Y LumaLevel4x4  :  [-4, 1, 5, -1, -1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0]
+  Start decoding block  14
+      BLOCK A: 11 11
+      BLOCK B: 11 12
+    from nA nB 8 0
+15
+    decoding coeff token with nC  4
+    T1s,Tc, token: 2 5 01001
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    level_prefix: 0
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 2
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 5 16
+    find token, value: 0001 10
+    ce_total_zeros,tzVlc,maxNumCoeff: 10 5 16
+    run_before, zero_left: 4 10
+    run_before, zero_left: 6 6
+    Decoded  Y LumaLevel4x4  :  [-3, 1, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0]
+  Start decoding block  15
+      BLOCK A: 11 14
+      BLOCK B: 11 13
+    from nA nB 5 7
+15
+    decoding coeff token with nC  6
+    T1s,Tc, token: 3 8 01101
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    level_prefix: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 2
+    level_suffix: 0 length: 1
+    level_prefix: 2
+    level_suffix: 1 length: 1
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 8 16
+    find token, value: 11 4
+    ce_total_zeros,tzVlc,maxNumCoeff: 4 8 16
+    run_before, zero_left: 0 4
+    run_before, zero_left: 0 4
+    run_before, zero_left: 0 4
+    run_before, zero_left: 3 4
+    run_before, zero_left: 0 1
+    run_before, zero_left: 0 1
+    run_before, zero_left: 0 1
+    Decoded  Y LumaLevel4x4  :  [0, -2, -3, 3, 2, 0, 0, 0, -1, -1, -1, -1, 0, 0, 0, 0]
+  Start decoding block  0
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 1 1 1
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 4
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 4
+    Decoded  Cb ChromaDCLevel  :  [-1, 0, 0, 0]
+  Start decoding block  1
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 2 2 001
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 4
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 2 4
+    Decoded  Cr ChromaDCLevel  :  [1, 1, 0, 0]
+  MacroBlock  12  Decoding...
+  Start decoding block  0
+      BLOCK A: 11 5
+      BLOCK B: 1 10
+    from nA nB 0 4
+15
+    decoding coeff token with nC  2
+    T1s,Tc, token: 0 0 11
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  1
+      BLOCK A: 12 0
+      BLOCK B: 1 11
+    from nA nB 0 0
+15
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  2
+      BLOCK A: 11 7
+      BLOCK B: 12 0
+    from nA nB 0 0
+15
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  3
+      BLOCK A: 12 2
+      BLOCK B: 12 1
+    from nA nB 0 0
+15
+    decoding coeff token with nC  0
+    T1s,Tc, token: 3 7 000000100
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 1
+    level_prefix: 2
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 3
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 7 16
+    find token, value: 11 5
+    ce_total_zeros,tzVlc,maxNumCoeff: 5 7 16
+    run_before, zero_left: 1 5
+    run_before, zero_left: 4 4
+    Decoded  Y LumaLevel4x4  :  [-4, 2, 3, -1, -1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0]
+  Start decoding block  4
+      BLOCK A: 12 1
+      BLOCK B: 1 14
+    from nA nB 0 0
+15
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  5
+      BLOCK A: 12 4
+      BLOCK B: 1 15
+    from nA nB 0 0
+15
+    decoding coeff token with nC  0
+    T1s,Tc, token: 3 6 00000100
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    level_prefix: 4
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 6 16
+    find token, value: 110 3
+    ce_total_zeros,tzVlc,maxNumCoeff: 3 6 16
+    run_before, zero_left: 3 3
+    Decoded  Y LumaLevel4x4  :  [-2, 1, 3, -1, -1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  6
+      BLOCK A: 12 3
+      BLOCK B: 12 4
+    from nA nB 7 0
+15
+    decoding coeff token with nC  4
+    T1s,Tc, token: 3 5 1010
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    level_prefix: 2
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 5 16
+    find token, value: 011 7
+    ce_total_zeros,tzVlc,maxNumCoeff: 7 5 16
+    run_before, zero_left: 0 7
+    run_before, zero_left: 6 7
+    run_before, zero_left: 0 1
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [1, 0, 2, 1, 0, 0, 0, 0, 0, 0, -1, -1, 0, 0, 0, 0]
+  Start decoding block  7
+      BLOCK A: 12 6
+      BLOCK B: 12 5
+    from nA nB 5 6
+15
+    decoding coeff token with nC  6
+    T1s,Tc, token: 3 5 1010
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    level_prefix: 1
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 5 16
+    find token, value: 011 7
+    ce_total_zeros,tzVlc,maxNumCoeff: 7 5 16
+    run_before, zero_left: 1 7
+    run_before, zero_left: 0 6
+    run_before, zero_left: 6 6
+    Decoded  Y LumaLevel4x4  :  [-2, -1, 0, 0, 0, 0, 0, 0, -1, -1, 0, 1, 0, 0, 0, 0]
+  Start decoding block  8
+      BLOCK A: 11 13
+      BLOCK B: 12 2
+    from nA nB 7 0
+15
+    decoding coeff token with nC  4
+    T1s,Tc, token: 1 1 1110
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  9
+      BLOCK A: 12 8
+      BLOCK B: 12 3
+    from nA nB 1 7
+15
+    decoding coeff token with nC  4
+    T1s,Tc, token: 2 6 001101
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 6 16
+    find token, value: 001 9
+    ce_total_zeros,tzVlc,maxNumCoeff: 9 6 16
+    run_before, zero_left: 4 9
+    run_before, zero_left: 0 5
+    run_before, zero_left: 3 5
+    run_before, zero_left: 0 2
+    run_before, zero_left: 1 2
+    Decoded  Y LumaLevel4x4  :  [0, -2, 0, 1, 1, 0, 0, 0, -2, -1, 0, 0, 0, 0, 1, 0]
+  Start decoding block  10
+      BLOCK A: 11 15
+      BLOCK B: 12 8
+    from nA nB 8 1
+15
+    decoding coeff token with nC  5
+    T1s,Tc, token: 3 4 1011
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 3
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 4 16
+    find token, value: 0011 7
+    ce_total_zeros,tzVlc,maxNumCoeff: 7 4 16
+    run_before, zero_left: 1 7
+    run_before, zero_left: 4 6
+    run_before, zero_left: 0 2
+    Decoded  Y LumaLevel4x4  :  [0, 0, -2, -1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0]
+  Start decoding block  11
+      BLOCK A: 12 10
+      BLOCK B: 12 9
+    from nA nB 4 6
+15
+    decoding coeff token with nC  5
+    T1s,Tc, token: 0 0 1111
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  12
+      BLOCK A: 12 9
+      BLOCK B: 12 6
+    from nA nB 6 5
+15
+    decoding coeff token with nC  6
+    T1s,Tc, token: 1 6 001110
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 4
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 0 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 6 16
+    find token, value: 001 9
+    ce_total_zeros,tzVlc,maxNumCoeff: 9 6 16
+    run_before, zero_left: 5 9
+    run_before, zero_left: 0 4
+    run_before, zero_left: 2 4
+    run_before, zero_left: 1 2
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [1, 0, -5, 0, 1, 0, 0, 1, 2, 0, 0, 0, 0, 0, -1, 0]
+  Start decoding block  13
+      BLOCK A: 12 12
+      BLOCK B: 12 7
+    from nA nB 6 5
+15
+    decoding coeff token with nC  6
+    T1s,Tc, token: 0 0 1111
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  14
+      BLOCK A: 12 11
+      BLOCK B: 12 12
+    from nA nB 0 6
+15
+    decoding coeff token with nC  3
+    T1s,Tc, token: 1 1 10
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  15
+      BLOCK A: 12 14
+      BLOCK B: 12 13
+    from nA nB 1 0
+15
+    decoding coeff token with nC  1
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  0
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 1 1 1
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 4
+    find token, value: 001 2
+    ce_total_zeros,tzVlc,maxNumCoeff: 2 1 4
+    Decoded  Cb ChromaDCLevel  :  [0, 0, -1, 0]
+  Start decoding block  1
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 0 0 01
+    Decoded  Cr ChromaDCLevel  :  [0, 0, 0, 0]
+  MacroBlock  13  Decoding...
+  Start decoding block  0
+      BLOCK A: 12 5
+      BLOCK B: 2 10
+    from nA nB 6 0
+7
+    decoding coeff token with nC  3
+    T1s,Tc, token: 3 3 0101
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 3 16
+    find token, value: 100 6
+    ce_total_zeros,tzVlc,maxNumCoeff: 6 3 16
+    run_before, zero_left: 5 6
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [-1, 0, 1, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  1
+      BLOCK A: 13 0
+      BLOCK B: 2 11
+    from nA nB 3 8
+7
+    decoding coeff token with nC  6
+    T1s,Tc, token: 3 6 1001
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 1
+    level_prefix: 1
+    level_prefix: 1
+    level_suffix: 0 length: 1
+    level_prefix: 2
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 6 16
+    find token, value: 011 6
+    ce_total_zeros,tzVlc,maxNumCoeff: 6 6 16
+    run_before, zero_left: 0 6
+    run_before, zero_left: 1 6
+    run_before, zero_left: 4 5
+    run_before, zero_left: 0 1
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [-3, 0, 2, -1, 0, 0, 0, 0, -1, 0, 1, 1, 0, 0, 0, 0]
+  Start decoding block  2
+      BLOCK A: 12 7
+      BLOCK B: 13 0
+    from nA nB 5 3
+7
+    decoding coeff token with nC  4
+    T1s,Tc, token: 3 8 01101
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    level_prefix: 2
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 5
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 3 length: 2
+    level_prefix: 1
+    level_suffix: 2 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 8 16
+    find token, value: 11 4
+    ce_total_zeros,tzVlc,maxNumCoeff: 4 8 16
+    run_before, zero_left: 0 4
+    run_before, zero_left: 1 4
+    run_before, zero_left: 3 3
+    Decoded  Y LumaLevel4x4  :  [4, -2, -6, 1, 2, 0, 0, 0, 1, 0, -1, -1, 0, 0, 0, 0]
+  Start decoding block  3
+      BLOCK A: 13 2
+      BLOCK B: 13 1
+    from nA nB 8 6
+7
+    decoding coeff token with nC  7
+    T1s,Tc, token: 0 0 1111
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  4
+      BLOCK A: 13 1
+      BLOCK B: 2 14
+    from nA nB 6 2
+7
+    decoding coeff token with nC  4
+    T1s,Tc, token: 2 7 001001
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    level_prefix: 2
+    level_prefix: 2
+    level_suffix: 0 length: 1
+    level_prefix: 4
+    level_suffix: 1 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 2
+    level_prefix: 0
+    level_suffix: 0 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 7 16
+    find token, value: 11 5
+    ce_total_zeros,tzVlc,maxNumCoeff: 5 7 16
+    run_before, zero_left: 0 5
+    run_before, zero_left: 5 5
+    Decoded  Y LumaLevel4x4  :  [1, -1, -5, 3, 3, 0, 0, 0, 0, 0, -1, -1, 0, 0, 0, 0]
+  Start decoding block  5
+      BLOCK A: 13 4
+      BLOCK B: 2 15
+    from nA nB 7 8
+7
+    decoding coeff token with nC  8
+    T1s,Tc, token: 0 0 000011
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  6
+      BLOCK A: 13 3
+      BLOCK B: 13 4
+    from nA nB 0 7
+7
+    decoding coeff token with nC  4
+    T1s,Tc, token: 1 1 1110
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  7
+      BLOCK A: 13 6
+      BLOCK B: 13 5
+    from nA nB 1 0
+7
+    decoding coeff token with nC  1
+    T1s,Tc, token: 1 1 01
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  8
+      BLOCK A: 12 13
+      BLOCK B: 13 2
+    from nA nB 0 8
+7
+    decoding coeff token with nC  4
+    T1s,Tc, token: 0 0 1111
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  9
+      BLOCK A: 13 8
+      BLOCK B: 13 3
+    from nA nB 0 0
+7
+    decoding coeff token with nC  0
+    T1s,Tc, token: 1 1 01
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  10
+      BLOCK A: 12 15
+      BLOCK B: 13 8
+    from nA nB 0 0
+7
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  11
+      BLOCK A: 13 10
+      BLOCK B: 13 9
+    from nA nB 0 1
+7
+    decoding coeff token with nC  1
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  0
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 1 1 1
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 4
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 4
+    Decoded  Cb ChromaDCLevel  :  [1, 0, 0, 0]
+  Start decoding block  1
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 0 0 01
+    Decoded  Cr ChromaDCLevel  :  [0, 0, 0, 0]
+  MacroBlock  14  Decoding...
+  Start decoding block  0
+      BLOCK A: 13 5
+      BLOCK B: 3 10
+    from nA nB 0 9
+7
+    decoding coeff token with nC  5
+    T1s,Tc, token: 3 5 1010
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    level_prefix: 0
+    level_prefix: 1
+    level_suffix: 1 length: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 5 16
+    find token, value: 0101 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 5 16
+    Decoded  Y LumaLevel4x4  :  [-2, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  1
+      BLOCK A: 14 0
+      BLOCK B: 3 11
+    from nA nB 5 4
+7
+    decoding coeff token with nC  5
+    T1s,Tc, token: 0 0 1111
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  2
+      BLOCK A: 13 7
+      BLOCK B: 14 0
+    from nA nB 1 5
+7
+    decoding coeff token with nC  3
+    T1s,Tc, token: 0 0 11
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  3
+      BLOCK A: 14 2
+      BLOCK B: 14 1
+    from nA nB 0 0
+7
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  4
+      BLOCK A: 14 1
+      BLOCK B: 3 14
+    from nA nB 0 0
+7
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  5
+      BLOCK A: 14 4
+      BLOCK B: 3 15
+    from nA nB 0 0
+7
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  6
+      BLOCK A: 14 3
+      BLOCK B: 14 4
+    from nA nB 0 0
+7
+    decoding coeff token with nC  0
+    T1s,Tc, token: 1 1 01
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  7
+      BLOCK A: 14 6
+      BLOCK B: 14 5
+    from nA nB 1 0
+7
+    decoding coeff token with nC  1
+    T1s,Tc, token: 2 3 0000101
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 1
+    level_prefix: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 3 16
+    find token, value: 0101 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 3 16
+    Decoded  Y LumaLevel4x4  :  [2, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  8
+      BLOCK A: 13 13
+      BLOCK B: 14 2
+    from nA nB 0 0
+7
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  9
+      BLOCK A: 14 8
+      BLOCK B: 14 3
+    from nA nB 0 0
+7
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  10
+      BLOCK A: 13 15
+      BLOCK B: 14 8
+    from nA nB 0 0
+7
+    decoding coeff token with nC  0
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  11
+      BLOCK A: 14 10
+      BLOCK B: 14 9
+    from nA nB 0 0
+7
+    decoding coeff token with nC  0
+    T1s,Tc, token: 3 10 0000000001100
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    trailing_ones_sign_flag: 0
+    level_prefix: 1
+    level_prefix: 0
+    level_suffix: 0 length: 1
+    level_prefix: 0
+    level_suffix: 1 length: 1
+    level_prefix: 3
+    level_suffix: 1 length: 1
+    level_prefix: 2
+    level_suffix: 0 length: 2
+    level_prefix: 0
+    level_suffix: 0 length: 2
+    level_prefix: 2
+    level_suffix: 1 length: 2
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 10 16
+    find token, value: 001 2
+    ce_total_zeros,tzVlc,maxNumCoeff: 2 10 16
+    run_before, zero_left: 0 2
+    run_before, zero_left: 0 2
+    run_before, zero_left: 1 2
+    run_before, zero_left: 1 1
+    Decoded  Y LumaLevel4x4  :  [-5, 1, 5, -4, -1, 1, 0, -1, 0, 1, 1, 1, 0, 0, 0, 0]
+  Start decoding block  0
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 2 2 001
+    trailing_ones_sign_flag: 1
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 4
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 2 4
+    Decoded  Cb ChromaDCLevel  :  [1, -1, 0, 0]
+  Start decoding block  1
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 1 1 1
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 4
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 4
+    Decoded  Cr ChromaDCLevel  :  [-1, 0, 0, 0]
+  MacroBlock  15  Decoding...
+  Start decoding block  0
+      BLOCK A: 14 5
+      BLOCK B: 4 10
+    from nA nB 0 1
+1
+    decoding coeff token with nC  1
+    T1s,Tc, token: 0 0 1
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  1
+      BLOCK A: 15 0
+      BLOCK B: 4 11
+    from nA nB 0 1
+1
+    decoding coeff token with nC  1
+    T1s,Tc, token: 1 1 01
+    trailing_ones_sign_flag: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  2
+      BLOCK A: 14 7
+      BLOCK B: 15 0
+    from nA nB 3 0
+1
+    decoding coeff token with nC  2
+    T1s,Tc, token: 0 0 11
+    Decoded  Y LumaLevel4x4  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  3
+      BLOCK A: 15 2
+      BLOCK B: 15 1
+    from nA nB 0 1
+1
+    decoding coeff token with nC  1
+    T1s,Tc, token: 1 1 01
+    trailing_ones_sign_flag: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 16
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 16
+    Decoded  Y LumaLevel4x4  :  [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  Start decoding block  0
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 0 1 000111
+    level_prefix: 0
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 1 4
+    find token, value: 1 0
+    ce_total_zeros,tzVlc,maxNumCoeff: 0 1 4
+    Decoded  Cb ChromaDCLevel  :  [2, 0, 0, 0]
+  Start decoding block  1
+    decoding coeff token with nC  -1
+    T1s,Tc, token: 1 2 000110
+    trailing_ones_sign_flag: 0
+    level_prefix: 1
+    decoding total zeros with tzVlcIndex, maxNumCoeff: 2 4
+    find token, value: 01 1
+    ce_total_zeros,tzVlc,maxNumCoeff: 1 2 4
+    run_before, zero_left: 1 1
+    Decoded  Cr ChromaDCLevel  :  [-2, 0, 1, 0]

@@ -1,11 +1,8 @@
 class H264Bits:
-    coded_block_pattern_intra = {
-        0 : 47
-    }
+    table9_4a_intra = [47, 31, 15, 0, 23, 27, 29, 30, 7, 11, 13, 14, 39, 43, 45, 46, 16, 3, 5, 10, 12, 19, 21, 26, 28, 35, 37, 42, 44, 1,
+     2, 4, 8, 17, 18, 20, 24, 6, 9, 22, 25, 32, 33, 34, 36, 40, 38, 41]
 
-    coded_block_pattern_inter = {
-        0 : 0
-    }
+    table9_4a_inter = [0,16,1,2,4,8,32,3,5,10,12,15,47,7,11,13,14,6,9,31,35,37,42,44,33,34,36,40,39,43,45,46,17,18,20,24,19,21,26,28,23,27,29,30,22,25,38,41]
 
     T1s_TC_coeff_token = [
         # [0,2)
@@ -124,14 +121,18 @@ class H264Bits:
         k = self.exp_golomb()
         return (-1)**(k+1) * ceil(k/2)
 
-    def me(self, mb_pred_mode):
-        if mb_pred_mode in ["Intra_8x8", "Intra_4x4"]:
-            return H264Bits.coded_block_pattern_intra[self.exp_golomb()]
-        elif mb_pred_mode == "Inter":
-            return H264Bits.coded_block_pattern_inter[self.exp_golomb()]
+    def me(self, mb_pred_mode, chroma_array_type):
+        if chroma_array_type in [1, 2]:
+            if mb_pred_mode in ["Intra_8x8", "Intra_4x4"]:
+                table = H264Bits.table9_4a_intra
+            elif mb_pred_mode == "Inter":
+                table = H264Bits.table9_4a_inter
         else:
-            print("ME Not possible branch")
-            assert False
+            if mb_pred_mode in ["Intra_8x8", "Intra_4x4"]:
+                table = H264Bits.table9_4b_intra
+            elif mb_pred_mode == "Inter":
+                table = H264Bits.table9_4b_inter
+        return table[self.exp_golomb()]
 
     def ce(self):
         print("ce() not IMPL yet")
