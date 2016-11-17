@@ -289,13 +289,13 @@ class Slice(NalUnit):
         prevMbSkipped = False
         while True:
             if self.params["slice_type"] != "I" and self.params["slice_type"] != "SI" :
-                if not self.params["entropy_coding_mode_flag"] :
+                if not self.pps["entropy_coding_mode_flag"] :
                     self.params["mb_skip_run"] = self.bits.ue()
                     prevMbSkipped = self.params["mb_skip_run"] > 0 
                     for i in range(self.params["mb_skip_run"]) :
                         self.var["CurrMbAddr"] = self.NextMbAddress( self.var["CurrMbAddr"] )
                     if self.params["mb_skip_run"] > 0 :
-                        moreDataFlag = self.more_rbsp_data( )
+                        moreDataFlag = self.bits.more_rbsp_data( )
                 else :
                     self.params["mb_skip_flag"] = self.bits.ae()
                     moreDataFlag = not self.params["mb_skip_flag"]

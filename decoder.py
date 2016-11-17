@@ -22,7 +22,18 @@ for nalu_ba in nalus_ba:
     elif params["nal_unit_type"] == 8: # PPS
         pps.append(PPS(nb, sps = sps, params = params))
     elif params["nal_unit_type"] in [1, 5]: # Slice
-        slices.append(Slice(nb, sps = sps, pps = pps, params = params))
+        slice = Slice(nb, sps = sps, pps = pps, params = params)
+        slices.append(slice)
+        mbs_coeffs = []
+        for mb in slice.mbs:
+            blk_coeffs = []
+            for blk in mb.luma_blocks:
+                blk_coeffs.append(blk.coeffLevel)
+            mbs_coeffs.append(blk_coeffs)
+        import json
+        fname = "mb_" + str(len(slices)) + ".json"
+        with open(fname, 'w') as outfile:
+            json.dump(mbs_coeffs, outfile)
     else:
         print("Unknown Slice type, ignore...")
 
