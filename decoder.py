@@ -4,11 +4,39 @@ from nalsps import SPS
 from nalpps import PPS
 from nalslice import Slice
 from pprint import pprint
+from copy import copy
+import json
+
+
+def dump_params(d, filename):
+    tmp = copy(d.__dict__)
+    tmp.pop('bits', None)
+    tmp.pop('sps', None)
+    tmp.pop('pps_list', None)
+    tmp.pop('pps', None)
+    tmp.pop('mbs', None)
+    with open(filename, 'w') as outfile:
+        json.dump(tmp, outfile)
+
+def dump_mbs(slice, filename):
+    mbs_coeffs = []
+    for mb in slice.mbs:
+        blk_coeffs = []
+        for blk in mb.luma_blocks:
+            blk_coeffs.append(blk.coeffLevel)
+        mbs_coeffs.append(blk_coeffs)
+    with open(filename, 'w') as outfile:
+        json.dump(mbs_coeffs, outfile)
+
+def decode_slice(slice):
+    for mb in slice.mbs:
+        import intra_pred
+        intra_pred.intra_pred(mb)
 
 input_file = open("baseline.264", "rb")
 nalus_ba = list(BitArray(input_file).split('0x000001', bytealigned=True))[1:]
-sps = []
-pps = []
+sps = None
+ppss = []
 slices = []
 for nalu_ba in nalus_ba:
     nalu_ba.replace('0x000003', '0x0000', bytealigned=True)
@@ -19,23 +47,23 @@ for nalu_ba in nalus_ba:
               "nal_unit_type" : nb.u(5)}
     if params["nal_unit_type"] == 7: # SPS
         sps = SPS(nb, params = params)
+        dump_params(sps, "sps.json")
     elif params["nal_unit_type"] == 8: # PPS
-        pps.append(PPS(nb, sps = sps, params = params))
+        pps = PPS(nb, sps = sps, params = params)
+        ppss.append(pps)
+        fname = "pps_" + str(len(ppss)) + ".json"
+        dump_params(pps, fname)
     elif params["nal_unit_type"] in [1, 5]: # Slice
-        slice = Slice(nb, sps = sps, pps = pps, params = params)
+        slice = Slice(nb, sps = sps, ppss = ppss, params = params)
+        decode_slice(slice)
         slices.append(slice)
-        mbs_coeffs = []
-        for mb in slice.mbs:
-            blk_coeffs = []
-            for blk in mb.luma_blocks:
-                blk_coeffs.append(blk.coeffLevel)
-            mbs_coeffs.append(blk_coeffs)
-        import json
-        fname = "mb_" + str(len(slices)) + ".json"
-        with open(fname, 'w') as outfile:
-            json.dump(mbs_coeffs, outfile)
+        dump_mbs(slice, "slice_" + str(len(slices)) + "_mb.json")
+        fname = "slice_" + str(len(slices)) + ".json"
+        dump_params(slice, fname)
     else:
         print("Unknown Slice type, ignore...")
 
 # nalus = [NalUnit(nalu_bit) for nalu_bit in nalus_bit]
 input_file.close()
+
+

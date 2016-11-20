@@ -9,13 +9,14 @@ def InverseRasterScan(a, b, c, d, e):
 
 class Block:
 
-    def __init__(self, idx, mode, mb, color = "Y"):
+    def __init__(self, idx, mb, color, size, ad_type = ""):
         self.idx = idx
-        self.mode = mode
         self.mb = mb
+        self.color = color
+        self.size = size
+        self.ad_type = ad_type
         self.slice = mb.slice
         self.bits = self.mb.slice.bits
-        self.color = color
 
     def all_ac_zeros(self, mbAddr, blkIdx):
         if self.color == "Y":
@@ -36,7 +37,7 @@ class Block:
 
     def parse_cavlc(self, startIdx, endIdx, maxNumCoeff):
         # decode one block in macroblock
-        print("  Start decoding block ", self.idx)
+        # print("  Start decoding block ", self.idx)
         coeffLevel = [None] * maxNumCoeff
         for i in range(maxNumCoeff):
             coeffLevel[i] = 0
@@ -44,7 +45,7 @@ class Block:
         nC = self.ce_nc()
         self.nC = nC
         (TrailingOnes, TotalCoeff, coeff_token) = self.bits.ce_coeff_token(nC)
-        print("    T1s,Tc, token:",TrailingOnes, TotalCoeff, coeff_token)
+        # print("    T1s,Tc, token:",TrailingOnes, TotalCoeff, coeff_token)
         self.coeff_token = coeff_token
         self.TrailingOnes = TrailingOnes
         self.TotalCoeff = TotalCoeff
@@ -57,11 +58,11 @@ class Block:
             for i in range(TotalCoeff):
                 if i < TrailingOnes:
                     trailing_ones_sign_flag = self.bits.u(1)
-                    print("    trailing_ones_sign_flag:", trailing_ones_sign_flag)
+                    # print("    trailing_ones_sign_flag:", trailing_ones_sign_flag)
                     levelVal[i] = 1 - 2 * trailing_ones_sign_flag
                 else:
                     level_prefix = self.bits.ce_level_prefix()
-                    print("    level_prefix:", level_prefix)
+                    # print("    level_prefix:", level_prefix)
                     if level_prefix == 14 and suffixLength == 0:
                         levelSuffixSize = 4
                     elif level_prefix >= 15:
@@ -73,7 +74,7 @@ class Block:
                     if suffixLength > 0 or level_prefix >= 14:
                         if levelSuffixSize > 0:
                             level_suffix = self.bits.u(levelSuffixSize)
-                            print("    level_suffix:", level_suffix, "length:", suffixLength)
+                            # print("    level_suffix:", level_suffix, "length:", suffixLength)
                         else:
                             level_suffix = 0
                         levelCode += level_suffix
@@ -95,7 +96,7 @@ class Block:
             if TotalCoeff < maxNumCoeff:
                 tzVlcIndex = TotalCoeff
                 total_zeros = self.bits.ce_total_zeros(tzVlcIndex,maxNumCoeff)
-                print("    ce_total_zeros,tzVlc,maxNumCoeff:", total_zeros, tzVlcIndex, maxNumCoeff)
+                # print("    ce_total_zeros,tzVlc,maxNumCoeff:", total_zeros, tzVlcIndex, maxNumCoeff)
                 zerosLeft = total_zeros
             else:
                 zerosLeft = 0
@@ -103,7 +104,7 @@ class Block:
             for i in range(TotalCoeff - 1):
                 if zerosLeft > 0:
                     run_before = self.bits.ce_run_before(zerosLeft)
-                    print("    run_before, zero_left:", run_before, zerosLeft)
+                    # print("    run_before, zero_left:", run_before, zerosLeft)
                     runVal[i] = run_before
                 else:
                     runVal[i] = 0
@@ -113,7 +114,7 @@ class Block:
             for i in reversed(range(TotalCoeff)):
                 coeffNum += runVal[i] + 1
                 coeffLevel[startIdx + coeffNum] = levelVal[i]
-        print("    Decoded ", self.color, self.mode, " : ", coeffLevel)
+        # print("    Decoded ", self.color, self.mode, " : ", coeffLevel)
         return coeffLevel
 
     def dump_mbs(self):
@@ -127,32 +128,32 @@ class Block:
                     pass
 
     def ce_nc(self):
-        mode = self.mode
-        luma4x4BlkIdx = self.idx #block_param["luma4x4BlkIdx"]
-        if "ChromaDCLevel" in mode:
-            if self.slice.sps["ChromaArrayType"] == 1:
+        luma4x4BlkIdx = self.idx
+        if self.color != "Y" and self.ad_type == "DC":
+            if self.slice.sps.ChromaArrayType == 1:
                 return -1
             else:
                 return -2
         else:
-            if mode == "Intra16x16DCLevel":
+            mode = self.color + self.mb.pred_mode + self.ad_type
+            if "Intra16x16DC" in mode:
                 blkIdx = 0
-            elif mode == "CbIntra16x16DCLevel":
+            elif mode == "CbIntra16x16DC":
                 cb4x4BlkIdx = 0
-            elif mode == "CrIntra16x16DCLevel":
+            elif mode == "CrIntra16x16DC":
                 cr4x4BlkIdx = 0
-            if mode in ["Intra16x16DCLevel", "Intra16x16ACLevel", "LumaLevel4x4"]:
+            if self.mb.pred_mode == "Intra16x16" or (self.color == "Y" and self.size == "4x4"):
                 (mbAddrA, blkIdxA) = self.luma_neighbor("A")
-                print("      BLOCK A:",mbAddrA, blkIdxA)
+                # print("      BLOCK A:",mbAddrA, blkIdxA)
                 blkA = None if mbAddrA == None else self.slice.mbs[mbAddrA].luma_blocks[blkIdxA]
                 (mbAddrB, blkIdxB) = self.luma_neighbor("B")
-                print("      BLOCK B:",mbAddrB, blkIdxB)
+                # print("      BLOCK B:",mbAddrB, blkIdxB)
                 blkB = None if mbAddrB == None else self.slice.mbs[mbAddrB].luma_blocks[blkIdxB]
-            elif mode in ["CbIntra16x16DCLevel", "CbIntra16x16ACLevel", "CbLevel4x4"]:
+            elif mode in ["CbIntra16x16DC", "CbIntra16x16AC", "CbIntra4x4"]:
                 raise NameError("Cb not impl")
-            elif mode in ["CrIntra16x16DCLevel", "CrIntra16x16ACLevel", "CrLevel4x4"]:
+            elif mode in ["CrIntra16x16DC", "CrIntra16x16AC", "CrIntra4x4"]:
                 raise NameError("Cr not impl")
-            elif mode == "ChromaACLevel":
+            elif self.color in ["Cb", "Cr"] and self.ad_type == "AC":
                 if self.color == "Cb":
                     c = 0
                 elif self.color == "Cr":
@@ -160,10 +161,10 @@ class Block:
                 else:
                     raise NameError("Color error")
                 (mbAddrA, blkIdxA) = self.chroma_neighbor("A")
-                print("      C-BLOCK A:",mbAddrA, blkIdxA)
+                # print("      C-BLOCK A:",mbAddrA, blkIdxA)
                 blkA = None if mbAddrA == None else self.slice.mbs[mbAddrA].chroma_ac_blocks[c][blkIdxA]
                 (mbAddrB, blkIdxB) = self.chroma_neighbor("B")
-                print("      C-BLOCK B:",mbAddrB, blkIdxB)
+                # print("      C-BLOCK B:",mbAddrB, blkIdxB)
                 blkB = None if mbAddrB == None else self.slice.mbs[mbAddrB].chroma_ac_blocks[c][blkIdxB]
             #5
             availableFlagA = 0 if mbAddrA == None else 1
@@ -188,8 +189,8 @@ class Block:
                     nB = blkB.TotalCoeff
             #7
             if availableFlagA == 1 and availableFlagB == 1:
-                print("    from nA nB", nA, nB)
-                print(self.mb.CodedBlockPatternLuma)
+                # print("    from nA nB", nA, nB)
+                # print(self.mb.CodedBlockPatternLuma)
                 nC = ( nA + nB + 1 ) >> 1
             elif availableFlagA == 1 and availableFlagB == 0:
                 nC = nA
@@ -200,9 +201,9 @@ class Block:
             return nC
 
     def luma_neighbor(self, direct):
+        # print("MB:", self.mb.idx, "BLK:", self.idx, "DIR:", direct)
         # 6.4.11.4
         shiftTable = {"A":(-1,0), "B":(0,-1), "C":("predPartWidth",-1), "D":(-1,-1)}
-        mode = self.mode
         luma4x4BlkIdx = self.idx
         res = []
         (xD, yD) = shiftTable[direct]
@@ -211,35 +212,7 @@ class Block:
         y = InverseRasterScan( luma4x4BlkIdx // 4, 8, 8, 16, 1 ) + \
             InverseRasterScan( luma4x4BlkIdx % 4, 4, 4, 8, 1 )
         (xN, yN) = (x + xD, y + yD) #3
-        maxW = 16
-        maxH = 16
-        if self.slice.var["MbaffFrameFlag"] == 0:
-            tmp = self.belongMB(xN, yN, maxW, maxH)
-            if tmp == "A":
-                mbAddrTmp = self.slice.var["CurrMbAddr"] - 1
-                if mbAddrTmp < 0 or mbAddrTmp > self.slice.var["CurrMbAddr"] or self.slice.var["CurrMbAddr"] % self.slice.var["PicWidthInMbs"] == 0:
-                    mbAddrTmp = None
-            elif tmp == "B":
-                mbAddrTmp = self.slice.var["CurrMbAddr"] - self.slice.var["PicWidthInMbs"]
-                if mbAddrTmp < 0 or mbAddrTmp > self.slice.var["CurrMbAddr"]:
-                    mbAddrTmp = None
-            elif tmp == "X":
-                mbAddrTmp = self.slice.var["CurrMbAddr"]
-            elif tmp == "C":
-                mbAddrTmp = self.slice.var["CurrMbAddr"] - self.slice.var["PicWidthInMbs"] + 1
-                if mbAddrTmp < 0 or mbAddrTmp > self.slice.var["CurrMbAddr"] or self.slice.var["CurrMbAddr"]+1 % self.slice.var["PicWidthInMbs"] == 0:
-                    mbAddrTmp = None
-            elif tmp == "D":
-                mbAddrTmp = self.slice.var["CurrMbAddr"] - self.slice.var["PicWidthInMbs"] - 1
-                if mbAddrTmp < 0 or mbAddrTmp > self.slice.var["CurrMbAddr"] or self.slice.var["CurrMbAddr"] % self.slice.var["PicWidthInMbs"] == 0:
-                    mbAddrTmp = None
-            else:
-                raise NameError("direction impossible")
-            xW = ( xN + maxW ) % maxW
-            yW = ( yN + maxH ) % maxH
-        else:
-            # 6.4.12.2
-            raise NameError("6.4.12.2 not impl")
+        (mbAddrTmp, xW, yW) = self.luma_neighbor_location(xN, yN)
         if mbAddrTmp == None:
             luma4x4BlkIdxTmp = None
         else:
@@ -249,48 +222,54 @@ class Block:
         # print("      x, y:", x, y)
         # print("      xN, yN:", xN, yN)
         # print("      xW, yW:", xW, yW)
-        # print("      mbAddrN:", tmp, mbAddrTmp)
+        # print("      mbAddrN:", mbAddrTmp)
         # print("      lumaIdx:", luma4x4BlkIdxTmp)
+        # print("  -> MB:", mbAddrTmp, "BLK:", luma4x4BlkIdxTmp)
         return (mbAddrTmp, luma4x4BlkIdxTmp)
 
-    def chroma_neighbor(self, direct):
-        # 6.4.11.4
-        shiftTable = {"A":(-1,0), "B":(0,-1), "C":("predPartWidth",-1), "D":(-1,-1)}
-        mode = self.mode
-        chroma4x4BlkIdx = self.idx
-        (xD, yD) = shiftTable[direct]
-        x = InverseRasterScan(chroma4x4BlkIdx, 4, 4, 8, 0 )
-        y = InverseRasterScan(chroma4x4BlkIdx, 4, 4, 8, 1 )
-        (xN, yN) = (x + xD, y + yD) #3
-        maxW = self.slice.sps["MbWidthC"]
-        maxH = self.slice.sps["MbHeightC"]
-        if self.slice.var["MbaffFrameFlag"] == 0:
+    def luma_neighbor_location(self, xN, yN):
+        # 6.4.12
+        maxW = 16
+        maxH = 16
+        if self.slice.MbaffFrameFlag == 0:
+            # 6.4.12.1
             tmp = self.belongMB(xN, yN, maxW, maxH)
             if tmp == "A":
-                mbAddrTmp = self.slice.var["CurrMbAddr"] - 1
-                if mbAddrTmp < 0 or mbAddrTmp > self.slice.var["CurrMbAddr"] or self.slice.var["CurrMbAddr"] % self.slice.var["PicWidthInMbs"] == 0:
+                mbAddrTmp = self.mb.idx - 1
+                if mbAddrTmp < 0 or mbAddrTmp > self.mb.idx or self.mb.idx % self.slice.PicWidthInMbs == 0:
                     mbAddrTmp = None
             elif tmp == "B":
-                mbAddrTmp = self.slice.var["CurrMbAddr"] - self.slice.var["PicWidthInMbs"]
-                if mbAddrTmp < 0 or mbAddrTmp > self.slice.var["CurrMbAddr"]:
+                mbAddrTmp = self.mb.idx - self.slice.PicWidthInMbs
+                if mbAddrTmp < 0 or mbAddrTmp > self.mb.idx:
                     mbAddrTmp = None
             elif tmp == "X":
-                mbAddrTmp = self.slice.var["CurrMbAddr"]
+                mbAddrTmp = self.mb.idx
             elif tmp == "C":
-                mbAddrTmp = self.slice.var["CurrMbAddr"] - self.slice.var["PicWidthInMbs"] + 1
-                if mbAddrTmp < 0 or mbAddrTmp > self.slice.var["CurrMbAddr"] or self.slice.var["CurrMbAddr"]+1 % self.slice.var["PicWidthInMbs"] == 0:
+                mbAddrTmp = self.mb.idx - self.slice.PicWidthInMbs + 1
+                if mbAddrTmp < 0 or mbAddrTmp > self.mb.idx or self.mb.idx+1 % self.slice.PicWidthInMbs == 0:
                     mbAddrTmp = None
             elif tmp == "D":
-                mbAddrTmp = self.slice.var["CurrMbAddr"] - self.slice.var["PicWidthInMbs"] - 1
-                if mbAddrTmp < 0 or mbAddrTmp > self.slice.var["CurrMbAddr"] or self.slice.var["CurrMbAddr"] % self.slice.var["PicWidthInMbs"] == 0:
+                mbAddrTmp = self.mb.idx - self.slice.PicWidthInMbs - 1
+                if mbAddrTmp < 0 or mbAddrTmp > self.mb.idx or self.mb.idx % self.slice.PicWidthInMbs == 0:
                     mbAddrTmp = None
             else:
-                raise NameError("direction impossible")
+                mbAddrTmp = None
             xW = ( xN + maxW ) % maxW
             yW = ( yN + maxH ) % maxH
         else:
             # 6.4.12.2
             raise NameError("6.4.12.2 not impl")
+        return (mbAddrTmp, xW, yW)
+
+    def chroma_neighbor(self, direct):
+        # 6.4.11.4
+        shiftTable = {"A":(-1,0), "B":(0,-1), "C":("predPartWidth",-1), "D":(-1,-1)}
+        chroma4x4BlkIdx = self.idx
+        (xD, yD) = shiftTable[direct]
+        x = InverseRasterScan(chroma4x4BlkIdx, 4, 4, 8, 0 )
+        y = InverseRasterScan(chroma4x4BlkIdx, 4, 4, 8, 1 )
+        (xN, yN) = (x + xD, y + yD) #3
+        (mbAddrTmp, xW, yW) = self.chroma_neighbor_location(xN, yN)
         if mbAddrTmp == None:
             chroma4x4BlkIdxTmp = None
         else:
@@ -303,6 +282,39 @@ class Block:
         # print("      mbAddrN:", tmp, mbAddrTmp)
         # print("      lumaIdx:", luma4x4BlkIdxTmp)
         return (mbAddrTmp, chroma4x4BlkIdxTmp)
+
+    def chroma_neighbor_location(self, xN, yN):
+        maxW = self.slice.sps.MbWidthC
+        maxH = self.slice.sps.MbHeightC
+        if self.slice.MbaffFrameFlag == 0:
+            tmp = self.belongMB(xN, yN, maxW, maxH)
+            if tmp == "A":
+                mbAddrTmp = self.mb.idx - 1
+                if mbAddrTmp < 0 or mbAddrTmp > self.mb.idx or self.mb.idx % self.slice.PicWidthInMbs == 0:
+                    mbAddrTmp = None
+            elif tmp == "B":
+                mbAddrTmp = self.mb.idx - self.slice.PicWidthInMbs
+                if mbAddrTmp < 0 or mbAddrTmp > self.mb.idx:
+                    mbAddrTmp = None
+            elif tmp == "X":
+                mbAddrTmp = self.mb.idx
+            elif tmp == "C":
+                mbAddrTmp = self.mb.idx - self.slice.PicWidthInMbs + 1
+                if mbAddrTmp < 0 or mbAddrTmp > self.mb.idx or self.mb.idx+1 % self.slice.PicWidthInMbs == 0:
+                    mbAddrTmp = None
+            elif tmp == "D":
+                mbAddrTmp = self.mb.idx - self.slice.PicWidthInMbs - 1
+                if mbAddrTmp < 0 or mbAddrTmp > self.mb.idx or self.mb.idx % self.slice.PicWidthInMbs == 0:
+                    mbAddrTmp = None
+            else:
+                raise NameError("direction impossible")
+            xW = ( xN + maxW ) % maxW
+            yW = ( yN + maxH ) % maxH
+        else:
+            # 6.4.12.2
+            raise NameError("6.4.12.2 not impl")
+        return (mbAddrTmp, xW, yW)
+
 
     def belongMB(self, xN, yN, maxW, maxH):
         # find the mb which neighbour belongs to
@@ -322,7 +334,7 @@ class Block:
             return None
 
     def check_mb_avail(self, mbAddr):
-        if mbAddr < 0 or mbAddr > self.slice.var["CurrMbAddr"]:
+        if mbAddr < 0 or mbAddr > self.mb.idx:
             return None
         else:
             return mbAddr

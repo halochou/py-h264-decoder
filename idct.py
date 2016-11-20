@@ -1,30 +1,31 @@
-# 6.4.1 Inverse macroblock scanning process
-def get_cord_of_mb(mbAddr, MbaffFrameFlag, PicWidthInSamples_L):
-    x = InverseRasterScan( mbAddr, 16, 16, PicWidthInSamples_L , 0 )
-    y = InverseRasterScan( mbAddr, 16, 16, PicWidthInSamples_L , 1 )
-
-# 6.4.3 Inverse 4x4 luma block scanning process
-def get_cord_of_luma4x4(luma4x4BlkIdx):
-    x = InverseRasterScan( luma4x4BlkIdx // 4, 8, 8, 16, 0 ) + InverseRasterScan( luma4x4BlkIdx % 4, 4, 4, 8, 0 )
-    y = InverseRasterScan( luma4x4BlkIdx // 4, 8, 8, 16, 1 ) + InverseRasterScan( luma4x4BlkIdx % 4, 4, 4, 8, 1 )
-    return (x, y)
+from utilities import InverseRasterScan, Clip1_Y, get_cord_of_mb, get_cord_of_luma4x4, array_2d
+import intra_pred
 
 # 8.5 Construct One MB sample array, S'L S'Cb S'Cr
-def construct_picture(coeffLevels, predSamples):
-    assert False
+def construct_picture(blk):
+    if blk.color == "Y" and blk.size == "4x4":
+        dec_luma4x4(blk)
+    else:
+        assert False
 
 # 8.5.1 transform decoding process for 4x4 luma residual blocks
-def dec_luma4x4(luma4x4BlkIdx):
-    c = inv_scan_for_4x4_coeff_slist(coeffLevels)
-    r = idct_and_scaling_for_4x4(c)
-    if TransformByassert FalseModeFlag == 1:
-        raise NameError("8.5.1-3 TransformByassert FalseModeFlag not impl")
+def dec_luma4x4(blk):
+    luma4x4BlkIdx = blk.idx
+    coeffLevel = blk.coeffLevel
+    # print("CoeffLevel:", coeffLevel)
+    c = inv_scan_for_4x4_coeff_slist(coeffLevel)
+    # print("Array C:", c)
+    r = idct_and_scaling_for_4x4(c, blk)
+    # print("Array R:", r)
+    if blk.mb.TransformBypassModeFlag == 1:
+        raise NameError("8.5.1-3 TransformBypassModeFlag not impl")
     (xO, yO) = get_cord_of_luma4x4(luma4x4BlkIdx)
-    u = [[None]*4]*4
+    u = array_2d(4,4)
     for i in range(4):
         for j in range(4):
-            u[i][j] = [Clip1_Y(pred_L[xO+j, yO+i] + r[i][j])]
-    pic_construct(u, luma4x4BlkIdx)
+            u[i][j] = Clip1_Y(blk.mb.pred_L[xO+j][yO+i]+r[i][j], blk.mb.slice.sps.BitDepth_Y)
+    # print("Array U:", u)
+    pic_construct(u, blk)
 
 # 8.5.2 transform decoding process for luma samples of Intra_16x16 macroblock prediction mode
 def idct_for_luma16x16():
@@ -43,10 +44,14 @@ def idct_for_chroma():
 # 8.5.6 Inverse scanning process for 4x4 transform coefficients and scaling lists
 def inv_scan_for_4x4_coeff_slist(arr):
     zigzag = [(0, 0), (0, 1), (1, 0), (2, 0), (1, 1), (0, 2), (0, 3), (1, 2), (2, 1), (3, 0), (3, 1), (2, 2), (1, 3), (2, 3), (3, 2), (3, 3)]
-    c = [[None]*4]*4
-    for (idx, v) in enumerate(arr):
-        (x, y) = zigzag[idx]
-        c[x][y] = v
+    c = array_2d(4,4)
+    # for (idx, v) in enumerate(arr):
+    #     (x, y) = zigzag[idx]
+    #     c[x][y] = v
+    #     print(idx, v, "->", x,y,"res",c)
+    for i in range(16):
+        (x,y) = zigzag[i]
+        c[x][y] = arr[i]
     return c
 
 # 8.5.7 Inverse scanning process for 8x8 transform coefficients and scaling lists
@@ -58,14 +63,15 @@ def get_chroma_qp():
     assert False
 
 # 8.5.9 Derivation process for scaling functions
-def get_4x4_scaling_fn(mb_pred_mode, separate_colour_plane_flag, mode):
-    mbIsInterFlag = 1 if "Inter" in mb_pred_mode else 0
-    iYCbCr = colour_plane_id if separate_colour_plane_flag == 1 else ["Y", "Cb", "Cr"].index(mode)
-    weightScale4x4 = inv_scan_for_4x4_coeff_slist(ScalingList4x4[iYCbCr + (3 if mbIsInterFlag == 1 else 0)])
-    LevelScale4x4 = [[[None]*6]*4]*4
-    for i in range(4):
-        for j in range(4):
-            LevelScale4x4[m][i][j] = weightScale4x4[i][j] * normAdjust4x4(m, i, j)
+def get_4x4_scaling_fn(blk):
+    mbIsInterFlag = 1 if "Inter" in blk.mb.pred_mode else 0
+    iYCbCr = blk.mb.slice.colour_plane_id if blk.mb.slice.sps.separate_colour_plane_flag == 1 else ["Y", "Cb", "Cr"].index(blk.color)
+    weightScale4x4 = inv_scan_for_4x4_coeff_slist(blk.mb.slice.pps.ScalingList4x4[iYCbCr + (3 if mbIsInterFlag == 1 else 0)])
+    LevelScale4x4 = [array_2d(4,4)]*6
+    for m in range(6):
+        for i in range(4):
+            for j in range(4):
+                LevelScale4x4[m][i][j] = weightScale4x4[i][j] * normAdjust4x4(m, i, j)
     # LevelScale8x8 not impl
     return LevelScale4x4
 def normAdjust4x4(m, i, j):
@@ -99,66 +105,67 @@ def scaling_for_dc_chroma():
     assert False
 
 # 8.5.12 Scaling and transformation process for residual 4x4 blocks
-def idct_and_scaling_for_4x4(c, mode):
-    bitDepth = BitDepth_Y if mode == "Y" else BitDepth_C
+def idct_and_scaling_for_4x4(c, blk):
+    bitDepth = blk.mb.slice.sps.BitDepth_Y if blk.color == "Y" else blk.mb.slice.sps.BitDepth_C
     sMbFlag = 0 # maybe bug
-    if mode == "Y" and sMbFlag == 0:
-        qP = QP_prime_Y
-    elif mode in ["Cb", "Cr"] and sMbFlag == 0:
-        qp = QP_prime_C
+    if blk.color == "Y" and sMbFlag == 0:
+        qP = blk.mb.QP_prime_Y
+    elif blk.color in ["Cb", "Cr"] and sMbFlag == 0:
+        qp = blk.mb.QP_prime_C
     else:
         raise NameError("sMbFlag not impl")
-    if TransformBypassModeFlag == 1:
+    if blk.mb.TransformBypassModeFlag == 1:
         raise NameError("sMbFlag not impl")
     else:
-        d = scaling_for_4x4(bitDepth, qP, c)
+        d = scaling_for_4x4(bitDepth, qP, c, blk)
         r = idct_for_4x4(bitDepth, d)
     return r
 
 # 8.5.12.1 Scaling process for residual 4x4 blocks
-def scaling_for_4x4(bitDepth, qP, c, mode, pred):
-    d = [[None]*4]*4
-    if (mode == "Y" and "Intra_16x16" in pred_mode) or mode in ["Cb","Cr"]:
+def scaling_for_4x4(bitDepth, qP, c, blk):
+    LevelScale4x4 = get_4x4_scaling_fn(blk)
+    d = array_2d(4,4)
+    if (blk.color == "Y" and "Intra16x16" in blk.mb.pred_mode) or blk.color in ["Cb","Cr"]:
         d[0][0] = c[0][0]
     if qP >= 24:
         for i in range(4):
             for j in range(4):
-                d[i][j] = (c[i][j] * LevelScale4x4[qP%6, i, j]) << (qP/6−4)
+                d[i][j] = (c[i][j] * LevelScale4x4[qP%6][i][j]) << (qP//6-4)
     else:
         for i in range(4):
             for j in range(4):
-                d[i][j] = (c[i][j] * LevelScale4x4[qP%6, i, j] + 2**(3-qp//6)) >> (4 - qp//6)
-    if (mode == "Y" and "Intra_16x16" in pred_mode) or mode in ["Cb","Cr"]:
+                d[i][j] = (c[i][j] * LevelScale4x4[qP%6][i][j] + 2**(3-qP//6)) >> (4 - qP//6)
+    if (blk.color == "Y" and "Intra16x16" in blk.mb.pred_mode) or blk.color in ["Cb","Cr"]:
         d[0][0] = c[0][0]
     return d
 
 # 8.5.12.2 Transformation process for residual 4x4 blocks
 def idct_for_4x4(bitDepth, d):
-    e = [[None]*4]*4
+    e = array_2d(4,4)
     for i in range(4):
         e[i][0] = d[i][0] + d[i][2]
         e[i][1] = d[i][0] - d[i][2]
         e[i][2] = (d[i][1] >> 1) - d[i][3]
         e[i][3] = d[i][1] + (d[i][3] >> 1)
-    f = [[None]*4]*4
+    f = array_2d(4,4)
     for i in range(4):
         f[i][0] = e[i][0] + e[i][3]
         f[i][1] = e[i][1] + e[i][2]
         f[i][2] = e[i][1] - e[i][2]
         f[i][3] = e[i][0] - e[i][3]
-    g = [[None]*4]*4
+    g = array_2d(4,4)
     for j in range(4):
         g[0][j] = f[0][j] + f[2][j]
         g[1][j] = f[0][j] - f[2][j]
         g[2][j] = (f[1][j] >> 1) - f[3][j]
         g[3][j] = f[1][j] + (f[3][j] >> 1)
-    h = [[None]*4]*4
+    h = array_2d(4,4)
     for j in range(4):
         h[0][j] = g[0][j] + g[3][j]
         h[1][j] = g[1][j] + g[2][j]
         h[2][j] = g[1][j] - g[2][j]
         h[3][j] = g[0][j] - g[3][j]
-    r = [[None]*4]*4
+    r = array_2d(4,4)
     for i in range(4):
         for j in range(4):
             r[i][j] = (h[i][j] + 2**5) >> 6
@@ -175,22 +182,28 @@ def idct_for_8x8():
     assert False
 
 # 8.5.14 Picture construction process
-def pic_construct(u, idx, mode):
-    if mode == "Luma":
-        (xP, yP) = get_cord_of_mb(CurrMbAddr, MbaffFrameFlag, PicWidthInSamples_L)
-        if mode == "Luma16x16":
+def pic_construct(u, blk):
+    if blk.color == "Y":
+        (xP, yP) = get_cord_of_mb(blk.mb.idx, blk.mb.slice.MbaffFrameFlag, blk.mb.slice.PicWidthInSamples_L)
+        if blk.size == "16x16":
             (xO, yO) = (0, 0)
             nE = 16
-        elif mode == "Luma4x4":
-            (xO, yO) = get_cord_of_luma4x4(idx)
-            nE = 8
-        elif mode == "Luma8x8":
+        elif blk.size == "4x4":
+            (xO, yO) = get_cord_of_luma4x4(blk.idx)
+            nE = 4
+        elif blk.size == "8x8":
             raise NameError("8x8 not impl")
-        if MbaffFrameFlag == 0:
-            S_L = [[None]*nE]*nE
+        else:
+            raise NameError("not impl")
+
+        if blk.mb.slice.MbaffFrameFlag == 0:
             for i in range(nE):
                 for j in range(nE):
-                    S_L[xP+xO+j, yP+yO+i] = u[i][j]
+                    # print(i,j,xP+xO+j,yP+yO+i, "<-", u[i][j])
+                    blk.mb.slice.S_prime_L[xP+xO+j][yP+yO+i] = u[i][j]
+        else:
+            raise NameError("MbaffFrameFlag == 1")
+        # print(blk.mb.slice.S_prime_L)
     else:
         raise NameError("Chroma not impl")
 

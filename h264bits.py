@@ -123,12 +123,12 @@ class H264Bits:
 
     def me(self, mb_pred_mode, chroma_array_type):
         if chroma_array_type in [1, 2]:
-            if mb_pred_mode in ["Intra_8x8", "Intra_4x4"]:
+            if mb_pred_mode in ["Intra8x8", "Intra4x4"]:
                 table = H264Bits.table9_4a_intra
             elif mb_pred_mode == "Inter":
                 table = H264Bits.table9_4a_inter
         else:
-            if mb_pred_mode in ["Intra_8x8", "Intra_4x4"]:
+            if mb_pred_mode in ["Intra8x8", "Intra4x4"]:
                 table = H264Bits.table9_4b_intra
             elif mb_pred_mode == "Inter":
                 table = H264Bits.table9_4b_inter
@@ -151,7 +151,7 @@ class H264Bits:
         return (token, table.index(token))
 
     def ce_coeff_token(self, nC):
-        print("    decoding coeff token with nC ", nC)
+        # print("    decoding coeff token with nC ", nC)
         # self.debug()
         if 0 <= nC and nC < 2:
             table = H264Bits.T1s_TC_coeff_token[0]
@@ -182,7 +182,7 @@ class H264Bits:
         return zeros
 
     def ce_total_zeros(self, tzVlcIndex, maxNumCoeff):
-        print("    decoding total zeros with tzVlcIndex, maxNumCoeff:", tzVlcIndex, maxNumCoeff)
+        # print("    decoding total zeros with tzVlcIndex, maxNumCoeff:", tzVlcIndex, maxNumCoeff)
         if maxNumCoeff == 4:
             table = H264Bits.table9_9_a[tzVlcIndex - 1]
         elif maxNumCoeff == 8:
@@ -191,7 +191,7 @@ class H264Bits:
             # print("    using table 9-7/8")
             table = H264Bits.table9_78[tzVlcIndex - 1]
         (token, value) = self.find_code(table)
-        print("    find token, value:", token, value)
+        # print("    find token, value:", token, value)
         return value
 
     def ce_run_before(self, zerosLeft):
