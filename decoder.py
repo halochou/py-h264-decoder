@@ -5,6 +5,7 @@ from nalpps import PPS
 from nalslice import Slice
 from pprint import pprint
 from copy import copy
+import utilities
 import json
 
 
@@ -31,7 +32,12 @@ def dump_mbs(slice, filename):
 def decode_slice(slice):
     for mb in slice.mbs:
         import intra_pred
-        intra_pred.intra_pred(mb)
+        intra_pred.luma_pred(mb)
+        intra_pred.chroma_pred(mb)
+    utilities.pic_paint(slice.S_prime_L, "Luma")
+    utilities.pic_paint(slice.S_prime_Cb, "Cb")
+    utilities.pic_paint(slice.S_prime_Cr, "Cr")
+
 
 input_file = open("baseline.264", "rb")
 nalus_ba = list(BitArray(input_file).split('0x000001', bytealigned=True))[1:]

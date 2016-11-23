@@ -1,6 +1,6 @@
 from block import Block
 from pprint import pprint
-from utilities import array_2d
+from utilities import array_2d, Clip3
 
 mbtype_islice_table = ["I_NxN","I_16x16_0_0_0","I_16x16_1_0_0","I_16x16_2_0_0","I_16x16_3_0_0","I_16x16_0_1_0","I_16x16_1_1_0","I_16x16_2_1_0","I_16x16_3_1_0","I_16x16_0_2_0","I_16x16_1_2_0","I_16x16_2_2_0","I_16x16_3_2_0","I_16x16_0_0_1","I_16x16_1_0_1","I_16x16_2_0_1","I_16x16_3_0_1","I_16x16_0_1_1","I_16x16_1_1_1","I_16x16_2_1_1","I_16x16_3_1_1","I_16x16_0_2_1","I_16x16_1_2_1","I_16x16_2_2_1","I_16x16_3_2_1","I_PCM"]
 
@@ -80,6 +80,13 @@ class Macroblock:
             else:
                 self.TransformBypassModeFlag = 0
 
+            table_8_15 = [29,30,31,32,32,33,34,34,35,35,36,36,37,37,37,38,38,38,39,39,39,39]
+            # Cb
+            qP_Offset = self.slice.pps.chroma_qp_index_offset
+            qP_I = Clip3(-self.slice.sps.QpBdOffset_C, 51, self.QP_Y + qP_Offset)
+            self.QP_C = qP_I if qP_I < 30 else table_8_15[qP_I - 30]
+            self.QP_prime_C = self.QP_C + self.slice.sps.QpBdOffset_C
+
             self.residual(0, 15)
 
 
@@ -126,14 +133,14 @@ class Macroblock:
                 if self.CodedBlockPatternChroma & 3 and startIdx == 0:
                     self.chroma_dc_blocks[iCbCr].parse(0,4 * NumC8x8 - 1, 4 * NumC8x8)
                 else:
-                    self.chroma_dc_blocks[iCbCr].ChromaDCLevel = [0] * (4 * NumC8x8)
+                    self.chroma_dc_blocks[iCbCr].coeffLevel = [0] * (4 * NumC8x8)
             for iCbCr in range(2):
                 for i8x8 in range(NumC8x8):
                     for i4x4 in range(4):
                         if self.CodedBlockPatternChroma & 2:
                             self.chroma_ac_blocks[iCbCr][i8x8*4+i4x4].parse(max(0, startIdx-1), endIdx-1, 15)
                         else:
-                            self.chroma_ac_blocks[iCbCr][i8x8*4+i4x4].ChromaACLevel = [0] * 16
+                            self.chroma_ac_blocks[iCbCr][i8x8*4+i4x4].coeffLevel = [0] * 16
         elif self.slice.sps.ChromaArrayType == 3:
             raise NameError("ChromaArrayType == 3 not impl")
 
@@ -173,3 +180,86 @@ class Macroblock:
             return "Intra16x16"
         else:
             raise NameError("Unknown MbPartPredMode")
+
+    def luma_neighbor_location(self, xN, yN):
+        # 6.4.12
+        maxW = 16
+        maxH = 16
+        if self.slice.MbaffFrameFlag == 0:
+            # 6.4.12.1
+            tmp = self.belongMB(xN, yN, maxW, maxH)
+            if tmp == "A":
+                mbAddrTmp = self.idx - 1
+                if mbAddrTmp < 0 or mbAddrTmp > self.idx or self.idx % self.slice.PicWidthInMbs == 0:
+                    mbAddrTmp = None
+            elif tmp == "B":
+                mbAddrTmp = self.idx - self.slice.PicWidthInMbs
+                if mbAddrTmp < 0 or mbAddrTmp > self.idx:
+                    mbAddrTmp = None
+            elif tmp == "X":
+                mbAddrTmp = self.idx
+            elif tmp == "C":
+                mbAddrTmp = self.idx - self.slice.PicWidthInMbs + 1
+                if mbAddrTmp < 0 or mbAddrTmp > self.idx or self.idx+1 % self.slice.PicWidthInMbs == 0:
+                    mbAddrTmp = None
+            elif tmp == "D":
+                mbAddrTmp = self.idx - self.slice.PicWidthInMbs - 1
+                if mbAddrTmp < 0 or mbAddrTmp > self.idx or self.idx % self.slice.PicWidthInMbs == 0:
+                    mbAddrTmp = None
+            else:
+                mbAddrTmp = None
+            xW = ( xN + maxW ) % maxW
+            yW = ( yN + maxH ) % maxH
+        else:
+            # 6.4.12.2
+            raise NameError("6.4.12.2 not impl")
+        return (mbAddrTmp, xW, yW)
+
+    def chroma_neighbor_location(self, xN, yN):
+        maxW = self.slice.sps.MbWidthC
+        maxH = self.slice.sps.MbHeightC
+        if self.slice.MbaffFrameFlag == 0:
+            tmp = self.belongMB(xN, yN, maxW, maxH)
+            if tmp == "A":
+                mbAddrTmp = self.idx - 1
+                if mbAddrTmp < 0 or mbAddrTmp > self.idx or self.idx % self.slice.PicWidthInMbs == 0:
+                    mbAddrTmp = None
+            elif tmp == "B":
+                mbAddrTmp = self.idx - self.slice.PicWidthInMbs
+                if mbAddrTmp < 0 or mbAddrTmp > self.idx:
+                    mbAddrTmp = None
+            elif tmp == "X":
+                mbAddrTmp = self.idx
+            elif tmp == "C":
+                mbAddrTmp = self.idx - self.slice.PicWidthInMbs + 1
+                if mbAddrTmp < 0 or mbAddrTmp > self.idx or self.idx+1 % self.slice.PicWidthInMbs == 0:
+                    mbAddrTmp = None
+            elif tmp == "D":
+                mbAddrTmp = self.idx - self.slice.PicWidthInMbs - 1
+                if mbAddrTmp < 0 or mbAddrTmp > self.idx or self.idx % self.slice.PicWidthInMbs == 0:
+                    mbAddrTmp = None
+            else:
+                raise NameError("direction impossible")
+            xW = ( xN + maxW ) % maxW
+            yW = ( yN + maxH ) % maxH
+        else:
+            # 6.4.12.2
+            raise NameError("6.4.12.2 not impl")
+        return (mbAddrTmp, xW, yW)
+
+    def belongMB(self, xN, yN, maxW, maxH):
+        # find the mb which neighbour belongs to
+        if xN < 0 and yN < 0:
+            return "D"
+        if xN < 0 and (0 <= yN and yN <= maxH-1):
+            return "A"
+        if (0 <= xN and xN <= maxW-1) and yN < 0:
+            return "B"
+        if (0 <= xN and xN <= maxW-1) and (0 <= yN and yN <= maxH-1):
+            return "X"
+        if xN > maxW - 1 and yN < 0:
+            return "C"
+        if xN > maxW - 1 and (0 <= yN and yN <= maxH-1):
+            return None
+        if yN > maxH-1:
+            return None

@@ -35,6 +35,12 @@ def get_cord_of_luma4x4(luma4x4BlkIdx):
     y = InverseRasterScan( luma4x4BlkIdx // 4, 8, 8, 16, 1 ) + InverseRasterScan( luma4x4BlkIdx % 4, 4, 4, 8, 1 )
     return (x, y)
 
+# 6.4.7 Inverse 4x4 chroma block scanning process
+def get_cord_of_chroma4x4(idx):
+    x = InverseRasterScan(idx, 4, 4, 8, 0)
+    y = InverseRasterScan(idx, 4, 4, 8, 1)
+    return (x, y)
+
 def all_satisfy(arr, fn):
     for x in arr:
         if not fn(x):
@@ -49,11 +55,23 @@ def any_satisfy(arr, fn):
 def array_2d(w, h, v = None):
     return [[v for x in range(w)] for y in range(h)]
 
-def pic_paint(img):
-    with open("image", 'w') as outfile:
+def pic_paint(img, fname):
+    with open(fname, 'w') as outfile:
         w = len(img)
         h = len(img[0])
         for x in range(h):
             for y in range(w):
                 print('{0:3d} '.format(img[y][x]), end='', file=outfile)
             print('', file=outfile)
+
+def mat_mult(a, b):
+    n = len(a)
+    ma = len(a[0])
+    p = len(b[0])
+    mb = len(b)
+    assert ma == mb
+    prod = array_2d(n, p)
+    for i in range(n):
+        for j in range(p):
+            prod[i][j] = sum([a[i][k] * b[k][j] for k in range(ma)])
+    return prod

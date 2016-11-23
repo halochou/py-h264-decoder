@@ -116,17 +116,18 @@ class Slice:
                                      (not self.field_pic_flag)
         self.PicWidthInMbs = self.sps.pic_width_in_mbs_minus1 + 1
         self.PicWidthInSamples_L = self.PicWidthInMbs * 16
+        self.PicWidthInSamples_C = self.PicWidthInMbs * self.sps.MbWidthC
         self.PicHeightInMapUnits = self.sps.pic_height_in_map_units_minus1 + 1
         self.FrameHeightInMbs = ( 2 - self.sps.frame_mbs_only_flag ) * self.PicHeightInMapUnits
         self.PicHeightInMbs = self.FrameHeightInMbs / ( 1 + self.field_pic_flag )
         self.PicSizeInMapUnits = self.PicWidthInMbs * self.PicHeightInMapUnits
         self.PicSizeInMbs = self.PicWidthInMbs * self.PicHeightInMbs
         self.PicHeightInSamples_L = int(self.PicHeightInMbs * 16)
-        # self.cS_L =      [[0] * self.PicHeightInSamples_L] * self.PicWidthInSamples_L
-        # self.pred_L = array_2d(self.PicWidthInSamples_L, self.PicHeightInSamples_L)
+        self.PicHeightInSamples_C = int(self.PicHeightInMbs * self.sps.MbHeightC)
         self.S_prime_L = array_2d(self.PicHeightInSamples_L, self.PicWidthInSamples_L, 0)
+        self.S_prime_Cb = array_2d(self.PicHeightInSamples_C, self.PicWidthInSamples_C, 0)
+        self.S_prime_Cr = array_2d(self.PicHeightInSamples_C, self.PicWidthInSamples_C, 0)
         self.mb_to_slice_group_map()
-        # self.PicHeightInSamplesC = self.PicHeightInMbs * MbHeightC
 
     def ref_pic_list_mvc_modification(self):
         print("ref_pic_list_mvc_modification NOT IMPL")

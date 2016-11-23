@@ -212,7 +212,7 @@ class Block:
         y = InverseRasterScan( luma4x4BlkIdx // 4, 8, 8, 16, 1 ) + \
             InverseRasterScan( luma4x4BlkIdx % 4, 4, 4, 8, 1 )
         (xN, yN) = (x + xD, y + yD) #3
-        (mbAddrTmp, xW, yW) = self.luma_neighbor_location(xN, yN)
+        (mbAddrTmp, xW, yW) = self.mb.luma_neighbor_location(xN, yN)
         if mbAddrTmp == None:
             luma4x4BlkIdxTmp = None
         else:
@@ -227,39 +227,39 @@ class Block:
         # print("  -> MB:", mbAddrTmp, "BLK:", luma4x4BlkIdxTmp)
         return (mbAddrTmp, luma4x4BlkIdxTmp)
 
-    def luma_neighbor_location(self, xN, yN):
-        # 6.4.12
-        maxW = 16
-        maxH = 16
-        if self.slice.MbaffFrameFlag == 0:
-            # 6.4.12.1
-            tmp = self.belongMB(xN, yN, maxW, maxH)
-            if tmp == "A":
-                mbAddrTmp = self.mb.idx - 1
-                if mbAddrTmp < 0 or mbAddrTmp > self.mb.idx or self.mb.idx % self.slice.PicWidthInMbs == 0:
-                    mbAddrTmp = None
-            elif tmp == "B":
-                mbAddrTmp = self.mb.idx - self.slice.PicWidthInMbs
-                if mbAddrTmp < 0 or mbAddrTmp > self.mb.idx:
-                    mbAddrTmp = None
-            elif tmp == "X":
-                mbAddrTmp = self.mb.idx
-            elif tmp == "C":
-                mbAddrTmp = self.mb.idx - self.slice.PicWidthInMbs + 1
-                if mbAddrTmp < 0 or mbAddrTmp > self.mb.idx or self.mb.idx+1 % self.slice.PicWidthInMbs == 0:
-                    mbAddrTmp = None
-            elif tmp == "D":
-                mbAddrTmp = self.mb.idx - self.slice.PicWidthInMbs - 1
-                if mbAddrTmp < 0 or mbAddrTmp > self.mb.idx or self.mb.idx % self.slice.PicWidthInMbs == 0:
-                    mbAddrTmp = None
-            else:
-                mbAddrTmp = None
-            xW = ( xN + maxW ) % maxW
-            yW = ( yN + maxH ) % maxH
-        else:
-            # 6.4.12.2
-            raise NameError("6.4.12.2 not impl")
-        return (mbAddrTmp, xW, yW)
+    # def luma_neighbor_location(self, xN, yN):
+    #     # 6.4.12
+    #     maxW = 16
+    #     maxH = 16
+    #     if self.slice.MbaffFrameFlag == 0:
+    #         # 6.4.12.1
+    #         tmp = self.belongMB(xN, yN, maxW, maxH)
+    #         if tmp == "A":
+    #             mbAddrTmp = self.mb.idx - 1
+    #             if mbAddrTmp < 0 or mbAddrTmp > self.mb.idx or self.mb.idx % self.slice.PicWidthInMbs == 0:
+    #                 mbAddrTmp = None
+    #         elif tmp == "B":
+    #             mbAddrTmp = self.mb.idx - self.slice.PicWidthInMbs
+    #             if mbAddrTmp < 0 or mbAddrTmp > self.mb.idx:
+    #                 mbAddrTmp = None
+    #         elif tmp == "X":
+    #             mbAddrTmp = self.mb.idx
+    #         elif tmp == "C":
+    #             mbAddrTmp = self.mb.idx - self.slice.PicWidthInMbs + 1
+    #             if mbAddrTmp < 0 or mbAddrTmp > self.mb.idx or self.mb.idx+1 % self.slice.PicWidthInMbs == 0:
+    #                 mbAddrTmp = None
+    #         elif tmp == "D":
+    #             mbAddrTmp = self.mb.idx - self.slice.PicWidthInMbs - 1
+    #             if mbAddrTmp < 0 or mbAddrTmp > self.mb.idx or self.mb.idx % self.slice.PicWidthInMbs == 0:
+    #                 mbAddrTmp = None
+    #         else:
+    #             mbAddrTmp = None
+    #         xW = ( xN + maxW ) % maxW
+    #         yW = ( yN + maxH ) % maxH
+    #     else:
+    #         # 6.4.12.2
+    #         raise NameError("6.4.12.2 not impl")
+    #     return (mbAddrTmp, xW, yW)
 
     def chroma_neighbor(self, direct):
         # 6.4.11.4
@@ -269,7 +269,7 @@ class Block:
         x = InverseRasterScan(chroma4x4BlkIdx, 4, 4, 8, 0 )
         y = InverseRasterScan(chroma4x4BlkIdx, 4, 4, 8, 1 )
         (xN, yN) = (x + xD, y + yD) #3
-        (mbAddrTmp, xW, yW) = self.chroma_neighbor_location(xN, yN)
+        (mbAddrTmp, xW, yW) = self.mb.chroma_neighbor_location(xN, yN)
         if mbAddrTmp == None:
             chroma4x4BlkIdxTmp = None
         else:
@@ -283,55 +283,55 @@ class Block:
         # print("      lumaIdx:", luma4x4BlkIdxTmp)
         return (mbAddrTmp, chroma4x4BlkIdxTmp)
 
-    def chroma_neighbor_location(self, xN, yN):
-        maxW = self.slice.sps.MbWidthC
-        maxH = self.slice.sps.MbHeightC
-        if self.slice.MbaffFrameFlag == 0:
-            tmp = self.belongMB(xN, yN, maxW, maxH)
-            if tmp == "A":
-                mbAddrTmp = self.mb.idx - 1
-                if mbAddrTmp < 0 or mbAddrTmp > self.mb.idx or self.mb.idx % self.slice.PicWidthInMbs == 0:
-                    mbAddrTmp = None
-            elif tmp == "B":
-                mbAddrTmp = self.mb.idx - self.slice.PicWidthInMbs
-                if mbAddrTmp < 0 or mbAddrTmp > self.mb.idx:
-                    mbAddrTmp = None
-            elif tmp == "X":
-                mbAddrTmp = self.mb.idx
-            elif tmp == "C":
-                mbAddrTmp = self.mb.idx - self.slice.PicWidthInMbs + 1
-                if mbAddrTmp < 0 or mbAddrTmp > self.mb.idx or self.mb.idx+1 % self.slice.PicWidthInMbs == 0:
-                    mbAddrTmp = None
-            elif tmp == "D":
-                mbAddrTmp = self.mb.idx - self.slice.PicWidthInMbs - 1
-                if mbAddrTmp < 0 or mbAddrTmp > self.mb.idx or self.mb.idx % self.slice.PicWidthInMbs == 0:
-                    mbAddrTmp = None
-            else:
-                raise NameError("direction impossible")
-            xW = ( xN + maxW ) % maxW
-            yW = ( yN + maxH ) % maxH
-        else:
-            # 6.4.12.2
-            raise NameError("6.4.12.2 not impl")
-        return (mbAddrTmp, xW, yW)
+    # def chroma_neighbor_location(self, xN, yN):
+    #     maxW = self.slice.sps.MbWidthC
+    #     maxH = self.slice.sps.MbHeightC
+    #     if self.slice.MbaffFrameFlag == 0:
+    #         tmp = self.belongMB(xN, yN, maxW, maxH)
+    #         if tmp == "A":
+    #             mbAddrTmp = self.mb.idx - 1
+    #             if mbAddrTmp < 0 or mbAddrTmp > self.mb.idx or self.mb.idx % self.slice.PicWidthInMbs == 0:
+    #                 mbAddrTmp = None
+    #         elif tmp == "B":
+    #             mbAddrTmp = self.mb.idx - self.slice.PicWidthInMbs
+    #             if mbAddrTmp < 0 or mbAddrTmp > self.mb.idx:
+    #                 mbAddrTmp = None
+    #         elif tmp == "X":
+    #             mbAddrTmp = self.mb.idx
+    #         elif tmp == "C":
+    #             mbAddrTmp = self.mb.idx - self.slice.PicWidthInMbs + 1
+    #             if mbAddrTmp < 0 or mbAddrTmp > self.mb.idx or self.mb.idx+1 % self.slice.PicWidthInMbs == 0:
+    #                 mbAddrTmp = None
+    #         elif tmp == "D":
+    #             mbAddrTmp = self.mb.idx - self.slice.PicWidthInMbs - 1
+    #             if mbAddrTmp < 0 or mbAddrTmp > self.mb.idx or self.mb.idx % self.slice.PicWidthInMbs == 0:
+    #                 mbAddrTmp = None
+    #         else:
+    #             raise NameError("direction impossible")
+    #         xW = ( xN + maxW ) % maxW
+    #         yW = ( yN + maxH ) % maxH
+    #     else:
+    #         # 6.4.12.2
+    #         raise NameError("6.4.12.2 not impl")
+    #     return (mbAddrTmp, xW, yW)
 
 
-    def belongMB(self, xN, yN, maxW, maxH):
-        # find the mb which neighbour belongs to
-        if xN < 0 and yN < 0:
-            return "D"
-        if xN < 0 and (0 <= yN and yN <= maxH-1):
-            return "A"
-        if (0 <= xN and xN <= maxW-1) and yN < 0:
-            return "B"
-        if (0 <= xN and xN <= maxW-1) and (0 <= yN and yN <= maxH-1):
-            return "X"
-        if xN > maxW - 1 and yN < 0:
-            return "C"
-        if xN > maxW - 1 and (0 <= yN and yN <= maxH-1):
-            return None
-        if yN > maxH-1:
-            return None
+    # def belongMB(self, xN, yN, maxW, maxH):
+    #     # find the mb which neighbour belongs to
+    #     if xN < 0 and yN < 0:
+    #         return "D"
+    #     if xN < 0 and (0 <= yN and yN <= maxH-1):
+    #         return "A"
+    #     if (0 <= xN and xN <= maxW-1) and yN < 0:
+    #         return "B"
+    #     if (0 <= xN and xN <= maxW-1) and (0 <= yN and yN <= maxH-1):
+    #         return "X"
+    #     if xN > maxW - 1 and yN < 0:
+    #         return "C"
+    #     if xN > maxW - 1 and (0 <= yN and yN <= maxH-1):
+    #         return None
+    #     if yN > maxH-1:
+    #         return None
 
     def check_mb_avail(self, mbAddr):
         if mbAddr < 0 or mbAddr > self.mb.idx:
