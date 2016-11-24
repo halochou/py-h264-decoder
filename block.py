@@ -92,8 +92,8 @@ class Block:
                         suffixLength = 1
                     if abs(levelVal[i]) > (3 << (suffixLength - 1)) and suffixLength < 6:
                         suffixLength += 1
-            # if TotalCoeff < endIdx - startIdx + 1 :
-            if TotalCoeff < maxNumCoeff:
+            if TotalCoeff < endIdx - startIdx + 1 :
+            # if TotalCoeff < maxNumCoeff:
                 tzVlcIndex = TotalCoeff
                 total_zeros = self.bits.ce_total_zeros(tzVlcIndex,maxNumCoeff)
                 # print("    ce_total_zeros,tzVlc,maxNumCoeff:", total_zeros, tzVlcIndex, maxNumCoeff)
@@ -118,7 +118,7 @@ class Block:
         return coeffLevel
 
     def dump_mbs(self):
-        print("DUMP MBS:")
+        # print("DUMP MBS:")
         for mb in self.slice.mbs:
             print("\n")
             for blk in mb.luma_blocks:

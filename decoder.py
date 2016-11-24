@@ -62,6 +62,7 @@ for nalu_ba in nalus_ba:
     elif params["nal_unit_type"] in [1, 5]: # Slice
         slice = Slice(nb, sps = sps, ppss = ppss, params = params)
         decode_slice(slice)
+        break
         slices.append(slice)
         dump_mbs(slice, "slice_" + str(len(slices)) + "_mb.json")
         fname = "slice_" + str(len(slices)) + ".json"

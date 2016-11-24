@@ -53,7 +53,10 @@ def any_satisfy(arr, fn):
     return False
 
 def array_2d(w, h, v = None):
-    return [[v for x in range(w)] for y in range(h)]
+    return [[v for x in range(h)] for y in range(w)]
+
+def array_3d(i, j, k, v = None):
+    return [[[v for x in range(k)] for y in range(j)] for z in range(i)]
 
 def pic_paint(img, fname):
     with open(fname, 'w') as outfile:

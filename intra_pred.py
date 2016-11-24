@@ -4,7 +4,7 @@ import idct
 # 8.3 Intra prediction process
 
 def luma_pred(mb):
-    print("decoding mb ", mb.idx)
+    # print("decoding mb ", mb.idx)
     MvCnt = 0
     if mb.pred_mode == "Intra4x4":
         intra_4x4_luma(mb)
@@ -71,7 +71,7 @@ def gen_intra_4x4_pred_mode(blk):
 def gen_pred4x4_L(blk):
     mbs = blk.mb.slice.mbs
     (xO, yO) = get_cord_of_luma4x4(blk.idx)
-    p = array_2d(5,9)
+    p = array_2d(9,5)
     for y in  range(-1,4):
         xs = range(-1,8) if y == -1 else [-1]
         for x in xs:
@@ -336,10 +336,10 @@ def chroma_pred_C(mb, iCbCr):
     pred_chroma_fn = [pred_chroma_DC, pred_chroma_H,pred_chroma_V,pred_chroma_P][mb.intra_chroma_pred_mode]
     if iCbCr == 1:
         mb.pred_Cb = pred_chroma_fn(p, mb)
-        print(mb.idx, iCbCr, "preded", mb.pred_Cb)
+        # print(mb.idx, iCbCr, "preded", mb.pred_Cb)
     elif iCbCr == 2:
         mb.pred_Cr = pred_chroma_fn(p, mb)
-        print(mb.idx, iCbCr, "preded", mb.pred_Cr)
+        # print(mb.idx, iCbCr, "preded", mb.pred_Cr)
 
 # 8.3.4.1 Specification of Intra_Chroma_DC prediction mode
 def pred_chroma_DC(p, mb):

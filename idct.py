@@ -16,6 +16,7 @@ def dec_luma4x4(blk):
     c = inv_scan_for_4x4_coeff_slist(coeffLevel)
     # print("Array C:", c)
     r = idct_and_scaling_for_4x4(c, blk)
+    blk.residual = r
     # print("Array R:", r)
     if blk.mb.TransformBypassModeFlag == 1:
         raise NameError("8.5.1-3 TransformBypassModeFlag not impl")
@@ -69,7 +70,7 @@ def idct_for_luma8x8():
 #         idct_for_chroma_C(mb, iCbCr)
 
 def idct_for_chroma_C(mb, iCbCr):
-    print(mb.idx, iCbCr, "idcting")
+    # print(mb.idx, iCbCr, "idcting")
     if mb.slice.sps.ChromaArrayType == 3:
         raise NameError("8.5.5 not impl")
     else:
@@ -145,8 +146,10 @@ def get_chroma_qp():
 def get_4x4_scaling_fn(blk):
     mbIsInterFlag = 1 if "Inter" in blk.mb.pred_mode else 0
     iYCbCr = blk.mb.slice.colour_plane_id if blk.mb.slice.sps.separate_colour_plane_flag == 1 else ["Y", "Cb", "Cr"].index(blk.color)
-    weightScale4x4 = inv_scan_for_4x4_coeff_slist(blk.mb.slice.pps.ScalingList4x4[iYCbCr + (3 if mbIsInterFlag == 1 else 0)])
-    LevelScale4x4 = [array_2d(4,4)]*6
+    # weightScale4x4 = inv_scan_for_4x4_coeff_slist(blk.mb.slice.pps.ScalingList4x4[iYCbCr + (3 if mbIsInterFlag == 1 else 0)])
+    weightScale4x4 = inv_scan_for_4x4_coeff_slist([16]*16)
+    blk.weightScale4x4 = weightScale4x4
+    LevelScale4x4 = array_3d(6,4,4)
     for m in range(6):
         for i in range(4):
             for j in range(4):
@@ -238,6 +241,7 @@ def idct_and_scaling_for_4x4(c, blk):
         raise NameError("sMbFlag not impl")
     else:
         d = scaling_for_4x4(bitDepth, qP, c, blk)
+        blk.scaledCoeff = d
         r = idct_for_4x4(bitDepth, d)
     return r
 
@@ -245,18 +249,17 @@ def idct_and_scaling_for_4x4(c, blk):
 def scaling_for_4x4(bitDepth, qP, c, blk):
     LevelScale4x4 = get_4x4_scaling_fn(blk)
     d = array_2d(4,4)
-    if (blk.color == "Y" and "Intra16x16" in blk.mb.pred_mode) or blk.color in ["Cb","Cr"]:
-        d[0][0] = c[0][0]
-    if qP >= 24:
-        for i in range(4):
-            for j in range(4):
+    for i in range(4):
+        for j in range(4):
+            if qP >= 24:
                 d[i][j] = (c[i][j] * LevelScale4x4[qP%6][i][j]) << (qP//6-4)
-    else:
-        for i in range(4):
-            for j in range(4):
+            else:
                 d[i][j] = (c[i][j] * LevelScale4x4[qP%6][i][j] + 2**(3-qP//6)) >> (4 - qP//6)
-    if (blk.color == "Y" and "Intra16x16" in blk.mb.pred_mode) or blk.color in ["Cb","Cr"]:
-        d[0][0] = c[0][0]
+            if i == 0 and j == 0 and \
+                    ((blk.color == "Y" and "Intra16x16" in blk.mb.pred_mode) or blk.color in ["Cb","Cr"]):
+                d[0][0] = c[0][0]
+    # if (blk.color == "Y" and "Intra16x16" in blk.mb.pred_mode) or blk.color in ["Cb","Cr"]:
+    #     d[0][0] = c[0][0]
     return d
 
 # 8.5.12.2 Transformation process for residual 4x4 blocks

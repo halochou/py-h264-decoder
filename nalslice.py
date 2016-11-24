@@ -124,9 +124,9 @@ class Slice:
         self.PicSizeInMbs = self.PicWidthInMbs * self.PicHeightInMbs
         self.PicHeightInSamples_L = int(self.PicHeightInMbs * 16)
         self.PicHeightInSamples_C = int(self.PicHeightInMbs * self.sps.MbHeightC)
-        self.S_prime_L = array_2d(self.PicHeightInSamples_L, self.PicWidthInSamples_L, 0)
-        self.S_prime_Cb = array_2d(self.PicHeightInSamples_C, self.PicWidthInSamples_C, 0)
-        self.S_prime_Cr = array_2d(self.PicHeightInSamples_C, self.PicWidthInSamples_C, 0)
+        self.S_prime_L = array_2d(self.PicWidthInSamples_L, self.PicHeightInSamples_L, 0)
+        self.S_prime_Cb = array_2d(self.PicWidthInSamples_C, self.PicHeightInSamples_C, 0)
+        self.S_prime_Cr = array_2d(self.PicWidthInSamples_C, self.PicHeightInSamples_C, 0)
         self.mb_to_slice_group_map()
 
     def ref_pic_list_mvc_modification(self):
