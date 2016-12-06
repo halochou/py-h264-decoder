@@ -3,18 +3,23 @@ from pprint import pprint
 from utilities import array_2d, Clip3
 
 mbtype_islice_table = ["I_NxN","I_16x16_0_0_0","I_16x16_1_0_0","I_16x16_2_0_0","I_16x16_3_0_0","I_16x16_0_1_0","I_16x16_1_1_0","I_16x16_2_1_0","I_16x16_3_1_0","I_16x16_0_2_0","I_16x16_1_2_0","I_16x16_2_2_0","I_16x16_3_2_0","I_16x16_0_0_1","I_16x16_1_0_1","I_16x16_2_0_1","I_16x16_3_0_1","I_16x16_0_1_1","I_16x16_1_1_1","I_16x16_2_1_1","I_16x16_3_1_1","I_16x16_0_2_1","I_16x16_1_2_1","I_16x16_2_2_1","I_16x16_3_2_1","I_PCM"]
-
+mbtype_pslice_table = ["P_L0_16x16", "P_L0_L0_16x8", "P_L0_L0_8x16", "P_8x8", "P_8x8ref0", "P_Skip"]
 
 class Macroblock:
 
-    def __init__(self, parent_slice, idx):
+    def __init__(self, parent_slice, idx, pskip = False):
         self.idx = idx
         self.slice = parent_slice
         self.params = {}
         self.var = {}
-        self.mb_type_int = self.slice.bits.ue()
+        if pskip:
+            self.mb_type_int = 5
+        else:
+            self.mb_type_int = self.slice.bits.ue()
         if self.slice.slice_type == "I":
             self.mb_type = mbtype_islice_table[self.mb_type_int]
+        elif self.slice.slice_type == "P":
+            self.mb_type = mbtype_pslice_table[self.mb_type_int]
         else:
             raise NameError("Unknow MB Type")
         self.pred_mode = self.MbPartPredMode(self.mb_type_int)
@@ -178,6 +183,11 @@ class Macroblock:
             self.CodedBlockPatternChroma = ((mb_type_int - 1) // 4) % 3
             self.CodedBlockPatternLuma = (mb_type_int // 13) * 15
             return "Intra16x16"
+        elif (mb_type_int, n) in [(0,0), (1,0), (2,0), (5,0), (1,1), (2,1)]:
+            self.NumMbPart = [1,2,2,4,4,1][mb_type_int]
+            self.MbPartWidth = [16,16,8,8,8,16][mb_type_int]
+            self.MbPartHeight = [16,8,16,8,8,16][mb_type_int]
+            return "Pred_L0"
         else:
             raise NameError("Unknown MbPartPredMode")
 
