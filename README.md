@@ -17,23 +17,23 @@ The program can be executed as:
 
 Description of files:
 
-.
-├── README.md           # This readme file
-├── baseline.264        # Foreman QCIF test file in raw H.264 bitstream
-├── block.py            # Class Block
-├── decoder.py          # Main program entrance
-├── h264bits.py         # Class H264Bits 
-├── idct.py             # Module for inverse DCT and scaling
-├── intra_pred.py       # Module for intra prediction
-├── macroblock.py       # Class Macroblock
-├── nalpps.py           # Class PPS
-├── nalslice.py         # Class Slice
-├── nalsps.py           # Class SPS
-├── nalunit.py          # Class NALU
-├── output.png          # Output I-Frame image
-├── pps_1.json          # Output file for PPS parameters
-├── slice_1.json        # Output file for Slice parameters
-├── slice_1_mb.json     # Output file for MB coefficients
-├── sps.json            # Output f# Output file for SPS parameters
-├── utilities.py        # Module utility functions
-└── viewer.m            # YCbCr to RGB converter in Matlab
+    .
+    ├── README.md           # This readme file
+    ├── baseline.264        # Foreman QCIF test file in raw H.264 bitstream
+    ├── block.py            # Class Block
+    ├── decoder.py          # Main program entrance
+    ├── h264bits.py         # Class H264Bits 
+    ├── idct.py             # Module for inverse DCT and scaling
+    ├── intra_pred.py       # Module for intra prediction
+    ├── macroblock.py       # Class Macroblock
+    ├── nalpps.py           # Class PPS
+    ├── nalslice.py         # Class Slice
+    ├── nalsps.py           # Class SPS
+    ├── nalunit.py          # Class NALU
+    ├── output.png          # Output I-Frame image
+    ├── pps_1.json          # Output file for PPS parameters
+    ├── slice_1.json        # Output file for Slice parameters
+    ├── slice_1_mb.json     # Output file for MB coefficients
+    ├── sps.json            # Output f# Output file for SPS parameters
+    ├── utilities.py        # Module utility functions
+    └── viewer.m            # YCbCr to RGB converter in Matlab
